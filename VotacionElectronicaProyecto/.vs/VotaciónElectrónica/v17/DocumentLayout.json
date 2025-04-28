@@ -1,0 +1,260 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4AB342C-2DDE-412D-82FD-55443090D070}|Datos\\Datos.csproj|c:\\users\\usuario\\onedrive\\documentos\\github\\grupo-4\\votaci\u00F3nelectr\u00F3nica\\datos\\context\\votaci\u00F3ncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4AB342C-2DDE-412D-82FD-55443090D070}|Datos\\Datos.csproj|solutionrelative:datos\\context\\votaci\u00F3ncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\winform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\votante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\votante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\candidatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\candidatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\voto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\voto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\resultado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\entitybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\shared\\entities\\eleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\eleccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\negocio\\implementations\\entitybaselogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\implementations\\entitybaselogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\negocio\\contracts\\ientitybaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\contracts\\ientitybaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\winform\\winform.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\winform.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\winform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\Program.cs",
+              "RelativeDocumentMoniker": "WinForm\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\Program.cs",
+              "RelativeToolTip": "WinForm\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T22:58:58.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EntityBaseLogic.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Negocio\\Implementations\\EntityBaseLogic.cs",
+              "RelativeDocumentMoniker": "Negocio\\Implementations\\EntityBaseLogic.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Negocio\\Implementations\\EntityBaseLogic.cs",
+              "RelativeToolTip": "Negocio\\Implementations\\EntityBaseLogic.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T23:43:31.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IEntityBaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Negocio\\Contracts\\IEntityBaseRepository.cs",
+              "RelativeDocumentMoniker": "Negocio\\Contracts\\IEntityBaseRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Negocio\\Contracts\\IEntityBaseRepository.cs",
+              "RelativeToolTip": "Negocio\\Contracts\\IEntityBaseRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T23:42:11.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Votaci\u00F3nContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Datos\\Context\\Votaci\u00F3nContext.cs",
+              "RelativeDocumentMoniker": "Datos\\Context\\Votaci\u00F3nContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Datos\\Context\\Votaci\u00F3nContext.cs",
+              "RelativeToolTip": "Datos\\Context\\Votaci\u00F3nContext.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAUwFMAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T22:59:35.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Votante.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Votante.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Votante.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Votante.cs",
+              "RelativeToolTip": "Shared\\Entities\\Votante.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:44:41.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Eleccion.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Eleccion.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Eleccion.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Eleccion.cs",
+              "RelativeToolTip": "Shared\\Entities\\Eleccion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:41:40.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Candidatos.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Candidatos.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Candidatos.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Candidatos.cs",
+              "RelativeToolTip": "Shared\\Entities\\Candidatos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:39:28.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Lista.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Lista.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Lista.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Lista.cs",
+              "RelativeToolTip": "Shared\\Entities\\Lista.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:37:31.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Voto.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Voto.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Voto.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Voto.cs",
+              "RelativeToolTip": "Shared\\Entities\\Voto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:35:03.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Persona.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Persona.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Persona.cs",
+              "RelativeToolTip": "Shared\\Entities\\Persona.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:31:30.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EntityBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\EntityBase.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\EntityBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\EntityBase.cs",
+              "RelativeToolTip": "Shared\\Entities\\EntityBase.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:24:58.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "WinForm.csproj",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\WinForm.csproj",
+              "RelativeDocumentMoniker": "WinForm\\WinForm.csproj",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\WinForm.csproj",
+              "RelativeToolTip": "WinForm\\WinForm.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-28T22:03:48.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Resultado.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Resultado.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Resultado.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Resultado.cs",
+              "RelativeToolTip": "Shared\\Entities\\Resultado.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:36:40.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Rol.cs",
+              "RelativeDocumentMoniker": "Shared\\Entities\\Rol.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\Shared\\Entities\\Rol.cs",
+              "RelativeToolTip": "Shared\\Entities\\Rol.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:43:59.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\Form1.cs",
+              "RelativeDocumentMoniker": "WinForm\\Form1.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\Votaci\u00F3nElectr\u00F3nica\\WinForm\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinForm\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T22:03:35.694Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

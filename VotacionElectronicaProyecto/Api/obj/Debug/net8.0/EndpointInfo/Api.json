@@ -1,0 +1,1968 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Candidatos": {
+      "get": {
+        "tags": [
+          "Candidatos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Candidatos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.CrearDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.CrearDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.CrearDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidatos/{id}": {
+      "get": {
+        "tags": [
+          "Candidatos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Candidatos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.ModificarDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.ModificarDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Candidatos.ModificarDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Candidatos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidatos/nombre/{nombre}": {
+      "get": {
+        "tags": [
+          "Candidatos"
+        ],
+        "parameters": [
+          {
+            "name": "nombre",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eleccion": {
+      "get": {
+        "tags": [
+          "Eleccion"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Eleccion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.CrearDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.CrearDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.CrearDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eleccion/{id}": {
+      "get": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.ModificarDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.ModificarDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.ModificarDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Eleccion/nombre/{nombre}": {
+      "get": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "nombre",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eleccion/AsignarLista": {
+      "post": {
+        "tags": [
+          "Eleccion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarListaDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarListaDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarListaDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Eleccion/{id}/Listas": {
+      "get": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eleccion/{id}/Listas/{listaId}": {
+      "delete": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "listaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Eleccion/AsignarPersona": {
+      "post": {
+        "tags": [
+          "Eleccion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarPersonaEleccionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarPersonaEleccionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Eleccion.AsignarPersonaEleccionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Lista": {
+      "get": {
+        "tags": [
+          "Lista"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Lista"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.CrearDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.CrearDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.CrearDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lista/{id}": {
+      "get": {
+        "tags": [
+          "Lista"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Lista"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.ModificarDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.ModificarDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Lista.ModificarDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lista"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Lista/nombre/{nombre}": {
+      "get": {
+        "tags": [
+          "Lista"
+        ],
+        "parameters": [
+          {
+            "name": "nombre",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Persona": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Persona"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.CrearDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.CrearDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.CrearDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Persona/{id}": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.ModificarDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.ModificarDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Persona.ModificarDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Persona/nombre/{nombre}": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "nombre",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Persona"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Persona/dni/{dni}": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Persona/autenticar/{password}": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shared.Entities.Persona"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Persona/{dni}/EleccionesAutorizadas": {
+      "get": {
+        "tags": [
+          "Persona"
+        ],
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/resultado/{eleccionId}": {
+      "get": {
+        "tags": [
+          "Resultado"
+        ],
+        "parameters": [
+          {
+            "name": "eleccionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Voto": {
+      "post": {
+        "tags": [
+          "Voto"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Voto.CrearDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Voto.CrearDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Shared.Dtos.Voto.CrearDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Voto/{id}": {
+      "delete": {
+        "tags": [
+          "Voto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Shared.Dtos.Candidatos.CrearDTO": {
+        "required": [
+          "idLista",
+          "nombreCandidato",
+          "puestoCandidato"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreCandidato": {
+            "maxLength": 30,
+            "minLength": 1,
+            "type": "string"
+          },
+          "puestoCandidato": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "idLista": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Candidatos.ModificarDTO": {
+        "required": [
+          "nombreCandidato",
+          "puestoCandidato"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreCandidato": {
+            "maxLength": 30,
+            "minLength": 1,
+            "type": "string"
+          },
+          "puestoCandidato": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Eleccion.AsignarListaDTO": {
+        "type": "object",
+        "properties": {
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Eleccion.AsignarPersonaEleccionDTO": {
+        "type": "object",
+        "properties": {
+          "personaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "autorizada": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Eleccion.CrearDTO": {
+        "required": [
+          "cantidadListas",
+          "descripcionEleccion",
+          "nombreEleccion"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEleccion": {
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "descripcionEleccion": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cantidadListas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaInicioEleccion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinEleccion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Eleccion.ModificarDTO": {
+        "required": [
+          "cantidadListas",
+          "descripcionEleccion",
+          "nombreEleccion"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEleccion": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "descripcionEleccion": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "cantidadListas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaFinEleccion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaInicioEleccion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Lista.CrearDTO": {
+        "required": [
+          "descripcionLista",
+          "nombreLista"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreLista": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "descripcionLista": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Lista.ModificarDTO": {
+        "required": [
+          "descripcionLista",
+          "nombreLista"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreLista": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "descripcionLista": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Persona.CrearDTO": {
+        "required": [
+          "apellidoPersona",
+          "contraseniaPersona",
+          "nombrePersona",
+          "nroIdentificacionPersona",
+          "tipoDocumentoPersona"
+        ],
+        "type": "object",
+        "properties": {
+          "nombrePersona": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "nroIdentificacionPersona": {
+            "maxLength": 8,
+            "minLength": 7,
+            "type": "string"
+          },
+          "apellidoPersona": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "contraseniaPersona": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tipoDocumentoPersona": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Persona.ModificarDTO": {
+        "required": [
+          "apellidoPersona",
+          "contraseniaPersona",
+          "nombrePersona"
+        ],
+        "type": "object",
+        "properties": {
+          "nombrePersona": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "apellidoPersona": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "contraseniaPersona": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Dtos.Voto.CrearDTO": {
+        "type": "object",
+        "properties": {
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "personaId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Candidatos": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "nombreCandidato": {
+            "type": "string",
+            "nullable": true
+          },
+          "puestoCandidato": {
+            "type": "string",
+            "nullable": true
+          },
+          "idLista": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lista": {
+            "$ref": "#/components/schemas/Shared.Entities.Lista"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Eleccion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "nombreEleccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcionEleccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadListas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaFinEleccion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaInicioEleccion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "votos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Voto"
+            },
+            "nullable": true
+          },
+          "listas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Lista"
+            },
+            "nullable": true
+          },
+          "personaElecciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.PersonaEleccion"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Lista": {
+        "required": [
+          "descripcionLista",
+          "nombreLista"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "nombreLista": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "descripcionLista": {
+            "maxLength": 120,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cantidadIntegrantes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "votos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Voto"
+            },
+            "nullable": true
+          },
+          "candidatos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+            },
+            "nullable": true
+          },
+          "elecciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Persona": {
+        "type": "object",
+        "properties": {
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nroIdentificacionPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombrePersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "contraseniaPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumentoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaElecciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.PersonaEleccion"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.PersonaEleccion": {
+        "type": "object",
+        "properties": {
+          "personaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "persona": {
+            "$ref": "#/components/schemas/Shared.Entities.Persona"
+          },
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eleccion": {
+            "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+          },
+          "autorizada": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Resultado": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eleccion": {
+            "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+          },
+          "cantidadVotos": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "votos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Shared.Entities.Voto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Shared.Entities.Voto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaVoto": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "horaVoto": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eleccionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eleccion": {
+            "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+          },
+          "listaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lista": {
+            "$ref": "#/components/schemas/Shared.Entities.Lista"
+          },
+          "resultadoId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "resultado": {
+            "$ref": "#/components/schemas/Shared.Entities.Resultado"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

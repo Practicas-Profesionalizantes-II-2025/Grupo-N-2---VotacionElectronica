@@ -1,0 +1,15 @@
+{
+    "ApiServer": {
+        "BaseURL": "http://localhost:5262",
+        "EndPoints": {
+            "Candiatos": {
+                "ObtenerTodo": "/api/Candidatos",
+                "ObtenerPorId": "/api/Candidatos/{0}",
+                "ObtenerPorNombre": "/api/Candidatos/nombre/{0}",
+                "Crear": "/api/Candidatos",
+                "Actualizar": "/api/Candidatos/{0}",
+                "Borrar": "/api/Candidatos/{0}"
+            }
+        }
+    }
+}

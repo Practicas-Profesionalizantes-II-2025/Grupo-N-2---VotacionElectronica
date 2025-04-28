@@ -1,0 +1,54 @@
+{
+    "ApiServer": {
+        "BaseURL": "https://localhost:7236",
+        "EndPoints": {
+            "Candidatos": {
+                "ObtenerTodo": "/api/Candidatos",
+                "ObtenerPorId": "/api/Candidatos/{0}",
+                "ObtenerPorNombre": "/api/Candidatos/nombre/{0}",
+                "Crear": "/api/Candidatos",
+                "Actualizar": "/api/Candidatos/{0}",
+                "Borrar": "/api/Candidatos/{0}"
+            },
+            "Lista": {
+                "ObtenerTodo": "/api/Lista",
+                "ObtenerPorId": "/api/Lista/{0}",
+                "ObtenerPorNombre": "/api/Lista/nombre/{0}",
+                "Crear": "/api/Lista",
+                "Actualizar": "/api/Lista/{0}",
+                "Borrar": "/api/Lista/{0}"
+            },
+            "Voto": {
+                "Registrar": "/api/Voto"
+
+            },
+            "Resultado": {
+                "ObtenerPorEleccion": "/api/Resultado/{0}"
+            },
+            "Persona": {
+                "ObtenerTodo": "/api/Persona",
+                "ObtenerPorId": "/api/Persona/{0}",
+                "ObtenerPorNombre": "/api/Persona/nombre/{0}",
+                "Crear": "/api/Persona",
+                "Actualizar": "/api/Persona/{0}",
+                "Borrar": "/api/Persona/{0}",
+                "AutenticarPorContraseña": "/api/Persona/autenticar/{0}",
+                "AutenticarPorId": "/api/Persona/autenticar/{0}",
+                "ObtenerEleccionesAutorizadas": "/api/Persona/{0}/EleccionesAutorizadas",
+                "AutenticarPorDni": "/api/Persona/dni/{0}"
+            },
+            "Eleccion": {
+                "ObtenerTodo": "/api/Eleccion",
+                "ObtenerPorId": "/api/Eleccion/{0}",
+                "ObtenerPorNombre": "/api/Eleccion/nombre/{0}",
+                "Crear": "/api/Eleccion",
+                "Actualizar": "/api/Eleccion/{0}",
+                "Borrar": "/api/Eleccion/{0}",
+                "AsignarLista": "/api/Eleccion/AsignarLista",
+                "ObtenerListasAsignadas": "/api/Eleccion/{0}/Listas",
+                "EliminarListaAsignada": "/api/Eleccion/{0}/Listas/{1}",
+                "AsignarPersona": "api/Eleccion/AsignarPersona"
+            }
+        }
+    }
+}
