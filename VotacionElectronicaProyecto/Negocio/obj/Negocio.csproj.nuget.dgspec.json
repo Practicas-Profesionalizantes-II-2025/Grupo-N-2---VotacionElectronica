@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {}
+    "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
+    "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\obj\\",
+        "projectPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
+              "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
               }
             }
           }
@@ -111,20 +111,20 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+    "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
