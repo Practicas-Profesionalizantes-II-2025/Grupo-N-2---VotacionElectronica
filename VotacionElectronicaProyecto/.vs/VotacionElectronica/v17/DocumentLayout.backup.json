@@ -27,6 +27,14 @@
       "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\casosdeuso\\candidatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\winform\\pantallacrearcontrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\pantallacrearcontrasenia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\winform\\pantallaaltavotante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\pantallaaltavotante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\negocio\\clienthttp\\apiserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\clienthttp\\apiserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,12 +47,24 @@
       "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\winform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\winform\\pantallaaltavotante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\pantallaaltavotante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|c:\\users\\usuario\\onedrive\\documentos\\votacionelectronicaproyecto\\winform\\pantallaaltavotante.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4570430E-7D35-4DC9-BAEC-B735900D04D2}|WinForm\\WinForm.csproj|solutionrelative:winform\\pantallaaltavotante.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Api\\Migrations\\20241019183927_Todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -76,7 +96,7 @@
               "RelativeDocumentMoniker": "Shared\\Entities\\Persona.cs",
               "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Entities\\Persona.cs",
               "RelativeToolTip": "Shared\\Entities\\Persona.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T14:16:44.735Z",
               "EditorCaption": ""
@@ -143,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "PersonaController.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\Controllers\\PersonaController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\PersonaController.cs",
@@ -155,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "20241019183927_Todo.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Api\\Migrations\\20241019183927_Todo.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Taco\\Desktop\\VotacionElectronica\\Api\\Migrations\\20241019183927_Todo.cs",
@@ -167,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "VotanteController.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Api\\Controllers\\VotanteController.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Taco\\Desktop\\VotacionElectronica\\Api\\Controllers\\VotanteController.cs",
@@ -179,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ApiServer.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\ClientHttp\\ApiServer.cs",
               "RelativeDocumentMoniker": "Negocio\\ClientHttp\\ApiServer.cs",
@@ -191,7 +211,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
+              "Title": "PantallaCrearContrasenia.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaCrearContrasenia.cs",
+              "RelativeDocumentMoniker": "WinForm\\PantallaCrearContrasenia.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaCrearContrasenia.cs",
+              "RelativeToolTip": "WinForm\\PantallaCrearContrasenia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T02:15:07.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PantallaAltaVotante.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaAltaVotante.cs",
+              "RelativeDocumentMoniker": "WinForm\\PantallaAltaVotante.cs",
+              "ToolTip": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\WinForm\\PantallaAltaVotante.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\Taco\\Desktop\\VotacionElectronica\\WinForm\\PantallaAltaVotante.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:57:41.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\Program.cs",
+              "RelativeDocumentMoniker": "WinForm\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\Program.cs",
+              "RelativeToolTip": "WinForm\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T19:12:00.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\Program.cs",
               "RelativeDocumentMoniker": "Api\\Program.cs",
@@ -203,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ApplicationConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\Helper\\ApplicationConfiguration.cs",
               "RelativeDocumentMoniker": "Negocio\\Helper\\ApplicationConfiguration.cs",
@@ -215,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\appsettings.json",
               "RelativeDocumentMoniker": "Api\\appsettings.json",
@@ -227,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "Votante.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Negocio\\Repositorio\\Votante.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Taco\\Desktop\\VotacionElectronica\\Negocio\\Repositorio\\Votante.cs",
@@ -239,7 +294,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
+              "Title": "PantallaAltaVotante.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaAltaVotante.Designer.cs",
+              "RelativeDocumentMoniker": "WinForm\\PantallaAltaVotante.Designer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaAltaVotante.Designer.cs",
+              "RelativeToolTip": "WinForm\\PantallaAltaVotante.Designer.cs",
+              "ViewState": "AgIAAAoAAADg//////8XwBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T02:28:18.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "Votante.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Negocio\\CasosDeUso\\Votante.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Taco\\Desktop\\VotacionElectronica\\Negocio\\CasosDeUso\\Votante.cs",
@@ -248,6 +315,18 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T02:21:46.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PantallaAltaVotante.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaAltaVotante.cs",
+              "RelativeDocumentMoniker": "WinForm\\PantallaAltaVotante.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\WinForm\\PantallaAltaVotante.cs",
+              "RelativeToolTip": "WinForm\\PantallaAltaVotante.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T02:14:44.101Z"
             }
           ]
         }
