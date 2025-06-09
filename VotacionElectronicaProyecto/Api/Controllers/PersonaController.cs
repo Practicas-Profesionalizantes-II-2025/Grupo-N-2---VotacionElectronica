@@ -119,6 +119,7 @@ namespace Api.Controllers
                 personaEntity.ApellidoPersona = persona.ApellidoPersona;
                 personaEntity.TipoDocumentoPersona = persona.TipoDocumentoPersona;
                 personaEntity.NroIdentificacionPersona = persona.NroIdentificacionPersona;
+                personaEntity.Rol = persona.Rol;
 
                 var seguridadServicio = new SeguridadServicio();
 

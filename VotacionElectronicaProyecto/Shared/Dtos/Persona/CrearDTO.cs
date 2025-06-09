@@ -38,6 +38,10 @@ namespace Shared.Dtos.Persona
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string TipoDocumentoPersona { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        public string Rol { get; set; }
+
         public int Id { get; set; }
 
         public DateTime? CreatedDate { get; set; } = DateTime.Now;
