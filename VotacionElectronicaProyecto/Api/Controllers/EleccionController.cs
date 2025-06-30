@@ -228,8 +228,28 @@ namespace Api.Controllers
             }
         }
 
-        
-        
+
+        // GET: api/Eleccion/filtrar?textoBusqueda=algo
+        [HttpGet("filtrar")]
+        public async Task<ActionResult<IEnumerable<Eleccion>>> FiltrarPorNombre([FromQuery] string textoBusqueda)
+        {
+            if (string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                return BadRequest("Debe proporcionar un texto de búsqueda.");
+            }
+
+            var eleccionesFiltradas = await _context.Eleccion
+                .Where(e => e.NombreEleccion != null && e.NombreEleccion.ToLower().StartsWith(textoBusqueda.ToLower()))
+                .ToListAsync();
+
+            if (!eleccionesFiltradas.Any())
+            {
+                return NotFound("No se encontraron elecciones con ese nombre.");
+            }
+
+            return Ok(eleccionesFiltradas);
+        }
+
 
 
 
