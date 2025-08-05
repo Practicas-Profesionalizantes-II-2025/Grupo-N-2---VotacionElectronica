@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Shared.Entities;
 using Shared.Dtos.Candidatos;
+using Negocio.Logica.ILogica;
 
 
 namespace Api.Controllers
@@ -11,130 +12,54 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class CandidatosController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly ICandidatoLogic _logica;
 
-        public CandidatosController(DataContext context)
+        public CandidatosController(ICandidatoLogic logica)
         {
-            _context = context;
+            _logica = logica;
         }
-        // GET: api/Candidatos
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidatos>>> GetCandidatos()
+        public async Task<ActionResult<IEnumerable<VerDTO>>> GetCandidatos()
         {
-            return await _context.Candidatos.ToListAsync();
+            return await _logica.ObtenerCandidatos();
         }
-        // GET: api/Candidatos/5
+
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Candidatos>> GetCandidatos(int id)
+        public async Task<ActionResult<VerDTO>> GetCandidato(int id)
         {
-            var candidatos = await _context.Candidatos.FindAsync(id);
-
-            if (candidatos == null)
-            {
-                return NotFound();
-            }
-
-            return candidatos;
+            var candidato = await _logica.ObtenerCandidatoPorId(id);
+            if (candidato == null) return NotFound();
+            return candidato;
         }
-        // GET: api/Candidatos/nombre
+
         [HttpGet("nombre/{nombre}")]
-        public async Task<ActionResult<IEnumerable<Candidatos>>> GetCandidatos(string nombre)
+        public async Task<ActionResult<IEnumerable<VerDTO>>> BuscarPorNombre(string nombre)
         {
-            var queryable = _context.Candidatos.AsQueryable().Where(x => x.NombreCandidato.Contains(nombre));
-
-            var candidatos = await queryable.ToListAsync();
-
-            if (candidatos == null || candidatos.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return candidatos;
+            var lista = await _logica.ObtenerCandidatosPorNombre(nombre);
+            if (lista == null || !lista.Any()) return NotFound();
+            return Ok(lista);
         }
-        // PUT: api/Candidatos/5
-        
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Candidatos>> PutCandidatos(int id, ModificarDTO candidatos)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            var existingCandidatos = await _context.Candidatos.FindAsync(id);
-            if (existingCandidatos == null)
-            {
-                return NotFound();
-            }
-            _context.Entry(existingCandidatos).State = EntityState.Modified;
-
-            existingCandidatos.NombreCandidato = candidatos.NombreCandidato;
-            existingCandidatos.PuestoCandidato = candidatos.PuestoCandidato;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CandidatosExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return existingCandidatos;
-        }
-        // POST: api/Candidatos
-        
         [HttpPost]
-        public async Task<ActionResult<Candidatos>> PostCandidatos(CrearDTO candidatos)
+        public async Task<ActionResult> Crear(CrearDTO dto)
         {
-            Candidatos candidatosEntity = new Candidatos();
-
-            try
-            {
-                candidatosEntity.PuestoCandidato = candidatos.PuestoCandidato;
-                candidatosEntity.NombreCandidato = candidatos.NombreCandidato;
-                candidatosEntity.IdLista = candidatos.IdLista;
-             
-
-                _context.Candidatos.Add(candidatosEntity);
-                await _context.SaveChangesAsync();
-
-                return CreatedAtAction("GetCandidatos", new { id = candidatosEntity.Id }, candidatosEntity);
-            } 
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-           
+            await _logica.CrearCandidato(dto);
+            return Ok();
         }
-      
 
-            // DELETE: api/Candidatos/5
-            [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCandidatos(int id)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Actualizar(int id, ModificarDTO dto)
         {
-            var candidatos = await _context.Candidatos.FindAsync(id);
-            if (candidatos == null)
-            {
-                return NotFound();
-            }
-
-            _context.Candidatos.Remove(candidatos);
-            await _context.SaveChangesAsync();
-
+            await _logica.ActualizarCandidato(id, dto);
             return NoContent();
         }
 
-        private bool CandidatosExists(int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Eliminar(int id)
         {
-            return _context.Candidatos.Any(e => e.Id == id);
+            await _logica.EliminarCandidato(id);
+            return NoContent();
         }
     }
 }
