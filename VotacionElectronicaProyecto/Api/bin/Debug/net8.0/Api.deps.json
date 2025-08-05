@@ -14,6 +14,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
+          "Negocio": "1.0.0",
           "Newtonsoft.Json": "13.0.3",
           "Shared": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
@@ -966,6 +967,35 @@
           }
         }
       },
+      "Datos/1.0.0": {
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "runtime": {
+          "Datos.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Negocio/1.0.0": {
+        "dependencies": {
+          "Datos": "1.0.0",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Configuration.Json": "8.0.0",
+          "Newtonsoft.Json": "13.0.3",
+          "Shared": "1.0.0"
+        },
+        "runtime": {
+          "Negocio.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Shared/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",
@@ -1618,6 +1648,16 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "Datos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Negocio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Shared/1.0.0": {
       "type": "project",
