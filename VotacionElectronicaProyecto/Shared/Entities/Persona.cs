@@ -21,6 +21,8 @@ namespace Shared.Entities
         public string ApellidoPersona { get; set; }
         public string ContraseniaPersona { get; set; }
         public string TipoDocumentoPersona { get; set; }
+
+        public string Rol { get; set; }
         public ICollection<PersonaEleccion> PersonaElecciones { get; set; }
 
     }

@@ -119,6 +119,7 @@ namespace Api.Controllers
                 personaEntity.ApellidoPersona = persona.ApellidoPersona;
                 personaEntity.TipoDocumentoPersona = persona.TipoDocumentoPersona;
                 personaEntity.NroIdentificacionPersona = persona.NroIdentificacionPersona;
+                personaEntity.Rol = persona.Rol;
 
                 var seguridadServicio = new SeguridadServicio();
 
@@ -188,6 +189,60 @@ namespace Api.Controllers
             }
 
             return Ok(elecciones);
+        }
+
+        // GET: api/Persona/filtrar? textoBusqueda = algo
+        [HttpGet("filtrar")]
+        public async Task<ActionResult<IEnumerable<Persona>>> FiltrarPersonas([FromQuery] string textoBusqueda = "", [FromQuery] string rol = "")
+        {
+            var query = _context.Persona.AsQueryable();
+
+            if (!string.IsNullOrEmpty(textoBusqueda))
+            {
+                string texto = textoBusqueda.ToLower();
+
+                query = query.Where(p =>
+                    p.NombrePersona.ToLower().Contains(texto) ||
+                    p.ApellidoPersona.ToLower().Contains(texto) ||
+                    p.NroIdentificacionPersona.ToLower().Contains(texto));
+            }
+
+            var resultado = await query.ToListAsync();
+            return Ok(resultado);
+        }
+
+        // POST: api/Persona/autenticar
+        [HttpPost("autenticar")]
+        public async Task<ActionResult<PersonaDto>> Autenticar([FromBody] LoginDto login)
+        {
+            if (string.IsNullOrEmpty(login.Dni) || string.IsNullOrEmpty(login.Password))
+            {
+                return BadRequest("DNI y contraseña son requeridos.");
+            }
+
+            var persona = await _context.Persona
+                .FirstOrDefaultAsync(p => p.NroIdentificacionPersona == login.Dni);
+
+            if (persona == null)
+            {
+                return Unauthorized("DNI incorrecto.");
+            }
+
+            if (persona.ContraseniaPersona != login.Password)
+            {
+                return Unauthorized("Contraseña incorrecta.");
+            }
+
+            var personaDto = new PersonaDto
+            {
+                Id = persona.Id,
+                NombrePersona = persona.NombrePersona,
+                ApellidoPersona = persona.ApellidoPersona,
+                Rol = persona.Rol,
+                Dni = persona.NroIdentificacionPersona
+            };
+
+            return Ok(personaDto);
         }
 
 

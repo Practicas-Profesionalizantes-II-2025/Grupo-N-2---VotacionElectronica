@@ -1744,6 +1744,39 @@
           }
         }
       },
+      "Datos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Datos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Datos.dll": {}
+        }
+      },
+      "Negocio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Datos": "1.0.0",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Configuration.Json": "8.0.0",
+          "Newtonsoft.Json": "13.0.3",
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Negocio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Negocio.dll": {}
+        }
+      },
       "Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4909,6 +4942,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Datos/1.0.0": {
+      "type": "project",
+      "path": "../Datos/Datos.csproj",
+      "msbuildProject": "../Datos/Datos.csproj"
+    },
+    "Negocio/1.0.0": {
+      "type": "project",
+      "path": "../Negocio/Negocio.csproj",
+      "msbuildProject": "../Negocio/Negocio.csproj"
+    },
     "Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
@@ -4923,29 +4966,30 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
+      "Negocio >= 1.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
+    "C:\\Users\\Taco\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\Api.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Api\\obj\\",
+      "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4954,14 +4998,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
+            "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
+              "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj"
+            },
+            "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
             }
           }
         }
@@ -4976,7 +5024,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -5038,7 +5086,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
