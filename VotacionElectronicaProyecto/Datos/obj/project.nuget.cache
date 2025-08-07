@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gNns2FAhizo=",
+  "dgSpecHash": "vXQtsvDt/Ag=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-4\\VotacionElectronica\\Datos\\Datos.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

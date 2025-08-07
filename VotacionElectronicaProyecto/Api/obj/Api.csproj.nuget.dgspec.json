@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj": {}
+    "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,18 +26,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
-                "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj"
+              "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj"
               },
-              "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
+              "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
               }
             }
           }
@@ -52,7 +51,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -114,24 +113,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj",
-        "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -140,15 +139,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
+              "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
               }
             }
           }
@@ -163,11 +161,45 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -184,24 +216,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
-        "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -210,18 +242,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj": {
-                "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj"
+              "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Datos.csproj"
               },
-              "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
+              "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj"
               }
             }
           }
@@ -236,7 +267,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -295,24 +326,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -321,7 +352,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -340,7 +370,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -395,7 +425,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
