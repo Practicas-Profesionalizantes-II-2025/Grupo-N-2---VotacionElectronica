@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Negocio.Logica.ILogica;
+using Shared.Dtos.Resultado; // Importa tu DTO
+using Shared.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Shared.Entities;
-using Shared.Dtos.Resultado; // Importa tu DTO
-using Api.Data;
 
 namespace Api.Controllers
 {
@@ -13,46 +14,26 @@ namespace Api.Controllers
     [Route("api/resultado")]
     public class ResultadoController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IResultadoLogic _logica;
 
-        public ResultadoController(DataContext context)
+        public ResultadoController(IResultadoLogic logica)
         {
-            _context = context;
+            _logica = logica;
         }
 
-        // GET: api/resultado/{eleccionId}
-        [HttpGet("{eleccionId}")]
+        [HttpGet("{eleccionId:int}")]
         public async Task<IActionResult> ObtenerResultados(int eleccionId)
         {
             if (eleccionId <= 0)
-            {
                 return BadRequest("El ID de la elección debe ser un número positivo.");
-            }
 
-            try
-            {
-                var resultados = await _context.Voto
-                    .Where(v => v.EleccionId == eleccionId)
-                    .GroupBy(v => v.ListaId)
-                    .Select(g => new ResultadoDto // Usar un DTO para la respuesta
-                    {
-                        ListaId = g.Key,
-                        TotalVotos = g.Count()
-                    })
-                    .ToListAsync();
+            var resultados = await _logica.ObtenerResultados(eleccionId);
 
-                if (resultados == null || !resultados.Any())
-                {
-                    return NotFound("No se encontraron resultados para la elección especificada.");
-                }
+            if (resultados == null || !resultados.Any())
+                return NotFound("No se encontraron resultados para la elección especificada.");
 
-                return Ok(resultados);
-            }
-            catch (Exception ex)
-            {
-                // Loguear el error (opcional)
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
+            return Ok(resultados);
         }
+
     }
 }
