@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shared.Dtos.Persona
 {
-    public class PersonaDto
+    public class VerDTO
     {
         public int Id { get; set; }
         public string NombrePersona { get; set; }
