@@ -1,8 +1,9 @@
 using Api.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Shared.Entities;
+using Negocio.Logica.ILogica;
 using Shared.Dtos.Persona;
+using Shared.Entities;
 using Shared.Services;
 
 namespace Api.Controllers
@@ -11,239 +12,79 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class PersonaController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IPersonaLogic _logic;
 
-        public PersonaController(DataContext context)
+        public PersonaController(IPersonaLogic logic)
         {
-            _context = context;
+            _logic = logic;
         }
-        // GET: api/Persona
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Persona>>> GetPersona()
+        public async Task<IActionResult> ObtenerTodas()
         {
-            return await _context.Persona.ToListAsync();
-        }
-        // GET: api/Persona/5
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<Persona>> GetPersona(int id)
-        {
-            var persona = await _context.Persona.FindAsync(id);
-
-            if (persona == null)
-            {
-                return NotFound();
-            }
-
-            return persona;
-        }
-        // GET: api/Persona/nombre
-        [HttpGet("nombre/{nombre}")]
-        public async Task<ActionResult<IEnumerable<Persona>>> GetPersona(string nombre)
-        {
-            var queryable = _context.Persona.AsQueryable().Where(x => x.NombrePersona.Contains(nombre));
-
-            var persona = await queryable.ToListAsync();
-
-            if (persona == null || persona.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return persona;
+            var personas = await _logic.ObtenerTodas();
+            return Ok(personas);
         }
 
-        // GET: api/Persona/dni/{dni}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerPorId(int id)
+        {
+            var persona = await _logic.ObtenerPorId(id);
+            if (persona == null) return NotFound();
+            return Ok(persona);
+        }
+
+        [HttpGet("buscarPorNombre/{nombre}")]
+        public async Task<IActionResult> ObtenerPorNombre(string nombre)
+        {
+            var personas = await _logic.ObtenerPorNombre(nombre);
+            return Ok(personas);
+        }
+
         [HttpGet("dni/{dni}")]
-        public async Task<ActionResult<Persona>> GetPersonaDNI(string dni)
+        public async Task<IActionResult> ObtenerPorDNI(string dni)
         {
-            var persona = await _context.Persona
-                .FirstOrDefaultAsync(x => x.NroIdentificacionPersona == dni); // Suponiendo que tienes una propiedad "Dni" en tu entidad Persona
-
-            if (persona == null)
-            {
-                return NotFound();
-            }
-
-            return persona;
+            var persona = await _logic.ObtenerPorDNI(dni);
+            if (persona == null) return NotFound();
+            return Ok(persona);
         }
 
-        // PUT: api/Persona/5
+        [HttpPost]
+        public async Task<IActionResult> Crear(CrearDTO dto)
+        {
+            await _logic.Crear(dto);
+            return Ok("Persona creada correctamente");
+        }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Persona>> PutPersona(int id, ModificarDTO persona)
+        public async Task<IActionResult> Actualizar(int id, ModificarDTO dto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var existingPersona = await _context.Persona.FindAsync(id);
-            if (existingPersona == null)
-            {
-                return NotFound();
-            }
-            _context.Entry(existingPersona).State = EntityState.Modified;
-
-            existingPersona.NombrePersona = persona.NombrePersona;
-            existingPersona.ApellidoPersona = persona.ApellidoPersona;
-            existingPersona.ContraseniaPersona = persona.ContraseniaPersona;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PersonaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return existingPersona;
+            await _logic.Actualizar(id, dto);
+            return Ok("Persona actualizada correctamente");
         }
-        // POST: api/Persona
-        
-        [HttpPost]
-        public async Task<ActionResult<Persona>> PostPersona(CrearDTO persona)
-        {
-            Persona personaEntity = new Persona();
 
-            try
-            {
-                personaEntity.NombrePersona = persona.NombrePersona;
-                personaEntity.ApellidoPersona = persona.ApellidoPersona;
-                personaEntity.TipoDocumentoPersona = persona.TipoDocumentoPersona;
-                personaEntity.NroIdentificacionPersona = persona.NroIdentificacionPersona;
-                personaEntity.Rol = persona.Rol;
-
-                var seguridadServicio = new SeguridadServicio();
-
-                // Generar y asignar la contraseña
-                personaEntity.ContraseniaPersona = seguridadServicio.CrearContrasenia(persona.NroIdentificacionPersona);
-
-
-
-                _context.Persona.Add(personaEntity);
-                await _context.SaveChangesAsync();
-
-                return CreatedAtAction("GetPersona", new { id = personaEntity.Id }, personaEntity);
-            } 
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-           
-        }
-        // DELETE: api/Persona/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePersona(int id)
+        public async Task<IActionResult> Eliminar(int id)
         {
-            var persona = await _context.Persona.FindAsync(id);
-            if (persona == null)
-            {
-                return NotFound();
-            }
-
-            _context.Persona.Remove(persona);
-            await _context.SaveChangesAsync();
-
+            await _logic.Eliminar(id);
             return NoContent();
         }
 
-        private bool PersonaExists(int id)
+        [HttpGet("autenticar/{contrasenia}")]
+        public async Task<IActionResult> Autenticar(string contrasenia)
         {
-            return _context.Persona.Any(e => e.Id == id);
+            var persona = await _logic.AutenticarPorContrasenia(contrasenia);
+            if (persona == null) return Unauthorized();
+            return Ok(persona);
         }
 
-        // GET: api/Persona/autenticar/{password}
-        [HttpGet("autenticar/{password}")]
-        public async Task<ActionResult<Persona>> AutenticarPorContraseña(string password)
+        [HttpGet("eleccionesAutorizadas/{dni}")]
+        public async Task<IActionResult> ObtenerEleccionesAutorizadas(string dni)
         {
-            var persona = await _context.Persona.FirstOrDefaultAsync(p => p.ContraseniaPersona == password);
-
-            if (persona == null)
-            {
-                return NotFound(); 
-            }
-
-            return persona;
-        }
-
-        // GET: api/Persona/{dni}/EleccionesAutorizadas
-        [HttpGet("{dni}/EleccionesAutorizadas")]
-        public async Task<ActionResult<IEnumerable<Eleccion>>> GetEleccionesAutorizadas(string dni)
-        {
-            var elecciones = await _context.PersonaElecciones
-                .Where(pe => pe.Persona.NroIdentificacionPersona == dni && pe.Autorizada)
-                .Select(pe => pe.Eleccion)
-                .ToListAsync();
-
-            if (elecciones == null || elecciones.Count == 0)
-            {
-                return NotFound();
-            }
-
+            var elecciones = await _logic.ObtenerEleccionesAutorizadas(dni);
             return Ok(elecciones);
         }
 
-        // GET: api/Persona/filtrar? textoBusqueda = algo
-        [HttpGet("filtrar")]
-        public async Task<ActionResult<IEnumerable<Persona>>> FiltrarPersonas([FromQuery] string textoBusqueda = "", [FromQuery] string rol = "")
-        {
-            var query = _context.Persona.AsQueryable();
-
-            if (!string.IsNullOrEmpty(textoBusqueda))
-            {
-                string texto = textoBusqueda.ToLower();
-
-                query = query.Where(p =>
-                    p.NombrePersona.ToLower().Contains(texto) ||
-                    p.ApellidoPersona.ToLower().Contains(texto) ||
-                    p.NroIdentificacionPersona.ToLower().Contains(texto));
-            }
-
-            var resultado = await query.ToListAsync();
-            return Ok(resultado);
-        }
-
-        // POST: api/Persona/autenticar
-        [HttpPost("autenticar")]
-        public async Task<ActionResult<PersonaDto>> Autenticar([FromBody] LoginDto login)
-        {
-            if (string.IsNullOrEmpty(login.Dni) || string.IsNullOrEmpty(login.Password))
-            {
-                return BadRequest("DNI y contraseña son requeridos.");
-            }
-
-            var persona = await _context.Persona
-                .FirstOrDefaultAsync(p => p.NroIdentificacionPersona == login.Dni);
-
-            if (persona == null)
-            {
-                return Unauthorized("DNI incorrecto.");
-            }
-
-            if (persona.ContraseniaPersona != login.Password)
-            {
-                return Unauthorized("Contraseña incorrecta.");
-            }
-
-            var personaDto = new PersonaDto
-            {
-                Id = persona.Id,
-                NombrePersona = persona.NombrePersona,
-                ApellidoPersona = persona.ApellidoPersona,
-                Rol = persona.Rol,
-                Dni = persona.NroIdentificacionPersona
-            };
-
-            return Ok(personaDto);
-        }
 
 
     }
