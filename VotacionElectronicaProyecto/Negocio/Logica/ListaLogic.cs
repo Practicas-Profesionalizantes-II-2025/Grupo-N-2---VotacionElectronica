@@ -33,7 +33,8 @@ namespace Negocio.Logica
         public async Task<VerDTO> ObtenerListasPorId(int id)
         {
             var c = await _repositorio.ObtenerPorId(id);
-            if (c == null) return null;
+            if (c == null)
+                throw new KeyNotFoundException("La lista no existe.");
 
             return new VerDTO
             {
@@ -56,6 +57,10 @@ namespace Negocio.Logica
 
         public async Task CrearLista(CrearDTO dto)
         {
+            var existentes = await _repositorio.BuscarPorNombre(dto.NombreLista);
+            if (existentes.Any())
+                throw new InvalidOperationException("Ya existe una lista con ese nombre.");
+
             var lista = new Lista
             {
                 NombreLista = dto.NombreLista,
@@ -67,6 +72,14 @@ namespace Negocio.Logica
 
         public async Task ActualizarLista(int id, ModificarDTO dto)
         {
+            var listaExistente = await _repositorio.ObtenerPorId(id);
+            if (listaExistente == null)
+                throw new KeyNotFoundException("La lista que intentas actualizar no existe.");
+
+            var duplicadas = await _repositorio.BuscarPorNombre(dto.NombreLista);
+            if (duplicadas.Any(l => l.Id != id))
+                throw new InvalidOperationException("Ya existe otra lista con ese nombre.");
+
             var lista = new Lista
             {
                 Id = id,
@@ -79,6 +92,10 @@ namespace Negocio.Logica
 
         public async Task EliminarLista(int id)
         {
+            var listaExistente = await _repositorio.ObtenerPorId(id);
+            if (listaExistente == null)
+                throw new KeyNotFoundException("La lista que intentas eliminar no existe.");
+
             await _repositorio.Eliminar(id);
         }
     }
