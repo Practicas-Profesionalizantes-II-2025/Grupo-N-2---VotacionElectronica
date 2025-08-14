@@ -23,11 +23,30 @@ namespace Negocio.Logica
 
         public async Task RegistrarVoto(CrearDTO votoDto)
         {
+            if (votoDto == null)
+                throw new ArgumentNullException(nameof(votoDto), "Los datos del voto son obligatorios.");
+
+            if (votoDto.PersonaId <= 0)
+                throw new ArgumentException("El ID de la persona es inválido.", nameof(votoDto.PersonaId));
+
+            if (votoDto.EleccionId <= 0)
+                throw new ArgumentException("El ID de la elección es inválido.", nameof(votoDto.EleccionId));
+
+            if (votoDto.ListaId <= 0)
+                throw new ArgumentException("El ID de la lista es inválido.", nameof(votoDto.ListaId));
+
             var personaEleccion = await _personaEleccionRepo.ObtenerPorPersonaYEleccion(
                 votoDto.PersonaId, votoDto.EleccionId);
 
-            if (personaEleccion == null || !personaEleccion.Autorizada)
-                throw new Exception("La persona no está autorizada o ya ha votado en esta elección.");
+            if (personaEleccion == null)
+                throw new InvalidOperationException("La persona no está registrada para esta elección.");
+
+            if (!personaEleccion.Autorizada)
+                throw new InvalidOperationException("La persona no está autorizada para votar o ya ha votado.");
+
+            var votoExistente = await _personaEleccionRepo.ObtenerPorPersonaYEleccion(votoDto.PersonaId, votoDto.EleccionId);
+            if (votoExistente != null)
+                throw new InvalidOperationException("Ya existe un voto registrado para esta persona en esta elección.");
 
             var voto = new Voto
             {
@@ -44,6 +63,9 @@ namespace Negocio.Logica
 
         public async Task EliminarVoto(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("El ID del voto es inválido.", nameof(id));
+
             await _votoRepo.Eliminar(id);
         }
 
