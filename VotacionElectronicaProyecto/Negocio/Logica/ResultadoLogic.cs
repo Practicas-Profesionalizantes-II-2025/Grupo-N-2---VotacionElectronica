@@ -20,7 +20,15 @@ namespace Negocio.Logica
 
         public async Task<List<ResultadoDto>> ObtenerResultados(int eleccionId)
         {
-            return await _repositorio.ObtenerResultadosAgrupados(eleccionId);
+            if (eleccionId <= 0)
+                throw new ArgumentException("El ID de la elección no es válido.");
+
+            var resultados = await _repositorio.ObtenerResultadosAgrupados(eleccionId);
+
+            if (resultados == null || !resultados.Any())
+                throw new KeyNotFoundException("No se encontraron resultados para esta elección.");
+
+            return resultados;
         }
 
     }

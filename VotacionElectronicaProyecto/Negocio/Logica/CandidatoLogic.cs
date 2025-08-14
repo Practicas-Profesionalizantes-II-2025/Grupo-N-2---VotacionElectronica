@@ -34,7 +34,8 @@ namespace Negocio.Logica
         public async Task<VerDTO> ObtenerCandidatoPorId(int id)
         {
             var c = await _repositorio.ObtenerPorId(id);
-            if (c == null) return null;
+            if (c == null)
+                throw new KeyNotFoundException("El candidato no existe.");
 
             return new VerDTO
             {
@@ -59,6 +60,10 @@ namespace Negocio.Logica
 
         public async Task CrearCandidato(CrearDTO dto)
         {
+            var existentes = await _repositorio.BuscarPorNombre(dto.NombreCandidato);
+            if (existentes.Any(c => c.IdLista == dto.IdLista && c.PuestoCandidato == dto.PuestoCandidato))
+                throw new InvalidOperationException("Ya existe un candidato con ese nombre y puesto en la misma lista.");
+
             var candidato = new Candidatos
             {
                 NombreCandidato = dto.NombreCandidato,
@@ -71,6 +76,14 @@ namespace Negocio.Logica
 
         public async Task ActualizarCandidato(int id, ModificarDTO dto)
         {
+            var candidatoExistente = await _repositorio.ObtenerPorId(id);
+            if (candidatoExistente == null)
+                throw new KeyNotFoundException("El candidato que intentas actualizar no existe.");
+
+            var duplicados = await _repositorio.BuscarPorNombre(dto.NombreCandidato);
+            if (duplicados.Any(c => c.Id != id && c.IdLista == candidatoExistente.IdLista && c.PuestoCandidato == dto.PuestoCandidato))
+                throw new InvalidOperationException("Ya existe otro candidato con ese nombre y puesto en la misma lista.");
+
             var candidato = new Candidatos
             {
                 Id = id,
@@ -83,6 +96,10 @@ namespace Negocio.Logica
 
         public async Task EliminarCandidato(int id)
         {
+            var candidatoExistente = await _repositorio.ObtenerPorId(id);
+            if (candidatoExistente == null)
+                throw new KeyNotFoundException("El candidato que intentas eliminar no existe.");
+
             await _repositorio.Eliminar(id);
         }
     }
