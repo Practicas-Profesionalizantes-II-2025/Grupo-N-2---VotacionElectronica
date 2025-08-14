@@ -19,117 +19,188 @@ namespace Negocio.Logica
             _repositorio = repositorio;
         }
 
+
         public async Task<List<VerDTO>> ObtenerTodas()
-        {
-            var lista = await _repositorio.ObtenerTodas();
-            return lista.Select(e => new VerDTO
-            {
-                Id = e.Id,
-                NombreEleccion = e.NombreEleccion,
-                DescripcionEleccion = e.DescripcionEleccion,
-                CantidadListas = e.CantidadListas,
-                FechaInicioEleccion = e.FechaInicioEleccion,
-                FechaFinEleccion = e.FechaFinEleccion,
-            }).ToList();
-        }
+{
+    var lista = await _repositorio.ObtenerTodas();
+    return lista.Select(e => new VerDTO
+    {
+        Id = e.Id,
+        NombreEleccion = e.NombreEleccion,
+        DescripcionEleccion = e.DescripcionEleccion,
+        CantidadListas = e.CantidadListas,
+        FechaInicioEleccion = e.FechaInicioEleccion,
+        FechaFinEleccion = e.FechaFinEleccion,
+    }).ToList();
+}
 
-        public async Task<VerDTO> ObtenerPorId(int id)
-        {
-            var e = await _repositorio.ObtenerPorId(id);
-            if (e == null) return null;
 
-            return new VerDTO
-            {
-                Id = e.Id,
-                NombreEleccion = e.NombreEleccion,
-                DescripcionEleccion = e.DescripcionEleccion,
-                CantidadListas = e.CantidadListas,
-                FechaInicioEleccion = e.FechaInicioEleccion,
-                FechaFinEleccion = e.FechaFinEleccion,
-            };
-        }
+public async Task<VerDTO> ObtenerPorId(int id)
+{
+    if (id <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(id));
 
-        public async Task<List<VerDTO>> ObtenerPorNombre(string nombre)
-        {
-            var lista = await _repositorio.ObtenerPorNombre(nombre);
-            return lista.Select(e => new VerDTO
-            {
-                Id = e.Id,
-                NombreEleccion = e.NombreEleccion,
-                DescripcionEleccion = e.DescripcionEleccion,
-                CantidadListas = e.CantidadListas,
-                FechaInicioEleccion = e.FechaInicioEleccion,
-                FechaFinEleccion = e.FechaFinEleccion,
-            }).ToList();
-        }
+    var e = await _repositorio.ObtenerPorId(id);
+    if (e == null)
+        throw new InvalidOperationException("Elección no encontrada.");
 
-        public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
-        {
-            var lista = await _repositorio.FiltrarPorTexto(textoBusqueda);
-            return lista.Select(e => new VerDTO
-            {
-                Id = e.Id,
-                NombreEleccion = e.NombreEleccion,
-                DescripcionEleccion = e.DescripcionEleccion,
-                CantidadListas = e.CantidadListas,
-                FechaInicioEleccion = e.FechaInicioEleccion,
-                FechaFinEleccion = e.FechaFinEleccion,
-            }).ToList();
-        }
+    return new VerDTO
+    {
+        Id = e.Id,
+        NombreEleccion = e.NombreEleccion,
+        DescripcionEleccion = e.DescripcionEleccion,
+        CantidadListas = e.CantidadListas,
+        FechaInicioEleccion = e.FechaInicioEleccion,
+        FechaFinEleccion = e.FechaFinEleccion,
+    };
+}
 
-        public async Task Crear(CrearDTO dto)
-        {
-            var eleccion = new Eleccion
-            {
-                NombreEleccion = dto.NombreEleccion,
-                DescripcionEleccion = dto.DescripcionEleccion,
-                CantidadListas = dto.CantidadListas,
-                FechaInicioEleccion = dto.FechaInicioEleccion,
-                FechaFinEleccion = dto.FechaFinEleccion,
-                CreatedDate = dto.CreatedDate
-            };
 
-            await _repositorio.Crear(eleccion);
-        }
+public async Task<List<VerDTO>> ObtenerPorNombre(string nombre)
+{
+    if (string.IsNullOrWhiteSpace(nombre))
+        throw new ArgumentException("El nombre es obligatorio.", nameof(nombre));
 
-        public async Task Actualizar(int id, ModificarDTO dto)
-        {
-            var eleccion = new Eleccion
-            {
-                Id = id,
-                NombreEleccion = dto.NombreEleccion,
-                DescripcionEleccion = dto.DescripcionEleccion,
-                CantidadListas = dto.CantidadListas,
-                FechaFinEleccion = dto.FechaFinEleccion
-            };
+    var lista = await _repositorio.ObtenerPorNombre(nombre);
+    return lista.Select(e => new VerDTO
+    {
+        Id = e.Id,
+        NombreEleccion = e.NombreEleccion,
+        DescripcionEleccion = e.DescripcionEleccion,
+        CantidadListas = e.CantidadListas,
+        FechaInicioEleccion = e.FechaInicioEleccion,
+        FechaFinEleccion = e.FechaFinEleccion,
+    }).ToList();
+}
 
-            await _repositorio.Actualizar(eleccion);
-        }
 
-        public async Task Eliminar(int id)
-        {
-            await _repositorio.Eliminar(id);
-        }
+public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
+{
+    if (string.IsNullOrWhiteSpace(textoBusqueda))
+        throw new ArgumentException("El texto de búsqueda es obligatorio.", nameof(textoBusqueda));
 
-        public async Task AsignarLista(AsignarListaDTO dto)
-        {
-            await _repositorio.AsignarLista(dto);
-        }
+    var lista = await _repositorio.FiltrarPorTexto(textoBusqueda);
+    return lista.Select(e => new VerDTO
+    {
+        Id = e.Id,
+        NombreEleccion = e.NombreEleccion,
+        DescripcionEleccion = e.DescripcionEleccion,
+        CantidadListas = e.CantidadListas,
+        FechaInicioEleccion = e.FechaInicioEleccion,
+        FechaFinEleccion = e.FechaFinEleccion,
+    }).ToList();
+}
 
-        public async Task<List<Lista>> ObtenerListasPorEleccion(int id)
-        {
-            return await _repositorio.ObtenerListasPorEleccion(id);
-        }
 
-        public async Task RemoverListaDeEleccion(int eleccionId, int listaId)
-        {
-            await _repositorio.RemoverListaDeEleccion(eleccionId, listaId);
-        }
+public async Task Crear(CrearDTO dto)
+{
+    if (dto == null)
+        throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
+    if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
+        throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
+    if (dto.CantidadListas < 0)
+        throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
+    if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
+        throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
 
-        public async Task AsignarPersona(AsignarPersonaEleccionDTO dto)
-        {
-            await _repositorio.AsignarPersona(dto);
-        }
+    var eleccion = new Eleccion
+    {
+        NombreEleccion = dto.NombreEleccion,
+        DescripcionEleccion = dto.DescripcionEleccion,
+        CantidadListas = dto.CantidadListas,
+        FechaInicioEleccion = dto.FechaInicioEleccion,
+        FechaFinEleccion = dto.FechaFinEleccion,
+        CreatedDate = dto.CreatedDate
+    };
+
+    await _repositorio.Crear(eleccion);
+}
+
+
+public async Task Actualizar(int id, ModificarDTO dto)
+{
+    if (id <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(id));
+    if (dto == null)
+        throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
+    if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
+        throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
+    if (dto.CantidadListas < 0)
+        throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
+    if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
+        throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
+
+
+    var existente = await _repositorio.ObtenerPorId(id);
+    if (existente == null)
+        throw new InvalidOperationException("Elección no encontrada.");
+
+    existente.NombreEleccion = dto.NombreEleccion.Trim();
+    existente.DescripcionEleccion = dto.DescripcionEleccion?.Trim();
+    existente.CantidadListas = dto.CantidadListas;
+    existente.FechaInicioEleccion = dto.FechaInicioEleccion;
+    existente.FechaFinEleccion = dto.FechaFinEleccion;
+
+    await _repositorio.Actualizar(existente);
+}
+
+
+public async Task Eliminar(int id)
+{
+    if (id <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(id));
+    var existente = await _repositorio.ObtenerPorId(id);
+
+    if (existente == null)
+        throw new InvalidOperationException("No se puede eliminar: la elección no existe.");
+
+    await _repositorio.Eliminar(id);
+}
+
+
+public async Task AsignarLista(AsignarListaDTO dto)
+{
+    if (dto == null)
+        throw new ArgumentNullException(nameof(dto), "Los datos para asignar la lista son obligatorios.");
+    if (dto.EleccionId <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(dto.EleccionId));
+    if (dto.ListaId <= 0)
+        throw new ArgumentException("El ID de la lista es inválido.", nameof(dto.ListaId));
+
+    await _repositorio.AsignarLista(dto);
+}
+
+public async Task<List<Lista>> ObtenerListasPorEleccion(int id)
+{
+    if (id <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(id));
+
+    return await _repositorio.ObtenerListasPorEleccion(id);
+}
+
+
+public async Task RemoverListaDeEleccion(int eleccionId, int listaId)
+{
+    if (eleccionId <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(eleccionId));
+    if (listaId <= 0)
+        throw new ArgumentException("El ID de la lista es inválido.", nameof(listaId));
+
+    await _repositorio.RemoverListaDeEleccion(eleccionId, listaId);
+}
+
+
+public async Task AsignarPersona(AsignarPersonaEleccionDTO dto)
+{
+    if (dto == null)
+        throw new ArgumentNullException(nameof(dto), "Los datos para asignar la persona son obligatorios.");
+    if (dto.EleccionId <= 0)
+        throw new ArgumentException("El ID de la elección es inválido.", nameof(dto.EleccionId));
+    if (dto.PersonaId <= 0)
+        throw new ArgumentException("El ID de la persona es inválido.", nameof(dto.PersonaId));
+
+    await _repositorio.AsignarPersona(dto);
+}
 
     }
 }
