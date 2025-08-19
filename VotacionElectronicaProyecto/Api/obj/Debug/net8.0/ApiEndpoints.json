@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Candidatos, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Candidatos.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21,33 +21,23 @@
   },
   {
     "ContainingType": "Api.Controllers.CandidatosController",
-    "Method": "PostCandidatos",
+    "Method": "Crear",
     "RelativePath": "api/Candidatos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "candidatos",
+        "Name": "dto",
         "Type": "Shared.Dtos.Candidatos.CrearDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Candidatos",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.CandidatosController",
-    "Method": "GetCandidatos",
+    "Method": "GetCandidato",
     "RelativePath": "api/Candidatos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -61,7 +51,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Shared.Entities.Candidatos",
+        "Type": "Shared.Dtos.Candidatos.VerDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -73,7 +63,7 @@
   },
   {
     "ContainingType": "Api.Controllers.CandidatosController",
-    "Method": "PutCandidatos",
+    "Method": "Actualizar",
     "RelativePath": "api/Candidatos/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -85,26 +75,16 @@
         "IsRequired": true
       },
       {
-        "Name": "candidatos",
+        "Name": "dto",
         "Type": "Shared.Dtos.Candidatos.ModificarDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Candidatos",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.CandidatosController",
-    "Method": "DeleteCandidatos",
+    "Method": "Eliminar",
     "RelativePath": "api/Candidatos/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -120,7 +100,7 @@
   },
   {
     "ContainingType": "Api.Controllers.CandidatosController",
-    "Method": "GetCandidatos",
+    "Method": "BuscarPorNombre",
     "RelativePath": "api/Candidatos/nombre/{nombre}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -134,7 +114,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Candidatos, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Candidatos.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -154,7 +134,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Eleccion, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Eleccion.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -173,22 +153,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "eleccion",
+        "Name": "dto",
         "Type": "Shared.Dtos.Eleccion.CrearDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Eleccion",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.EleccionController",
@@ -206,7 +176,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Shared.Entities.Eleccion",
+        "Type": "Shared.Dtos.Eleccion.VerDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -230,22 +200,12 @@
         "IsRequired": true
       },
       {
-        "Name": "eleccion",
+        "Name": "dto",
         "Type": "Shared.Dtos.Eleccion.ModificarDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Eleccion",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.EleccionController",
@@ -319,7 +279,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "asignarListaDto",
+        "Name": "dto",
         "Type": "Shared.Dtos.Eleccion.AsignarListaDTO",
         "IsRequired": true
       }
@@ -335,12 +295,38 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "asignarPersonaDto",
+        "Name": "dto",
         "Type": "Shared.Dtos.Eleccion.AsignarPersonaEleccionDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.EleccionController",
+    "Method": "FiltrarPorNombre",
+    "RelativePath": "api/Eleccion/filtrar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "textoBusqueda",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Eleccion.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Api.Controllers.EleccionController",
@@ -358,7 +344,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Eleccion, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Eleccion.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -370,7 +356,7 @@
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
-    "Method": "GetLista",
+    "Method": "GetListas",
     "RelativePath": "api/Lista",
     "HttpMethod": "GET",
     "IsController": true,
@@ -378,7 +364,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Lista, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Lista.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -390,29 +376,19 @@
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
-    "Method": "PostLista",
+    "Method": "Crear",
     "RelativePath": "api/Lista",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "lista",
+        "Name": "dto",
         "Type": "Shared.Dtos.Lista.CrearDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Lista",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
@@ -430,7 +406,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Shared.Entities.Lista",
+        "Type": "Shared.Dtos.Lista.VerDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -442,7 +418,7 @@
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
-    "Method": "PutLista",
+    "Method": "Actualizar",
     "RelativePath": "api/Lista/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -454,26 +430,16 @@
         "IsRequired": true
       },
       {
-        "Name": "lista",
+        "Name": "dto",
         "Type": "Shared.Dtos.Lista.ModificarDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Lista",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
-    "Method": "DeleteLista",
+    "Method": "Eliminar",
     "RelativePath": "api/Lista/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -489,7 +455,7 @@
   },
   {
     "ContainingType": "Api.Controllers.ListaController",
-    "Method": "GetLista",
+    "Method": "BuscarPorNombre",
     "RelativePath": "api/Lista/nombre/{nombre}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -503,7 +469,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Lista, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Dtos.Lista.VerDTO, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -515,79 +481,33 @@
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "GetPersona",
+    "Method": "ObtenerTodas",
     "RelativePath": "api/Persona",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Persona, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "PostPersona",
+    "Method": "Crear",
     "RelativePath": "api/Persona",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "persona",
+        "Name": "dto",
         "Type": "Shared.Dtos.Persona.CrearDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Persona",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "GetEleccionesAutorizadas",
-    "RelativePath": "api/Persona/{dni}/EleccionesAutorizadas",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dni",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Eleccion, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "GetPersona",
+    "Method": "ObtenerPorId",
     "RelativePath": "api/Persona/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -599,21 +519,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Persona",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "PutPersona",
+    "Method": "Actualizar",
     "RelativePath": "api/Persona/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -625,26 +535,16 @@
         "IsRequired": true
       },
       {
-        "Name": "persona",
+        "Name": "dto",
         "Type": "Shared.Dtos.Persona.ModificarDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Persona",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "DeletePersona",
+    "Method": "Eliminar",
     "RelativePath": "api/Persona/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -660,33 +560,39 @@
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "AutenticarPorContrase\u00F1a",
-    "RelativePath": "api/Persona/autenticar/{password}",
+    "Method": "Autenticar",
+    "RelativePath": "api/Persona/autenticar/{contrasenia}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "password",
+        "Name": "contrasenia",
         "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Persona",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "GetPersonaDNI",
+    "Method": "ObtenerPorNombre",
+    "RelativePath": "api/Persona/buscarPorNombre/{nombre}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.PersonaController",
+    "Method": "ObtenerPorDNI",
     "RelativePath": "api/Persona/dni/{dni}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -698,43 +604,23 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Shared.Entities.Persona",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.PersonaController",
-    "Method": "GetPersona",
-    "RelativePath": "api/Persona/nombre/{nombre}",
+    "Method": "ObtenerEleccionesAutorizadas",
+    "RelativePath": "api/Persona/eleccionesAutorizadas/{dni}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "nombre",
+        "Name": "dni",
         "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Shared.Entities.Persona, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Api.Controllers.ResultadoController",
@@ -761,7 +647,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "votoDto",
+        "Name": "dto",
         "Type": "Shared.Dtos.Voto.CrearDTO",
         "IsRequired": true
       }
@@ -770,7 +656,7 @@
   },
   {
     "ContainingType": "Api.Controllers.VotoController",
-    "Method": "Borrar",
+    "Method": "EliminarVoto",
     "RelativePath": "api/Voto/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

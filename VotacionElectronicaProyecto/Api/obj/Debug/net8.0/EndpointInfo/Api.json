@@ -18,7 +18,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               },
@@ -26,7 +26,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               },
@@ -34,7 +34,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               }
@@ -67,24 +67,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -111,17 +94,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                  "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                 }
               }
             }
@@ -164,24 +147,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Candidatos"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -230,7 +196,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               },
@@ -238,7 +204,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               },
@@ -246,7 +212,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Candidatos"
+                    "$ref": "#/components/schemas/Shared.Dtos.Candidatos.VerDTO"
                   }
                 }
               }
@@ -268,7 +234,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               },
@@ -276,7 +242,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               },
@@ -284,7 +250,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               }
@@ -317,24 +283,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -361,17 +310,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                  "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                 }
               }
             }
@@ -414,24 +363,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -480,7 +412,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               },
@@ -488,7 +420,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               },
@@ -496,7 +428,54 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Eleccion/filtrar": {
+      "get": {
+        "tags": [
+          "Eleccion"
+        ],
+        "parameters": [
+          {
+            "name": "textoBusqueda",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Shared.Dtos.Eleccion.VerDTO"
                   }
                 }
               }
@@ -661,7 +640,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               },
@@ -669,7 +648,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               },
@@ -677,7 +656,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               }
@@ -710,24 +689,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -754,17 +716,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
+                  "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                 }
               }
             }
@@ -807,24 +769,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Lista"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -873,7 +818,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               },
@@ -881,7 +826,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               },
@@ -889,7 +834,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Lista"
+                    "$ref": "#/components/schemas/Shared.Dtos.Lista.VerDTO"
                   }
                 }
               }
@@ -905,33 +850,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -960,24 +879,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -1000,24 +902,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1057,24 +942,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       },
@@ -1100,7 +968,7 @@
         }
       }
     },
-    "/api/Persona/nombre/{nombre}": {
+    "/api/Persona/buscarPorNombre/{nombre}": {
       "get": {
         "tags": [
           "Persona"
@@ -1117,33 +985,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Persona"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -1165,36 +1007,19 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
     },
-    "/api/Persona/autenticar/{password}": {
+    "/api/Persona/autenticar/{contrasenia}": {
       "get": {
         "tags": [
           "Persona"
         ],
         "parameters": [
           {
-            "name": "password",
+            "name": "contrasenia",
             "in": "path",
             "required": true,
             "schema": {
@@ -1204,29 +1029,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Shared.Entities.Persona"
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
     },
-    "/api/Persona/{dni}/EleccionesAutorizadas": {
+    "/api/Persona/eleccionesAutorizadas/{dni}": {
       "get": {
         "tags": [
           "Persona"
@@ -1243,33 +1051,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Shared.Entities.Eleccion"
-                  }
-                }
-              }
-            }
+            "description": "Success"
           }
         }
       }
@@ -1409,6 +1191,40 @@
         },
         "additionalProperties": false
       },
+      "Shared.Dtos.Candidatos.VerDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreCandidato": {
+            "type": "string",
+            "nullable": true
+          },
+          "puestoCandidato": {
+            "type": "string",
+            "nullable": true
+          },
+          "idLista": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreLista": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "Shared.Dtos.Eleccion.AsignarListaDTO": {
         "type": "object",
         "properties": {
@@ -1516,6 +1332,46 @@
         },
         "additionalProperties": false
       },
+      "Shared.Dtos.Eleccion.VerDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreEleccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcionEleccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadListas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaInicioEleccion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaFinEleccion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "Shared.Dtos.Lista.CrearDTO": {
         "required": [
           "descripcionLista",
@@ -1555,12 +1411,31 @@
         },
         "additionalProperties": false
       },
+      "Shared.Dtos.Lista.VerDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreLista": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcionLista": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Shared.Dtos.Persona.CrearDTO": {
         "required": [
           "apellidoPersona",
           "contraseniaPersona",
           "nombrePersona",
           "nroIdentificacionPersona",
+          "rol",
           "tipoDocumentoPersona"
         ],
         "type": "object",
@@ -1584,6 +1459,10 @@
             "type": "string"
           },
           "tipoDocumentoPersona": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rol": {
             "minLength": 1,
             "type": "string"
           },
@@ -1839,6 +1718,10 @@
             "nullable": true
           },
           "tipoDocumentoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "rol": {
             "type": "string",
             "nullable": true
           },
