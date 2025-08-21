@@ -1,5 +1,9 @@
 using Api.Data;
+using Datos.Repositorios;
+using Datos.Repositorios.IRepositorios;
 using Microsoft.EntityFrameworkCore;
+using Negocio.Logica;
+using Negocio.Logica.ILogica;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +13,39 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBContext"))
 );
+builder.Services.AddScoped<IPersonaLogic, PersonaLogic>();
+builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
+
+builder.Services.AddScoped<ICandidatoLogic, CandidatoLogic>();
+builder.Services.AddScoped<ICandidatoRepository, CandidatoRepository>();
+
+builder.Services.AddScoped<IEleccionLogic, EleccionLogic>();
+builder.Services.AddScoped<IEleccionRepository, EleccionRepository>();
+
+builder.Services.AddScoped<IListaLogic, ListaLogic>();
+builder.Services.AddScoped<IListaRepository, ListaRepository>();
+
+
+builder.Services.AddScoped<IResultadoLogic, ResultadoLogic>();
+builder.Services.AddScoped<IResultadoRepository, ResultadoRepository>();
+
+builder.Services.AddScoped<IVotoLogic, VotoLogic>();
+builder.Services.AddScoped<IVotoRepository, VotoRepository>();
+
+builder.Services.AddScoped<IPersonaEleccionRepository, PersonaEleccionRepository>();
+
+
+
+
+
+
+
+
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
         options.JsonSerializerOptions.WriteIndented = true; // Opcional, para hacer más legible el JSON.
     });
 

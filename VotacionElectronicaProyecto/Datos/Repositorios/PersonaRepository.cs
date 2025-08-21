@@ -1,4 +1,5 @@
 ﻿using Api.Data;
+using Datos.Repositorios.IRepositorios;
 using Microsoft.EntityFrameworkCore;
 using Shared.Entities;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Repositorios
 {
-    public class PersonaRepository
+    public class PersonaRepository : IPersonaRepository
     {
         private readonly DataContext _context;
 

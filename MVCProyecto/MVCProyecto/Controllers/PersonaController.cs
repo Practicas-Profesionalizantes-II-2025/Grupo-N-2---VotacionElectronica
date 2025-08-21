@@ -1,63 +1,96 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shared.Dtos.Persona;
-using System.Net.Http;
 using System.Net.Http.Json;
 
-namespace TuProyecto.Controllers
+namespace MVCProyecto.Controllers
 {
     public class PersonaController : Controller
     {
         private readonly HttpClient _httpClient;
 
-        // Inyectamos HttpClient (recomendado usar IHttpClientFactory en Program.cs)
         public PersonaController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient("ApiClient");
-            // "ApiClient" lo configuras en Program.cs con la BaseAddress
+        }
+
+        // GET: Persona/ListaPersonas
+        public async Task<IActionResult> ListaPersonas()
+        {
+            var personas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Persona");
+            return View(personas);
+        }
+
+        // GET: Persona/Details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{id}");
+            if (persona == null) return NotFound();
+            return View(persona);
         }
 
         // GET: Persona/CrearPersona
-        [HttpGet]
-        public IActionResult CrearPersona()
-        {
-            return View();
-        }
+        public IActionResult CrearPersona() => View();
 
         // POST: Persona/CrearPersona
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CrearPersona(CrearDTO crearDto)
+        public async Task<IActionResult> CrearPersona(CrearDTO dto)
         {
-            if (!ModelState.IsValid)
-            {
-                // Si hay errores de validación, mostramos el formulario de nuevo
-                return View(crearDto);
-            }
+            if (!ModelState.IsValid) return View(dto);
 
-            try
-            {
-                // Enviamos el DTO a la API
-                var response = await _httpClient.PostAsJsonAsync("Persona", crearDto);
+            var response = await _httpClient.PostAsJsonAsync("Persona", dto);
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction(nameof(ListaPersonas));
 
-                if (response.IsSuccessStatusCode)
-                {
-                    TempData["Exito"] = "Persona creada correctamente.";
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    // Capturamos el mensaje de error de la API si existe
-                    var error = await response.Content.ReadAsStringAsync();
-                    ModelState.AddModelError(string.Empty, $"Error al crear persona: {error}");
-                    return View(crearDto);
-                }
-            }
-            catch (Exception ex)
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            return View(dto);
+        }
+
+        // GET: Persona/EditarPersona/5
+        public async Task<IActionResult> EditarPersona(int id)
+        {
+            var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{id}");
+            if (persona == null) return NotFound();
+
+            var dto = new ModificarDTO
             {
-                ModelState.AddModelError(string.Empty, $"Ocurrió un error: {ex.Message}");
-                return View(crearDto);
-            }
+                NombrePersona = persona.NombrePersona,
+                ApellidoPersona = persona.ApellidoPersona,
+                ContraseniaPersona = ""
+            };
+            return View(dto);
+        }
+
+        // POST: Persona/EditarPersona/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarPersona(int id, ModificarDTO dto)
+        {
+            if (!ModelState.IsValid) return View(dto);
+
+            var response = await _httpClient.PutAsJsonAsync($"Persona/{id}", dto);
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction(nameof(ListaPersonas));
+
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            return View(dto);
+        }
+
+        // GET: Persona/EliminarPersona/5
+        public async Task<IActionResult> EliminarPersona(int id)
+        {
+            var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{id}");
+            if (persona == null) return NotFound();
+            return View(persona);
+        }
+
+        // POST: Persona/EliminarPersona/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarConfirmado(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"Persona/{id}");
+            return RedirectToAction(nameof(ListaPersonas));
         }
     }
 }
-

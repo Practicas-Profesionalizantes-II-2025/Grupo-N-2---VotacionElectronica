@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {}
+    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
+    "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\OneDrive\\Documentos\\Universidad\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Taco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Taco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -99,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

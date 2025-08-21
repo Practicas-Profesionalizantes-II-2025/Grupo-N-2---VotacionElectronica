@@ -1,4 +1,5 @@
 ﻿using Api.Data;
+using Datos.Repositorios.IRepositorios;
 using Microsoft.EntityFrameworkCore;
 using Shared.Dtos.Eleccion;
 using Shared.Entities;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Datos.Repositorios
 {
-    public class EleccionRepository
+    public class EleccionRepository : IEleccionRepository
     {
         private readonly DataContext _context;
 
