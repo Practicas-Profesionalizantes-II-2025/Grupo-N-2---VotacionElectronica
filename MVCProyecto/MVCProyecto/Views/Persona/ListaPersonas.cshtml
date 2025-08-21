@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Shared.Dtos.Persona.VerDTO>
+
+<h1>Listado de Personas</h1>
+
+<p>
+    <a asp-action="CrearPersona">➕ Crear Nueva Persona</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Dni</td>
+                <td>@p.NombrePersona</td>
+                <td>@p.ApellidoPersona</td>
+                <td>@p.Rol</td>
+                <td>
+                    <a asp-action="EditarPersona" asp-route-id="@p.Id">✏ Editar</a> |
+                    <a asp-action="EliminarPersona" asp-route-id="@p.Id">🗑 Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

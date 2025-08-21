@@ -868,7 +868,6 @@ C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectroni
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.AssemblyInfoInputs.cache
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.AssemblyInfo.cs
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.csproj.CoreCompileInputs.cache
-C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.sourcelink.json
 C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\rjimswa.dswa.cache.json
@@ -1035,3 +1034,4 @@ C:\Users\LENOVO\OneDrive\Documentos\Universidad\Grupo-N-2---VotacionElectronica\
 C:\Users\LENOVO\OneDrive\Documentos\Universidad\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.pdb
 C:\Users\LENOVO\OneDrive\Documentos\Universidad\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 C:\Users\LENOVO\OneDrive\Documentos\Universidad\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\ref\Api.dll
+C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\VotacionElectronicaProyecto\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cs
