@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Dtos.Persona
+namespace MVCProyecto.Models.Persona
 {
     public class LoginDto
     {

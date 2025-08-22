@@ -3,17 +3,67 @@
   "WorkspaceRootPath": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\eliminarpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\listapersonas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\crearpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\editarpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\models\\persona\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\negocio\\logica\\personalogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\logica\\personalogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\shared\\dtos\\persona\\verdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\persona\\verdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\models\\persona\\verdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\models\\persona\\modificardto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\models\\persona\\creardto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB35B401-4EF4-989E-18E9-C126B008FEAB}|Datos\\Datos.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\datos\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB35B401-4EF4-989E-18E9-C126B008FEAB}|Datos\\Datos.csproj|solutionrelative:datos\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB35B401-4EF4-989E-18E9-C126B008FEAB}|Datos\\Datos.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\datos\\repositorios\\personarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -40,26 +90,10 @@
       "RelativeMoniker": "D:0:0:{BB35B401-4EF4-989E-18E9-C126B008FEAB}|Datos\\Datos.csproj|solutionrelative:datos\\repositorios\\eleccionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B513DCDA-55E4-46B2-9653-065223B54647}|Api\\Api.csproj|solutionrelative:api\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\controllers\\personacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\eliminarpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\viewmodels\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\crearpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BBD5E9A-F56A-F8BB-D517-F87486E566CF}|..\\MVCProyecto\\MVCProyecto\\MVCProyecto.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\mvcproyecto\\mvcproyecto\\views\\persona\\editarpersona.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\negocio\\negocio.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -72,10 +106,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\shared\\entities\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|solutionrelative:shared\\entities\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\negocio\\logica\\personalogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE4A3B2C-3346-499B-BD76-86A44AF18739}|Negocio\\Negocio.csproj|solutionrelative:negocio\\logica\\personalogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89367217-C12A-43DC-B564-CFB181E5233A}|Shared\\Shared.csproj|c:\\users\\taco\\documents\\github\\grupo-n-2---votacionelectronica\\votacionelectronicaproyecto\\shared\\entities\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -136,6 +166,214 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgPQ8AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-22T22:35:32.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\Login.cshtml",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\Login.cshtml",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\Login.cshtml",
+              "ViewState": "AgIAAAQAAAAAMzMzMzMLwBcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-22T22:11:49.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EditarPersona.cshtml",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T14:04:15.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CrearPersona.cshtml",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T14:04:43.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ListaPersonas.cshtml",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T14:02:16.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EliminarPersona.cshtml",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-21T14:03:24.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Program.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Program.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Program.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Program.cs",
+              "ViewState": "AgIAAA4AAABgZmZmZmYkwB0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T14:07:57.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\LoginDTO.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\LoginDTO.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T22:07:23.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PersonaLogic.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Logica\\PersonaLogic.cs",
+              "RelativeDocumentMoniker": "Negocio\\Logica\\PersonaLogic.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Logica\\PersonaLogic.cs",
+              "RelativeToolTip": "Negocio\\Logica\\PersonaLogic.cs",
+              "ViewState": "AgIAADoAAACAzczMzMw2wCEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T19:51:38.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Shared",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+              "RelativeDocumentMoniker": "Shared\\Shared.csproj",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Shared.csproj",
+              "RelativeToolTip": "Shared\\Shared.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-22T22:08:10.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "VerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Dtos\\Persona\\VerDTO.cs",
+              "RelativeDocumentMoniker": "Shared\\Dtos\\Persona\\VerDTO.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Dtos\\Persona\\VerDTO.cs",
+              "RelativeToolTip": "Shared\\Dtos\\Persona\\VerDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T22:07:50.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\VerDTO.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\VerDTO.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\VerDTO.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\VerDTO.cs",
+              "ViewState": "AgIAAAkAAACAmZmZmZkdwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T22:06:36.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ModificarDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\ModificarDTO.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\ModificarDTO.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\ModificarDTO.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\ModificarDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T22:07:35.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PersonaController.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
+              "ViewState": "AgIAAGEAAADQZmZmZmY6wHkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T14:00:36.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CrearDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\CrearDTO.cs",
+              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\CrearDTO.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Models\\Persona\\CrearDTO.cs",
+              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Models\\Persona\\CrearDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T22:07:09.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "Datos\\Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Data\\DataContext.cs",
+              "RelativeToolTip": "Datos\\Data\\DataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-22T21:50:25.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Shared\\_Layout.cshtml",
@@ -148,19 +386,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PersonaEleccionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\PersonaEleccionRepository.cs",
-              "RelativeDocumentMoniker": "Datos\\Repositorios\\PersonaEleccionRepository.cs",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\PersonaEleccionRepository.cs",
-              "RelativeToolTip": "Datos\\Repositorios\\PersonaEleccionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T14:49:56.783Z"
+              "DocumentIndex": 21,
+              "Title": "Api.csproj",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+              "RelativeDocumentMoniker": "Api\\Api.csproj",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
+              "RelativeToolTip": "Api\\Api.csproj",
+              "ViewState": "AgIAAA0AAAAgMzMzMzMrwBsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-21T13:38:30.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
+              "Title": "PersonaController.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Controllers\\PersonaController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\PersonaController.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Controllers\\PersonaController.cs",
+              "RelativeToolTip": "Api\\Controllers\\PersonaController.cs",
+              "ViewState": "AgIAACIAAABAMzMzMzMpwDgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T18:51:12.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "PersonaRepository.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\PersonaRepository.cs",
               "RelativeDocumentMoniker": "Datos\\Repositorios\\PersonaRepository.cs",
@@ -172,31 +424,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Program.cs",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Program.cs",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Program.cs",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Program.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAABsAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "PersonaEleccionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\PersonaEleccionRepository.cs",
+              "RelativeDocumentMoniker": "Datos\\Repositorios\\PersonaEleccionRepository.cs",
+              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\PersonaEleccionRepository.cs",
+              "RelativeToolTip": "Datos\\Repositorios\\PersonaEleccionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T14:07:57.057Z"
+              "WhenOpened": "2025-08-21T14:49:56.783Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Api.csproj",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
-              "RelativeDocumentMoniker": "Api\\Api.csproj",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Api.csproj",
-              "RelativeToolTip": "Api\\Api.csproj",
-              "ViewState": "AgIAAA0AAAAgMzMzMzMrwBsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-21T13:38:30.301Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Program.cs",
               "RelativeDocumentMoniker": "Api\\Program.cs",
@@ -204,25 +444,11 @@
               "RelativeToolTip": "Api\\Program.cs",
               "ViewState": "AgIAACkAAACAMzMzMzMbwDYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T19:12:24.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T19:12:24.308Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ListaPersonas.cshtml",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\ListaPersonas.cshtml",
-              "ViewState": "AgIAABQAAAAANDMzMzMLwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T14:02:16.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 22,
               "Title": "VotoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\VotoRepository.cs",
               "RelativeDocumentMoniker": "Datos\\Repositorios\\VotoRepository.cs",
@@ -234,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 23,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\appsettings.json",
               "RelativeDocumentMoniker": "Api\\appsettings.json",
@@ -246,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 24,
               "Title": "EleccionRepository.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Datos\\Repositorios\\EleccionRepository.cs",
               "RelativeDocumentMoniker": "Datos\\Repositorios\\EleccionRepository.cs",
@@ -258,67 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EliminarPersona.cshtml",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EliminarPersona.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T14:03:24.445Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PersonaController.cs",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Controllers\\PersonaController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\PersonaController.cs",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Controllers\\PersonaController.cs",
-              "RelativeToolTip": "Api\\Controllers\\PersonaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T18:51:12.932Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "EditarPersona.cshtml",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\EditarPersona.cshtml",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T14:04:15.535Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CrearPersona.cshtml",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Views\\Persona\\CrearPersona.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-21T14:04:43.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PersonaController.cs",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
-              "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
-              "RelativeToolTip": "..\\MVCProyecto\\MVCProyecto\\Controllers\\PersonaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T14:00:36.796Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 26,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\Views\\_ViewStart.cshtml",
@@ -330,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 25,
               "Title": "Persona.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\ViewModels\\Persona.cs",
               "RelativeDocumentMoniker": "..\\MVCProyecto\\MVCProyecto\\ViewModels\\Persona.cs",
@@ -342,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "Negocio.csproj",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Negocio.csproj",
               "RelativeDocumentMoniker": "Negocio\\Negocio.csproj",
@@ -350,11 +516,12 @@
               "RelativeToolTip": "Negocio\\Negocio.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-21T12:19:28.287Z"
+              "WhenOpened": "2025-08-21T12:19:28.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 42,
               "Title": "20250821121735_Inicial.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Migrations\\20250821121735_Inicial.cs",
               "RelativeDocumentMoniker": "Api\\Migrations\\20250821121735_Inicial.cs",
@@ -366,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "ListaLogic.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Logica\\ListaLogic.cs",
               "RelativeDocumentMoniker": "Negocio\\Logica\\ListaLogic.cs",
@@ -378,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "Candidatos.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Entities\\Candidatos.cs",
               "RelativeDocumentMoniker": "Shared\\Entities\\Candidatos.cs",
@@ -390,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "CandidatosController.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Api\\Controllers\\CandidatosController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\CandidatosController.cs",
@@ -402,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 40,
               "Title": "Persona.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\CasosDeUso\\Persona.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\CasosDeUso\\Persona.cs",
@@ -414,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "Persona.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Entities\\Persona.cs",
               "RelativeDocumentMoniker": "Shared\\Entities\\Persona.cs",
@@ -426,19 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PersonaLogic.cs",
-              "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Logica\\PersonaLogic.cs",
-              "RelativeDocumentMoniker": "Negocio\\Logica\\PersonaLogic.cs",
-              "ToolTip": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Logica\\PersonaLogic.cs",
-              "RelativeToolTip": "Negocio\\Logica\\PersonaLogic.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T19:51:38.148Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "Lista.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Entities\\Lista.cs",
               "RelativeDocumentMoniker": "Shared\\Entities\\Lista.cs",
@@ -450,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "CrearDTO.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Shared\\Dtos\\Candidatos\\CrearDTO.cs",
               "RelativeDocumentMoniker": "Shared\\Dtos\\Candidatos\\CrearDTO.cs",
@@ -462,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 41,
               "Title": "Candidatos.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\CasosDeUso\\Candidatos.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Usuario\\OneDrive\\Documentos\\VotacionElectronicaProyecto\\Negocio\\CasosDeUso\\Candidatos.cs",
@@ -474,7 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 36,
               "Title": "20241019183927_Todo.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Api\\Migrations\\20241019183927_Todo.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\VotacionElectronica\\Api\\Migrations\\20241019183927_Todo.cs",
@@ -486,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 37,
               "Title": "VotanteController.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Api\\Controllers\\VotanteController.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\VotacionElectronica\\Api\\Controllers\\VotanteController.cs",
@@ -498,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 34,
               "Title": "ApiServer.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\ClientHttp\\ApiServer.cs",
               "RelativeDocumentMoniker": "Negocio\\ClientHttp\\ApiServer.cs",
@@ -510,7 +665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 35,
               "Title": "ApplicationConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Documents\\GitHub\\Grupo-N-2---VotacionElectronica\\VotacionElectronicaProyecto\\Negocio\\Helper\\ApplicationConfiguration.cs",
               "RelativeDocumentMoniker": "Negocio\\Helper\\ApplicationConfiguration.cs",
@@ -522,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 38,
               "Title": "Votante.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Negocio\\Repositorio\\Votante.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\VotacionElectronica\\Negocio\\Repositorio\\Votante.cs",
@@ -534,7 +689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 39,
               "Title": "Votante.cs",
               "DocumentMoniker": "C:\\Users\\Taco\\Desktop\\VotacionElectronica\\Negocio\\CasosDeUso\\Votante.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Desktop\\VotacionElectronica\\Negocio\\CasosDeUso\\Votante.cs",

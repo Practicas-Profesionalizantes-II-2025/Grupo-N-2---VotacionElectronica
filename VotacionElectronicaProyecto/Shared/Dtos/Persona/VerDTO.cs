@@ -13,6 +13,8 @@ namespace Shared.Dtos.Persona
         public string ApellidoPersona { get; set; }
         public string Rol { get; set; }
         public string Dni { get; set; }
+        public string Contrasenia { get; set; }
+
     }
 
 }

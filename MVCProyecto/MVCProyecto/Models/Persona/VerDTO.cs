@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Dtos.Persona
+namespace MVCProyecto.Models.Persona
 {
     public class VerDTO
     {
@@ -13,6 +13,7 @@ namespace Shared.Dtos.Persona
         public string ApellidoPersona { get; set; }
         public string Rol { get; set; }
         public string Dni { get; set; }
+        public string Contrasenia { get; set; }
     }
 
 }

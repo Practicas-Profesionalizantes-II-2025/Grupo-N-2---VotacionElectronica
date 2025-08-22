@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Shared.Dtos.Persona;
+using MVCProyecto.Models.Persona;
 using System.Net.Http.Json;
 
 namespace MVCProyecto.Controllers
@@ -20,8 +20,8 @@ namespace MVCProyecto.Controllers
             return View(personas);
         }
 
-        // GET: Persona/Details/5
-        public async Task<IActionResult> Details(int id)
+        // GET: Persona/BuscarPersona/5
+        public async Task<IActionResult> BuscarPersona(int id)
         {
             var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{id}");
             if (persona == null) return NotFound();
@@ -91,6 +91,47 @@ namespace MVCProyecto.Controllers
         {
             var response = await _httpClient.DeleteAsync($"Persona/{id}");
             return RedirectToAction(nameof(ListaPersonas));
+        }
+
+        // GET: Persona/Login
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Persona/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginDto dto)
+        {
+            if (!ModelState.IsValid) return View(dto);
+
+            try
+            {
+                // Llamamos a la API por DNI
+                var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/dni/{dto.Dni}");
+                if (persona == null)
+                {
+                    ModelState.AddModelError("", "El usuario no existe");
+                    return View(dto);
+                }
+
+                // Comparamos contraseña
+                if (persona.Contrasenia != dto.Password)
+                {
+                    ModelState.AddModelError("", "Contraseña incorrecta");
+                    return View(dto);
+                }
+
+                // Si todo ok -> lo redirigimos al home o lista
+                return RedirectToAction(nameof(ListaPersonas));
+            }
+            catch (HttpRequestException)
+            {
+                ModelState.AddModelError("", "Error de conexión con la API");
+                return View(dto);
+            }
         }
     }
 }

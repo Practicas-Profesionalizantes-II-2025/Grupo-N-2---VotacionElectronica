@@ -29,7 +29,8 @@ namespace Negocio.Logica
                 NombrePersona = p.NombrePersona,
                 ApellidoPersona = p.ApellidoPersona,
                 Dni = p.NroIdentificacionPersona,
-                Rol = p.Rol
+                Rol = p.Rol,
+                Contrasenia = p.ContraseniaPersona
             }).ToList();
         }
 
@@ -50,7 +51,8 @@ namespace Negocio.Logica
                 NombrePersona = persona.NombrePersona,
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
-                Rol = persona.Rol
+                Rol = persona.Rol,
+                Contrasenia = persona.ContraseniaPersona
             };
         }
 
@@ -66,7 +68,9 @@ namespace Negocio.Logica
                 NombrePersona = p.NombrePersona,
                 ApellidoPersona = p.ApellidoPersona,
                 Dni = p.NroIdentificacionPersona,
-                Rol = p.Rol
+                Rol = p.Rol,
+                Contrasenia = p.ContraseniaPersona
+
             }).ToList();
         }
 
@@ -85,7 +89,9 @@ namespace Negocio.Logica
                 NombrePersona = persona.NombrePersona,
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
-                Rol = persona.Rol
+                Rol = persona.Rol,
+                Contrasenia = persona.ContraseniaPersona
+
             };
         }
 
@@ -195,7 +201,9 @@ namespace Negocio.Logica
                 NombrePersona = persona.NombrePersona,
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
-                Rol = persona.Rol
+                Rol = persona.Rol,
+                Contrasenia = persona.ContraseniaPersona
+
             };
         }
 

@@ -1,0 +1,71 @@
+﻿@model MVCProyecto.Models.Persona.LoginDto
+
+@{
+    Layout = null; // Para que se muestre sin master page
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <script src="~/js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="container-form">
+            @using (Html.BeginForm("Login", "Persona", FormMethod.Post))
+            {
+                <div class="text-center mb-4">
+                    <img src="~/images/Logo VE.png" alt="Logo" style="width:80px;" />
+                </div>
+
+                <h2>Iniciar Sesión</h2>
+                <span>Use su documento de identidad y contraseña</span>
+
+                <div class="container-input">
+                    <ion-icon name="person-outline"></ion-icon>
+                    @Html.TextBoxFor(m => m.Dni, new { placeholder = "DNI" })
+                </div>
+
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña" })
+                </div>
+
+                <button type="submit" class="button">Iniciar Sesión</button>
+
+                @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+                {
+                    <p style="color:red; margin-top:10px;">@ViewBag.Error</p>
+                }
+            }
+        </div>
+
+        <div class="container-form">
+            <form class="sign-up">
+                <p>El Sistema de Votación Electrónica permite a los usuarios emitir su voto de manera rápida, segura y accesible desde cualquier dispositivo autorizado.</p>
+                <p>Este sistema garantiza la confidencialidad de los datos, la transparencia en el proceso y la validación de cada identidad mediante el ingreso de su documento y contraseña.</p>
+            </form>
+        </div>
+
+        <div class="container-welcome">
+            <div class="welcome-sign-up welcome">
+                <h3>¡Bienvenido al Sistema de Votación Electrónica!</h3>
+                <button class="button" id="btn-sign-up" type="button">Más Información</button>
+            </div>
+            <div class="welcome-sign-in welcome">
+                <h3>¡Hola!</h3>
+                <p>Somos un grupo de personas comprometidas en brindar una experiencia sencilla, segura y confiable para todos los usuarios.</p>
+                <button class="button" id="btn-sign-in" type="button">Iniciar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/script.js"></script>
+</body>
+</html>
