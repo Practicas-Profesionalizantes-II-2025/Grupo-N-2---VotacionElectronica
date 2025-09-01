@@ -17,8 +17,8 @@ namespace MVCProyecto.Models.Eleccion
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public int CantidadListas { get; set; }
-        public DateTime FechaFinEleccion { get; set; }
-        public DateTime FechaInicioEleccion { get; set; }
+        public DateTime? FechaFinEleccion { get; set; }
+        public DateTime? FechaInicioEleccion { get; set; }
 
     }
 }

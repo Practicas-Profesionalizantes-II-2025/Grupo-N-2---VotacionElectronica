@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,11 @@ namespace MVCProyecto.Models.Eleccion
         public int PersonaId { get; set; }
         public int EleccionId { get; set; }
         public bool Autorizada { get; set; } = true; // Se puede usar true al crear la relación
+
+        public IEnumerable<SelectListItem>? Personas { get; set; }
+        public IEnumerable<SelectListItem>? Elecciones { get; set; }
+
+
     }
 
 }

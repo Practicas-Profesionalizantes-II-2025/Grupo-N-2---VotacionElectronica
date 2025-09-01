@@ -76,22 +76,17 @@ namespace MVCProyecto.Controllers
             return View(dto);
         }
 
-        // GET: Persona/EliminarPersona/5
-        public async Task<IActionResult> EliminarPersona(int id)
-        {
-            var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{id}");
-            if (persona == null) return NotFound();
-            return View(persona);
-        }
+
 
         // POST: Persona/EliminarPersona/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EliminarConfirmado(int id)
+        public async Task<IActionResult> EliminarPersona(int id)
         {
             var response = await _httpClient.DeleteAsync($"Persona/{id}");
             return RedirectToAction(nameof(ListaPersonas));
         }
+
 
         // GET: Persona/Login
         [HttpGet]

@@ -1,0 +1,20 @@
+﻿@model MVCProyecto.Models.Eleccion.VerDTO
+
+@{
+    ViewData["Title"] = "Eliminar Elección";
+}
+
+<h2>Eliminar Elección</h2>
+
+<h3>¿Seguro que deseas eliminar esta elección?</h3>
+
+<div>
+    <h4>@Model.NombreEleccion</h4>
+    <p>@Model.DescripcionEleccion</p>
+</div>
+
+<form asp-action="EliminarEleccion">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="ListaEleccion" class="btn btn-secondary">Cancelar</a>
+</form>
