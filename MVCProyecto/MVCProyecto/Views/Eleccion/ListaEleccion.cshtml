@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVCProyecto.Models.Eleccion.VerDTO>
+
+<h2>Listado de Elecciones</h2>
+
+<p>
+    <a asp-action="CrearEleccion" class="btn btn-primary">➕ Nueva Elección</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Cantidad Listas</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.Id</td>
+                <td>@e.NombreEleccion</td>
+                <td>@e.DescripcionEleccion</td>
+                <td>@e.CantidadListas</td>
+                <td>@e.FechaInicioEleccion</td>
+                <td>@e.FechaFinEleccion</td>
+                <td>
+                    <a asp-action="VerEleccion" asp-route-id="@e.Id">👁 Ver</a> |
+                    <a asp-action="ModificarEleccion" asp-route-id="@e.Id">✏ Editar</a> |
+                    <form asp-action="EliminarEleccion" asp-route-id="@e.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-link">🗑 Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
