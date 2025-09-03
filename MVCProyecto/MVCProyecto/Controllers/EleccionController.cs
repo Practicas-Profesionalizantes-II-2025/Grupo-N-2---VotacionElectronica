@@ -88,27 +88,61 @@ namespace MVCProyecto.Controllers
             return RedirectToAction(nameof(ListaEleccion));
         }
 
-        // GET: Eleccion/AsignarLista/5
-        public async Task<IActionResult> AsignarListaEleccion(int id)
+        [HttpGet]
+        public async Task<IActionResult> ObtenerListasDisponibles(int eleccionId)
         {
-            var dto = new AsignarListaDTO { EleccionId = id, Descripcion = null };
-            return View(dto);
+            // 1) Primero intento endpoint específico (si existe en tu API)
+            var prefer = await _httpClient.GetAsync($"Lista/Disponibles?eleccionId={eleccionId}");
+            if (prefer.IsSuccessStatusCode)
+            {
+                var listas = await prefer.Content.ReadFromJsonAsync<List<Models.Lista.VerDTO>>();
+                return Json(listas);
+            }
+
+            // 2) Fallback: traigo todas y resto las ya asignadas
+            var todas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>("Lista"); // <-- asegúrate de tener ListaController en la API. Si no, crealo.
+            var asignadas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>($"Eleccion/{eleccionId}/Listas");
+
+            todas ??= new List<Models.Lista.VerDTO>();
+            asignadas ??= new List<Models.Lista.VerDTO>();
+
+            var disponibles = todas.Where(l => asignadas.All(a => a.Id != l.Id)).ToList();
+            return Json(disponibles);
         }
 
-        // POST: Eleccion/AsignarLista
+        // ---------- AJAX: listas asignadas a una elección ----------
+        [HttpGet]
+        public async Task<IActionResult> ObtenerListasAsignadas(int eleccionId)
+        {
+            var listas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>($"Eleccion/{eleccionId}/Listas");
+            return Json(listas ?? new List<Models.Lista.VerDTO>());
+        }
+
+        // ---------- POST: asignar lista ----------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AsignarListaEleccion(AsignarListaDTO dto)
         {
-            if (!ModelState.IsValid) return View(dto);
+            if (!ModelState.IsValid)
+                return RedirectToAction(nameof(ListaEleccion));
 
             var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarLista", dto);
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(VerEleccion), new { id = dto.EleccionId });
 
-            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-            return View(dto);
+            TempData["Error"] = await response.Content.ReadAsStringAsync();
+            return RedirectToAction(nameof(VerEleccion), new { id = dto.EleccionId });
         }
+
+        // ---------- POST: quitar lista ----------
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> QuitarLista(int eleccionId, int listaId)
+        {
+            var response = await _httpClient.DeleteAsync($"Eleccion/{eleccionId}/Listas/{listaId}");
+            return RedirectToAction(nameof(VerEleccion), new { id = eleccionId });
+        }
+
 
         // GET: Eleccion/AsignarPersona/5
         public IActionResult AsignarPersonaEleccion(int id)
