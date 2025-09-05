@@ -141,7 +141,7 @@
                 listas.forEach(l => {
                     const opt = document.createElement('option');
                     opt.value = l.id;
-                    opt.text = l.nombrelista ?? l.descripcionlista ?? ('Lista ' + l.id);
+                    opt.text = l.nombreLista;
                     select.appendChild(opt);
                 });
             } catch (err) {
@@ -173,8 +173,8 @@
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td>${l.id}</td>
-                        <td>${l.nombrelista ?? ''}</td>
-                        <td>${l.descripcionlista ?? ''}</td>
+                        <td>${l.nombreLista ?? ''}</td>
+                        <td>${l.descripcionLista ?? ''}</td>
                         <td>
                             <form method="post" action="/Eleccion/QuitarLista">
                                 <input type="hidden" name="__RequestVerificationToken" value="${token}" />
