@@ -10,6 +10,7 @@ namespace MVCProyecto.Models.Eleccion
     {
         public int EleccionId { get; set; }
         public int ListaId { get; set; }
+        public required string Descripcion { get; set; }
     }
 
 }

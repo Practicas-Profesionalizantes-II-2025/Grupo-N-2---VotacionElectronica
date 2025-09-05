@@ -128,10 +128,10 @@ namespace MVCProyecto.Controllers
 
             var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarLista", dto);
             if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(VerEleccion), new { id = dto.EleccionId });
+                return RedirectToAction(nameof(ListaEleccion));
 
             TempData["Error"] = await response.Content.ReadAsStringAsync();
-            return RedirectToAction(nameof(VerEleccion), new { id = dto.EleccionId });
+            return RedirectToAction(nameof(ListaEleccion));
         }
 
         // ---------- POST: quitar lista ----------
@@ -140,7 +140,7 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> QuitarLista(int eleccionId, int listaId)
         {
             var response = await _httpClient.DeleteAsync($"Eleccion/{eleccionId}/Listas/{listaId}");
-            return RedirectToAction(nameof(VerEleccion), new { id = eleccionId });
+            return RedirectToAction(nameof(ListaEleccion));
         }
 
 
