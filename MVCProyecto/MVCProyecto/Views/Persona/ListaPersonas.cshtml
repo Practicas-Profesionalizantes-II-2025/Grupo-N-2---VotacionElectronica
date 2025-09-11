@@ -1,12 +1,11 @@
 ﻿@model IEnumerable<MVCProyecto.Models.Persona.VerDTO>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/stylepersona.css" />
+    <link rel="stylesheet" href="~/css/stylepersona.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Persona</title>
 </head>
@@ -15,10 +14,12 @@
         <div class="table_header">
             <h1>Listado de personas</h1>
             <div class="buscar-registrar">
-                <input placeholder=" buscar persona"> <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <form asp-action="CrearPersona" method="get">
-                    <button type="submit" class="registrarPersona">Crear persona</button>
-                </form>
+                <div class="buscar"><input placeholder=" buscar persona"> <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                <div class="registrar">
+                    <form asp-action="CrearPersona" method="get">
+                        <button type="submit" class="registrarPersona">Crear persona</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="table_section">
@@ -43,9 +44,10 @@
                             <td>@p.ApellidoPersona</td>
                             <td>@p.Rol</td>
                             <td>
-                                <a asp-action="EditarPersona" asp-route-id="@p.Id">
-                                    <button> <i class="fa-solid fa-pen-to-square"></i></button>
-                                </a>
+                                <form asp-action="EditarPersona" asp-route-id="@p.Id" method="get" style="display:inline;">
+                                    <button type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </form>
+
                                 <form asp-action="EliminarPersona" asp-route-id="@p.Id" method="post" style="display:inline;">
                                     <button type="submit"><i class="fa-solid fa-trash"></i></button>
                                 </form>
