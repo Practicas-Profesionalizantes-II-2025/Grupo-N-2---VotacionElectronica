@@ -20,16 +20,3 @@ html {
 body {
   margin-bottom: 60px;
 }
-
-.navbar-custom {
-    background-color: #ffffff;
-}
-
-.navbar-custom .nav-link {
-color: #0a063e;
-font-size: 1.25rem; /* tamaño equivalente a fs-5 */
-}
-
-.navbar-custom .nav-link:hover {
-    color: #c0c0c0; /* color al pasar el mouse */
-}

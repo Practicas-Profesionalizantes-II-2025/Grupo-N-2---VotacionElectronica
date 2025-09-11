@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7epoeG2OJ9I8jqVNEM4BbpArcwWFA/Mb1trAHZbekuE=",
+  "Hash": "QETvqo0O7K6QBqTU+ltA8e219fer3raGDvM5q0LeYzg=",
   "Source": "MVCProyecto",
   "BasePath": "_content/MVCProyecto",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7lrsj82734",
-      "Integrity": "q21VwiK/n/tk3KwNESKmxhy9mE0mbPsqQvai2EmyBCg=",
+      "Fingerprint": "c2tiyv64ts",
+      "Integrity": "pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1405,7 +1405,7 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.7lrsj82734.css",
+      "Route": "css/site.c2tiyv64ts.css",
       "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1415,7 +1415,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "612"
+          "Value": "362"
         },
         {
           "Name": "Content-Type",
@@ -1423,11 +1423,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"q21VwiK/n/tk3KwNESKmxhy9mE0mbPsqQvai2EmyBCg=\""
+          "Value": "\"pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 23:07:34 GMT"
+          "Value": "Wed, 10 Sep 2025 17:49:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1437,7 +1437,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7lrsj82734"
+          "Value": "c2tiyv64ts"
         },
         {
           "Name": "label",
@@ -1445,7 +1445,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-q21VwiK/n/tk3KwNESKmxhy9mE0mbPsqQvai2EmyBCg="
+          "Value": "sha256-pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0="
         }
       ]
     },
@@ -1460,7 +1460,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "612"
+          "Value": "362"
         },
         {
           "Name": "Content-Type",
@@ -1468,11 +1468,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"q21VwiK/n/tk3KwNESKmxhy9mE0mbPsqQvai2EmyBCg=\""
+          "Value": "\"pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 23:07:34 GMT"
+          "Value": "Wed, 10 Sep 2025 17:49:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1482,7 +1482,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-q21VwiK/n/tk3KwNESKmxhy9mE0mbPsqQvai2EmyBCg="
+          "Value": "sha256-pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0="
         }
       ]
     },
