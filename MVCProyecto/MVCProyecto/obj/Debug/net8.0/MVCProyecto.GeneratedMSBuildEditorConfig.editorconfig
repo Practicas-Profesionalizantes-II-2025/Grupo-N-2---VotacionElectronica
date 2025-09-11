@@ -9,109 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MVCProyecto
 build_property.RootNamespace = MVCProyecto
-build_property.ProjectDir = C:\Users\Usuario\OneDrive\Documentos\GitHub\Grupo-N-2---VotacionElectronica\MVCProyecto\MVCProyecto\
+build_property.ProjectDir = C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\MVCProyecto\MVCProyecto\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Usuario\OneDrive\Documentos\GitHub\Grupo-N-2---VotacionElectronica\MVCProyecto\MVCProyecto
+build_property.MSBuildProjectDirectory = C:\Users\Taco\Documents\GitHub\Grupo-N-2---VotacionElectronica\MVCProyecto\MVCProyecto
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Candidatos/BuscarPorId.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xCdXNjYXJQb3JJZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Candidatos/CrearCandidato.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xDcmVhckNhbmRpZGF0by5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Candidatos/EditarCandidato.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xFZGl0YXJDYW5kaWRhdG8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Candidatos/EliminarCandidato.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xFbGltaW5hckNhbmRpZGF0by5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Candidatos/ListaCandidatos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xMaXN0YUNhbmRpZGF0b3MuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/AsignarListaEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cQXNpZ25hckxpc3RhRWxlY2Npb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/AsignarPersonaEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cQXNpZ25hclBlcnNvbmFFbGVjY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/CrearEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cQ3JlYXJFbGVjY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/EliminarEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cRWxpbWluYXJFbGVjY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/ListaEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cTGlzdGFFbGVjY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/ModificarEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cTW9kaWZpY2FyRWxlY2Npb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Eleccion/VerEleccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlY2Npb25cVmVyRWxlY2Npb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Home/Privacy.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/CrearPersona.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/CrearPersona.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxDcmVhclBlcnNvbmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/EditarPersona.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/EditarPersona.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxFZGl0YXJQZXJzb25hLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/EliminarPersona.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/EliminarPersona.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxFbGltaW5hclBlcnNvbmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/ListaPersonas.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/ListaPersonas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxMaXN0YVBlcnNvbmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/Login.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Persona/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/Error.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/_ViewImports.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/_ViewStart.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/OneDrive/Documentos/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/_Layout.cshtml]
+[C:/Users/Taco/Documents/GitHub/Grupo-N-2---VotacionElectronica/MVCProyecto/MVCProyecto/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-k0b7wz3xg5
