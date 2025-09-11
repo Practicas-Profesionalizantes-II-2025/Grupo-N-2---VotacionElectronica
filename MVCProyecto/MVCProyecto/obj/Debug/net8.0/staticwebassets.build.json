@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FnNYSOC8jBMEN+7cDyukXBwvUsF55jcFNDmh1tMzwOo=",
+  "Hash": "QETvqo0O7K6QBqTU+ltA8e219fer3raGDvM5q0LeYzg=",
   "Source": "MVCProyecto",
   "BasePath": "_content/MVCProyecto",
   "Mode": "Default",
@@ -1591,7 +1591,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 21:26:08 GMT"
+          "Value": "Thu, 11 Sep 2025 21:33:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1628,7 +1628,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 21:26:08 GMT"
+          "Value": "Thu, 11 Sep 2025 21:33:11 GMT"
         },
         {
           "Name": "Cache-Control",
