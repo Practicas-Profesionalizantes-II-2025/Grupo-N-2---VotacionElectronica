@@ -1,0 +1,194 @@
+﻿@model IEnumerable<MVCProyecto.Models.Eleccion.VerDTO>
+
+<h2>Listado de Elecciones</h2>
+
+<p>
+    <a asp-action="CrearEleccion" class="btn btn-primary">➕ Nueva Elección</a>
+</p>
+
+<!-- Token global para formularios dinámicos -->
+<form id="__afForm" method="post" style="display:none;">
+    @Html.AntiForgeryToken()
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Cantidad Listas</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.Id</td>
+                <td>@e.NombreEleccion</td>
+                <td>@e.DescripcionEleccion</td>
+                <td>
+                    @e.CantidadListas
+                    <button class="btn btn-sm btn-outline-secondary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalVerListas"
+                            data-id="@e.Id">
+                        👁
+                    </button>
+                </td>
+                <td>@e.FechaInicioEleccion</td>
+                <td>@e.FechaFinEleccion</td>
+                <td>
+                    <a asp-action="VerEleccion" asp-route-id="@e.Id">👁 Ver</a> |
+                    <a asp-action="ModificarEleccion" asp-route-id="@e.Id">✏ Editar</a> |
+                    <form asp-action="EliminarEleccion" asp-route-id="@e.Id" method="post" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-link">🗑 Eliminar</button>
+                    </form> |
+                    <button class="btn btn-sm btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalAsignarLista"
+                            data-id="@e.Id">
+                        ➕ Asignar Lista
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal: Asignar Lista -->
+<div class="modal fade" id="modalAsignarLista" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Asignar Lista</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formAsignarLista" asp-action="AsignarListaEleccion" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="EleccionIdLista" name="EleccionId" />
+                    <div class="mb-3">
+                        <label for="ListaId" class="form-label">Lista</label>
+                        <select id="ListaId" name="ListaId" class="form-select" required>
+                            <option value="">-- Seleccione --</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Descripcion" class="form-label">Descripción</label>
+                        <input id="Descripcion" name="Descripcion" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Asignar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Ver Listas Asignadas -->
+<div class="modal fade" id="modalVerListas" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Listas Asignadas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID Lista</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listasAsignadasBody">
+                        <!-- dinámico -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Helper: tomar token AntiForgery global
+        function getCsrfToken() {
+            const input = document.querySelector('#__afForm input[name="__RequestVerificationToken"]');
+            return input ? input.value : '';
+        }
+
+        // ---------- ASIGNAR LISTA ----------
+        const modalLista = document.getElementById('modalAsignarLista');
+        modalLista.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+            document.getElementById('EleccionIdLista').value = eleccionId;
+
+            try {
+                const response = await fetch(`/Eleccion/ObtenerListasDisponibles?eleccionId=${eleccionId}`);
+                if (!response.ok) throw new Error('No se pudieron cargar las listas disponibles.');
+                const listas = await response.json();
+
+                const select = document.getElementById('ListaId');
+                select.innerHTML = '<option value="">-- Seleccione --</option>';
+                listas.forEach(l => {
+                    const opt = document.createElement('option');
+                    opt.value = l.id;
+                    opt.text = l.nombreLista;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+
+        // ---------- VER LISTAS ASIGNADAS ----------
+        const modalVer = document.getElementById('modalVerListas');
+        modalVer.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+
+            try {
+                const response = await fetch(`/Eleccion/ObtenerListasAsignadas?eleccionId=${eleccionId}`);
+                if (!response.ok) throw new Error('No se pudieron cargar las listas asignadas.');
+                const listas = await response.json();
+
+                const token = getCsrfToken();
+                const tbody = document.getElementById('listasAsignadasBody');
+                tbody.innerHTML = '';
+
+                if (!listas || listas.length === 0) {
+                    tbody.innerHTML = "<tr><td colspan='4' class='text-center'>No hay listas asignadas</td></tr>";
+                    return;
+                }
+
+                listas.forEach(l => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${l.id}</td>
+                        <td>${l.nombreLista ?? ''}</td>
+                        <td>${l.descripcionLista ?? ''}</td>
+                        <td>
+                            <form method="post" action="/Eleccion/QuitarLista">
+                                <input type="hidden" name="__RequestVerificationToken" value="${token}" />
+                                <input type="hidden" name="eleccionId" value="${eleccionId}" />
+                                <input type="hidden" name="listaId" value="${l.id}" />
+                                <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
+                            </form>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    </script>
+}

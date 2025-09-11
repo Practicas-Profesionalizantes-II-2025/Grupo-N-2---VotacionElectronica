@@ -1,36 +1,62 @@
 ﻿@model IEnumerable<MVCProyecto.Models.Persona.VerDTO>
 
-<h1>Listado de Personas</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/stylepersona.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Persona</title>
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <h1>Listado de personas</h1>
+            <div class="buscar-registrar">
+                <div class="buscar"><input placeholder=" buscar persona"> <button class="button"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                <div class="registrar">
+                    <form asp-action="CrearPersona" method="get">
+                        <button type="submit" class="registrarPersona">Crear persona</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Dni</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td>@p.Dni</td>
+                            <td>@p.NombrePersona</td>
+                            <td>@p.ApellidoPersona</td>
+                            <td>@p.Rol</td>
+                            <td>
+                                <form asp-action="EditarPersona" asp-route-id="@p.Id" method="get" style="display:inline;">
+                                    <button type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </form>
 
-<p>
-    <a asp-action="CrearPersona">➕ Crear Nueva Persona</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>DNI</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Rol</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
-            <tr>
-                <td>@p.Id</td>
-                <td>@p.Dni</td>
-                <td>@p.NombrePersona</td>
-                <td>@p.ApellidoPersona</td>
-                <td>@p.Rol</td>
-                <td>
-                    <a asp-action="EditarPersona" asp-route-id="@p.Id">✏ Editar</a> |
-                    <a asp-action="EliminarPersona" asp-route-id="@p.Id">🗑 Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                                <form asp-action="EliminarPersona" asp-route-id="@p.Id" method="post" style="display:inline;">
+                                    <button type="submit"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
