@@ -1,0 +1,132 @@
+﻿@model IEnumerable<MVCProyecto.Models.Lista.VerDTO>
+
+<h2>Listas</h2>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCrear">➕ Nueva Lista</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model)
+        {
+            <tr>
+                <td>@l.Id</td>
+                <td>@l.NombreLista</td>
+                <td>@l.DescripcionLista</td>
+                <td>
+                    <button class="btn btn-sm btn-warning"
+                            data-id="@l.Id"
+                            data-nombre="@l.NombreLista"
+                            data-desc="@l.DescripcionLista"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditar">
+                        ✏ Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger" onclick="eliminarLista(@l.Id)">🗑 Eliminar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal Crear -->
+<div class="modal fade" id="modalCrear" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nueva Lista</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label>Nombre</label>
+                    <input id="crearNombre" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label>Descripción</label>
+                    <textarea id="crearDesc" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="crearLista()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Lista</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editarId" />
+                <div class="mb-3">
+                    <label>Nombre</label>
+                    <input id="editarNombre" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label>Descripción</label>
+                    <textarea id="editarDesc" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="editarLista()">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Captura datos al abrir modal editar
+        const modalEditar = document.getElementById('modalEditar');
+        modalEditar.addEventListener('show.bs.modal', function (event) {
+          const btn = event.relatedTarget;
+          document.getElementById('editarId').value = btn.getAttribute('data-id');
+          document.getElementById('editarNombre').value = btn.getAttribute('data-nombre');
+          document.getElementById('editarDesc').value = btn.getAttribute('data-desc');
+        });
+
+        async function crearLista() {
+          const dto = {
+            nombreLista: document.getElementById('crearNombre').value,
+            descripcionLista: document.getElementById('crearDesc').value
+          };
+          const response = await fetch('/Lista/Crear', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dto)
+          });
+          if (response.ok) location.reload();
+          else alert(await response.text());
+        }
+
+        async function editarLista() {
+          const id = document.getElementById('editarId').value;
+          const dto = {
+            nombreLista: document.getElementById('editarNombre').value,
+            descripcionLista: document.getElementById('editarDesc').value
+          };
+          const response = await fetch(`/Lista/Editar?id=${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dto)
+          });
+          if (response.ok) location.reload();
+          else alert(await response.text());
+        }
+
+        async function eliminarLista(id) {
+          if (!confirm('¿Eliminar lista?')) return;
+          const response = await fetch(`/Lista/Eliminar?id=${id}`, { method: 'DELETE' });
+          if (response.ok) location.reload();
+          else alert('Error al eliminar.');
+        }
+    </script>
+}

@@ -1,25 +1,37 @@
 ﻿@model MVCProyecto.Models.Persona.ModificarDTO
+@{
+    Layout = null; 
+}
 
-<h1>Editar Persona</h1>
+<div class="form-container">
+    <h1>Editar Persona</h1>
 
-<form asp-action="EditarPersona" method="post">
-    <div>
-        <label asp-for="NombrePersona"></label>
-        <input asp-for="NombrePersona" />
-        <span asp-validation-for="NombrePersona"></span>
-    </div>
+    <form asp-action="EditarPersona" method="post">
+        <div class="form-group">
+            <label asp-for="NombrePersona"></label>
+            <input asp-for="NombrePersona" class="form-control" />
+            <span asp-validation-for="NombrePersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="ApellidoPersona"></label>
-        <input asp-for="ApellidoPersona" />
-        <span asp-validation-for="ApellidoPersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="ApellidoPersona"></label>
+            <input asp-for="ApellidoPersona" class="form-control" />
+            <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="ContraseniaPersona"></label>
-        <input asp-for="ContraseniaPersona" type="password" />
-        <span asp-validation-for="ContraseniaPersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="ContraseniaPersona"></label>
+            <input asp-for="ContraseniaPersona" type="password" class="form-control" />
+            <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
+        </div>
 
-    <button type="submit">Actualizar</button>
-</form>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

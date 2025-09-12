@@ -1,46 +1,53 @@
 ﻿@model MVCProyecto.Models.Persona.CrearDTO
+@{
+    Layout = null; 
+}
 
-<h1>Crear Persona</h1>
+<div class="form-container">
+    <h1>Crear Persona</h1>
 
-<form asp-action="CrearPersona" method="post">
-    <div>
-        <label asp-for="NroIdentificacionPersona"></label>
-        <input asp-for="NroIdentificacionPersona" />
-        <span asp-validation-for="NroIdentificacionPersona"></span>
-    </div>
+    <form asp-action="CrearPersona" method="post">
+        <div class="form-group">
+            <label asp-for="NroIdentificacionPersona"></label>
+            <input asp-for="NroIdentificacionPersona" class="form-control" />
+            <span asp-validation-for="NroIdentificacionPersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="NombrePersona"></label>
-        <input asp-for="NombrePersona" />
-        <span asp-validation-for="NombrePersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="NombrePersona"></label>
+            <input asp-for="NombrePersona" class="form-control" />
+            <span asp-validation-for="NombrePersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="ApellidoPersona"></label>
-        <input asp-for="ApellidoPersona" />
-        <span asp-validation-for="ApellidoPersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="ApellidoPersona"></label>
+            <input asp-for="ApellidoPersona" class="form-control" />
+            <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="ContraseniaPersona"></label>
-        <input asp-for="ContraseniaPersona" type="password" />
-        <span asp-validation-for="ContraseniaPersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="ContraseniaPersona"></label>
+            <input asp-for="ContraseniaPersona" type="password" class="form-control" />
+            <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="TipoDocumentoPersona"></label>
-        <input asp-for="TipoDocumentoPersona" />
-        <span asp-validation-for="TipoDocumentoPersona"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="TipoDocumentoPersona"></label>
+            <input asp-for="TipoDocumentoPersona" class="form-control" />
+            <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
+        </div>
 
-    <div>
-        <label asp-for="Rol"></label>
-        <input asp-for="Rol" />
-        <span asp-validation-for="Rol"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Rol"></label>
+            <input asp-for="Rol" class="form-control" />
+            <span asp-validation-for="Rol" class="text-danger"></span>
+        </div>
 
-    <button type="submit">Guardar</button>
-</form>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
