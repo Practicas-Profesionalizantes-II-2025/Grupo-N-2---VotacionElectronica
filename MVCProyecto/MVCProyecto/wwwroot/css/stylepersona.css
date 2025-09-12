@@ -61,8 +61,8 @@ button {
     color: white;
 }
 
-td form:first-child button {
-    background-color: #0298cf; 
+td button:first-of-type {
+    background-color: #3a4add;
 }
 
 

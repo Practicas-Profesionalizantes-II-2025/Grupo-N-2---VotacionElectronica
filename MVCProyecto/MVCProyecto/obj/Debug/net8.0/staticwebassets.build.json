@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QETvqo0O7K6QBqTU+ltA8e219fer3raGDvM5q0LeYzg=",
+  "Hash": "1mWhmM/USKZqbH+Gx7PIC3P4ary7KVIqrFH00EYoOhE=",
   "Source": "MVCProyecto",
   "BasePath": "_content/MVCProyecto",
   "Mode": "Default",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "y06pks60x4",
-      "Integrity": "PjHogsyBY+PdY6vSaVkaT/48zfCdikRcB7WvanzXfvw=",
+      "Fingerprint": "bddeb47bzv",
+      "Integrity": "L+aT6rKvXxkmuf5TIN68N7affHxDEA9Ke4f+hyziv8I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\stylepersona.css"
@@ -1427,7 +1427,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 10 Sep 2025 17:49:27 GMT"
+          "Value": "Thu, 11 Sep 2025 23:10:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1472,7 +1472,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 10 Sep 2025 17:49:27 GMT"
+          "Value": "Thu, 11 Sep 2025 23:10:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1569,6 +1569,51 @@
       ]
     },
     {
+      "Route": "css/stylepersona.bddeb47bzv.css",
+      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2525"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L+aT6rKvXxkmuf5TIN68N7affHxDEA9Ke4f+hyziv8I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 12 Sep 2025 14:13:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bddeb47bzv"
+        },
+        {
+          "Name": "label",
+          "Value": "css/stylepersona.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-L+aT6rKvXxkmuf5TIN68N7affHxDEA9Ke4f+hyziv8I="
+        }
+      ]
+    },
+    {
       "Route": "css/stylepersona.css",
       "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
       "Selectors": [],
@@ -1579,7 +1624,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2529"
+          "Value": "2525"
         },
         {
           "Name": "Content-Type",
@@ -1587,11 +1632,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"PjHogsyBY+PdY6vSaVkaT/48zfCdikRcB7WvanzXfvw=\""
+          "Value": "\"L+aT6rKvXxkmuf5TIN68N7affHxDEA9Ke4f+hyziv8I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 21:33:11 GMT"
+          "Value": "Fri, 12 Sep 2025 14:13:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1601,52 +1646,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-PjHogsyBY+PdY6vSaVkaT/48zfCdikRcB7WvanzXfvw="
-        }
-      ]
-    },
-    {
-      "Route": "css/stylepersona.y06pks60x4.css",
-      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2529"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"PjHogsyBY+PdY6vSaVkaT/48zfCdikRcB7WvanzXfvw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 11 Sep 2025 21:33:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "y06pks60x4"
-        },
-        {
-          "Name": "label",
-          "Value": "css/stylepersona.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-PjHogsyBY+PdY6vSaVkaT/48zfCdikRcB7WvanzXfvw="
+          "Value": "sha256-L+aT6rKvXxkmuf5TIN68N7affHxDEA9Ke4f+hyziv8I="
         }
       ]
     },
