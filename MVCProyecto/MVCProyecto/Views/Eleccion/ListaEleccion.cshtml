@@ -54,6 +54,13 @@
                             data-id="@e.Id">
                         ➕ Asignar Lista
                     </button>
+                    <button class="btn btn-sm btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalAsignarPersona"
+                            data-id="@e.Id">
+                        ➕ Asignar Persona
+                    </button>
+
                 </td>
             </tr>
         }
@@ -115,6 +122,36 @@
         </div>
     </div>
 </div>
+
+<!-- Modal: Asignar Persona -->
+<div class="modal fade" id="modalAsignarPersona" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Asignar Persona</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formAsignarPersona" asp-action="AsignarPersonaEleccion" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="EleccionIdPersona" name="EleccionId" />
+                    <div class="mb-3">
+                        <label for="PersonaId" class="form-label">Persona</label>
+                        <select id="PersonaId" name="PersonaId" class="form-select" required>
+                            <option value="">-- Seleccione --</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" id="Autorizada" name="Autorizada" class="form-check-input" checked />
+                        <label for="Autorizada" class="form-check-label">Autorizada</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Asignar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts {
     <script>
@@ -190,5 +227,32 @@
                 alert(err.message);
             }
         });
+
+        const modalPersona = document.getElementById('modalAsignarPersona');
+        modalPersona.addEventListener('show.bs.modal', async function (event) {
+          const button = event.relatedTarget;
+          const eleccionId = button.getAttribute('data-id');
+          document.getElementById('EleccionIdPersona').value = eleccionId;
+
+          try {
+            const response = await fetch('/Persona/ObtenerPersonasDisponibles'); // Cambia al endpoint correcto
+            if (!response.ok) throw new Error('No se pudieron cargar las personas.');
+
+            const personas = await response.json();
+            const select = document.getElementById('PersonaId');
+            select.innerHTML = '<option value="">-- Seleccione --</option>';
+
+            personas.forEach(p => {
+              const opt = document.createElement('option');
+              opt.value = p.id;
+              opt.text = p.dni;
+              select.appendChild(opt);
+            });
+          } catch (err) {
+            alert(err.message);
+          }
+        });
     </script>
+
+
 }

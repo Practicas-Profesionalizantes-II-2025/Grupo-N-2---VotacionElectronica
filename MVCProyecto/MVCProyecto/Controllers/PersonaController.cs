@@ -13,6 +13,15 @@ namespace MVCProyecto.Controllers
             _httpClient = httpClientFactory.CreateClient("ApiClient");
         }
 
+        // GET: Persona/ObtenerPersonasDisponibles
+        [HttpGet]
+        public async Task<IActionResult> ObtenerPersonasDisponibles()
+        {
+            var personas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Persona");
+
+            return Json(personas ?? new List<VerDTO>());
+        }
+
         // GET: Persona/ListaPersonas
         public async Task<IActionResult> ListaPersonas()
         {
