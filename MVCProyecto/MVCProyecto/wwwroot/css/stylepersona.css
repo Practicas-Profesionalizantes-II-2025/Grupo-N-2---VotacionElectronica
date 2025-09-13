@@ -30,8 +30,10 @@ body {
 
 .table_header h1 {
     margin-left: 40px;
-    font-size: 40px;
+    font-size: 35px;
     color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .buscar-registrar {
@@ -53,11 +55,6 @@ body {
     width: 64%;
 }
 
-
-.buscar button:nth-child(2) {
-    background-color: #6396e4;
-}
-
 button {
     outline: none;
     border: none;
@@ -65,6 +62,12 @@ button {
     cursor: pointer;
     padding: 10px;
     color: white;
+}
+
+/* Botones buscar, editar, eliminar */
+.buscar button:nth-child(2) {
+    background-color: #6396e4;
+    border-radius: 6px;
 }
 
 .btnEditar {
@@ -76,11 +79,13 @@ button {
     background-color: #ff0000;
     border-radius: 6px;
 }
+/* --------------------------- */
 
 .registrarPersona {
     padding: 10px 5px;
     color: #ffffff;
     background-color: #0b25b9;
+    border-radius: 6px;
 }
 
 input {

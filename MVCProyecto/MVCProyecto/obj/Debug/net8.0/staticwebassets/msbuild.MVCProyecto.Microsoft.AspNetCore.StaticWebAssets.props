@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vk1azbv84z</Fingerprint>
-      <Integrity>gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero=</Integrity>
+      <Fingerprint>0rkehajmy1</Fingerprint>
+      <Integrity>dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\stylepersona.css'))</OriginalItemSpec>
