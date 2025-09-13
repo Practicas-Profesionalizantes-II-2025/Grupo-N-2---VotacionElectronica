@@ -4,7 +4,7 @@ wwwroot\css\stylepersona.css
 wwwroot\favicon.ico
 wwwroot\images\Fondo Inicio.png
 wwwroot\images\Logo VE.png
-wwwroot\js\site.js
+wwwroot\js\script.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
