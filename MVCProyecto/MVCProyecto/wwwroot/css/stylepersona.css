@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, rgb(11, 17, 80), rgba(59, 72, 182, 0.521));
+    background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
 }
 
 .table {
@@ -26,6 +26,9 @@ body {
     padding: 5px;
     margin-top: 90px;
     background-color: rgb(128, 182, 233);
+    border-top: 20px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
 }
 
 .table_header h1 {
@@ -38,13 +41,12 @@ body {
 
 .buscar-registrar {
     display: flex;
-    width: 60%;
-    justify-content: space-between;
+    justify-content: flex-end; /* alineo todo a la derecha */
     align-items: center;
-    margin-right: 0;
-    padding: 0;
-    padding-right: 0;
+    gap: 10px; /* espacio entre el input y el botón */
+    width: 58%; /* para que no ocupe todo el ancho */
 }
+
 
 .registrar{
     background-color:transparent !important;
@@ -113,6 +115,10 @@ table {
     min-width: 1000px;
     border-collapse: collapse;
     overflow: hidden;
+    border-left: 20px solid white;
+    border-bottom: 20px solid white;
+    border-right: 20px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 thead th {

@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\images\\Logo VE.png"
     },
     {
+      "Id": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\images\\fondo.jpg",
+      "PackagePath": "staticwebassets\\images\\fondo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },

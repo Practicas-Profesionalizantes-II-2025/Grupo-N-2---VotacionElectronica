@@ -3,6 +3,7 @@ wwwroot\css\style.css
 wwwroot\css\stylepersona.css
 wwwroot\favicon.ico
 wwwroot\images\Fondo Inicio.png
+wwwroot\images\fondo.jpg
 wwwroot\images\Logo VE.png
 wwwroot\js\script.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

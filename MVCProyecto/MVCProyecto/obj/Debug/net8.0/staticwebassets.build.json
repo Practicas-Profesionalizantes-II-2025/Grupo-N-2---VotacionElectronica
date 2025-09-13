@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nMo9X5Sao9oaXsS8urbAin7GUwejFyjjaKCwwBvv0R4=",
+  "Hash": "TTps5RXbi0gLeEmJlHHcx1aP/axTv86CHUxYYaXQbaI=",
   "Source": "MVCProyecto",
   "BasePath": "_content/MVCProyecto",
   "Mode": "Default",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0rkehajmy1",
-      "Integrity": "dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0=",
+      "Fingerprint": "0go8om1rl5",
+      "Integrity": "wC1gxwFiHHpo1zfnDehPQ5yZGM17kAeNgUG2Cm/9TUo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\stylepersona.css"
@@ -162,6 +162,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Fondo Inicio.png"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\images\\fondo.jpg",
+      "SourceId": "MVCProyecto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\",
+      "BasePath": "_content/MVCProyecto",
+      "RelativePath": "images/fondo#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7xk2plpojr",
+      "Integrity": "a5PvBciSGlgqsy5HGy1irOxG3ffimyAV5gjPMfYGrn0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fondo.jpg"
     },
     {
       "Identity": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\images\\Logo VE.png",
@@ -1569,7 +1590,7 @@
       ]
     },
     {
-      "Route": "css/stylepersona.0rkehajmy1.css",
+      "Route": "css/stylepersona.0go8om1rl5.css",
       "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1579,7 +1600,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2858"
+          "Value": "3188"
         },
         {
           "Name": "Content-Type",
@@ -1587,11 +1608,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0=\""
+          "Value": "\"wC1gxwFiHHpo1zfnDehPQ5yZGM17kAeNgUG2Cm/9TUo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Sep 2025 17:15:55 GMT"
+          "Value": "Sat, 13 Sep 2025 20:21:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1601,7 +1622,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0rkehajmy1"
+          "Value": "0go8om1rl5"
         },
         {
           "Name": "label",
@@ -1609,7 +1630,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0="
+          "Value": "sha256-wC1gxwFiHHpo1zfnDehPQ5yZGM17kAeNgUG2Cm/9TUo="
         }
       ]
     },
@@ -1624,7 +1645,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2858"
+          "Value": "3188"
         },
         {
           "Name": "Content-Type",
@@ -1632,11 +1653,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0=\""
+          "Value": "\"wC1gxwFiHHpo1zfnDehPQ5yZGM17kAeNgUG2Cm/9TUo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Sep 2025 17:15:55 GMT"
+          "Value": "Sat, 13 Sep 2025 20:21:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1646,7 +1667,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dNZJAWzIm+WW/tBismrFUDBdxvpytCHB696xojar/Z0="
+          "Value": "sha256-wC1gxwFiHHpo1zfnDehPQ5yZGM17kAeNgUG2Cm/9TUo="
         }
       ]
     },
@@ -1811,6 +1832,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Ws/ij2HZxPYck9pcdJH92143E3e6SxifGRDHMy2C7Ms="
+        }
+      ]
+    },
+    {
+      "Route": "images/fondo.7xk2plpojr.jpg",
+      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\images\\fondo.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "83651"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a5PvBciSGlgqsy5HGy1irOxG3ffimyAV5gjPMfYGrn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 19:35:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7xk2plpojr"
+        },
+        {
+          "Name": "label",
+          "Value": "images/fondo.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a5PvBciSGlgqsy5HGy1irOxG3ffimyAV5gjPMfYGrn0="
+        }
+      ]
+    },
+    {
+      "Route": "images/fondo.jpg",
+      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\images\\fondo.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "83651"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a5PvBciSGlgqsy5HGy1irOxG3ffimyAV5gjPMfYGrn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 19:35:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a5PvBciSGlgqsy5HGy1irOxG3ffimyAV5gjPMfYGrn0="
         }
       ]
     },
