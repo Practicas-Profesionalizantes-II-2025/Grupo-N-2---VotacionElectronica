@@ -50,11 +50,9 @@ body {
 
 .buscar {
     background-color: transparent !important;
-}
-
-.buscar {
     width: 64%;
 }
+
 
 .buscar button:nth-child(2) {
     background-color: #6396e4;
@@ -69,13 +67,14 @@ button {
     color: white;
 }
 
-td button:first-of-type {
+.btnEditar {
     background-color: #3a4add;
+    border-radius: 6px;
 }
 
-
-td button:last-of-type {
+.btnEliminar {
     background-color: #ff0000;
+    border-radius: 6px;
 }
 
 .registrarPersona {
@@ -117,6 +116,7 @@ thead th {
     background-color: #f6f9fc;
     color: #8393a5;
     font-size: 15px;
+    text-align: center;
 }
 
 th, td {

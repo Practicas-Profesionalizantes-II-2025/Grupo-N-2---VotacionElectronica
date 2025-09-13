@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o4uZTG4QYDP4dA4Tr4u2x36EIP4geL2x8LyYILhgRPw=",
+  "Hash": "BeKPNy9yR4YLEorIBrmSjk4344pehaeLZMGx3Xa0DQE=",
   "Source": "MVCProyecto",
   "BasePath": "_content/MVCProyecto",
   "Mode": "Default",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8ze7bq3rs8",
-      "Integrity": "bDUyFxfNgRLF/KjViF4hE/fI6RbSfxCkEvSlKKvAIfs=",
+      "Fingerprint": "vk1azbv84z",
+      "Integrity": "gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\stylepersona.css"
@@ -1569,51 +1569,6 @@
       ]
     },
     {
-      "Route": "css/stylepersona.8ze7bq3rs8.css",
-      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2652"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bDUyFxfNgRLF/KjViF4hE/fI6RbSfxCkEvSlKKvAIfs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 13 Sep 2025 13:54:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8ze7bq3rs8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/stylepersona.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-bDUyFxfNgRLF/KjViF4hE/fI6RbSfxCkEvSlKKvAIfs="
-        }
-      ]
-    },
-    {
       "Route": "css/stylepersona.css",
       "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
       "Selectors": [],
@@ -1624,7 +1579,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2652"
+          "Value": "2688"
         },
         {
           "Name": "Content-Type",
@@ -1632,11 +1587,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bDUyFxfNgRLF/KjViF4hE/fI6RbSfxCkEvSlKKvAIfs=\""
+          "Value": "\"gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Sep 2025 13:54:30 GMT"
+          "Value": "Sat, 13 Sep 2025 16:30:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1646,7 +1601,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bDUyFxfNgRLF/KjViF4hE/fI6RbSfxCkEvSlKKvAIfs="
+          "Value": "sha256-gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero="
+        }
+      ]
+    },
+    {
+      "Route": "css/stylepersona.vk1azbv84z.css",
+      "AssetFile": "C:\\Users\\Usuario\\OneDrive\\Documentos\\GitHub\\Grupo-N-2---VotacionElectronica\\MVCProyecto\\MVCProyecto\\wwwroot\\css\\stylepersona.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2688"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 16:30:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vk1azbv84z"
+        },
+        {
+          "Name": "label",
+          "Value": "css/stylepersona.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gdrNJRDvY7jKUfETxZUZ79bL2uN2EKb8ctEdxqxtero="
         }
       ]
     },
