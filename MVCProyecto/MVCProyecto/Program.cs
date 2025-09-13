@@ -7,8 +7,15 @@ builder.Services.AddHttpClient("ApiClient", client =>
 {
     client.BaseAddress = new Uri("https://localhost:7236/api/");
 });
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 var app = builder.Build();
+app.UseSession();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
