@@ -44,6 +44,14 @@ body {
     padding-right: 0;
 }
 
+.registrar{
+    background-color:transparent !important;
+}
+
+.buscar {
+    background-color: transparent !important;
+}
+
 .buscar {
     width: 64%;
 }
