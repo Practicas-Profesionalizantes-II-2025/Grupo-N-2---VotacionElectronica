@@ -1,40 +1,92 @@
-﻿@model IEnumerable<MVCProyecto.Models.Candidatos.VerDTO>
+﻿
+@model IEnumerable<MVCProyecto.Models.Candidatos.VerDTO>
 
-<h1>Listado de Candidatos</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styleListas.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Candidato</title>
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <h1>Listado de candidatos</h1>
+            <div class="buscar-registrar">
+                <div class="buscar">
+                    <input placeholder=" buscar candidato">
+                    <button class="button btn-sm"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="registrar">
+                    <button type="button" class="registrarPersona"
+                            data-bs-toggle="modal" data-bs-target="#personaModal"
+                            data-url="@Url.Action("CrearCandidato")">
+                        Crear candidato
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Lista asignada</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td>@p.NombreCandidato</td>
+                            <td>@p.PuestoCandidato</td>
+                            <td>@p.IdLista</td>
+                            <td>
+                                <button type="button" class="btnEditar btn-sm"
+                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-url="@Url.Action("EditarCandidato", new { id = p.Id })">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <form asp-action="EliminarCandidato" asp-route-id="@p.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="btnEliminar btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="personaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="personaModalContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cargar el contenido del modal dinámicamente (pero sin AJAX POST todavía)
+        var candidatoModal = document.getElementById('personaModal');
+        candidatoModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var url = button.getAttribute('data-url');
+            var modalContent = document.getElementById('personaModalContent');
 
-<p>
-    <a asp-action="CrearCandidato">➕ Crear Nuevo Candidato</a>
-</p>
-
-<form asp-action="BuscarPorNombre" method="post" class="mb-3">
-    <input type="text" name="nombre" placeholder="Buscar por nombre" />
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Puesto</th>
-            <th>Id Lista</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.Id</td>
-                <td>@c.NombreCandidato</td>
-                <td>@c.PuestoCandidato</td>
-                <td>@c.IdLista</td>
-                <td>
-                    <a asp-action="BuscarPorId" asp-route-id="@c.Id">🔍 Ver</a> |
-                    <a asp-action="EditarCandidato" asp-route-id="@c.Id">✏ Editar</a> |
-                    <a asp-action="EliminarCandidato" asp-route-id="@c.Id">🗑 Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            fetch(url)
+                .then(response => response.text())
+                .then(html => modalContent.innerHTML = html);
+        });
+    </script>
+</body>
+</html>
