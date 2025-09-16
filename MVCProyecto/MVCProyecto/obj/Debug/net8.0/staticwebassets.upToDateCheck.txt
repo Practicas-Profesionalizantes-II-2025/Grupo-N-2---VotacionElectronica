@@ -1,7 +1,7 @@
 wwwroot\css\site.css
-wwwroot\css\style.css
 wwwroot\css\stylehome.css
-wwwroot\css\stylepersona.css
+wwwroot\css\styleListas.css
+wwwroot\css\styleLogin.css
 wwwroot\favicon.ico
 wwwroot\images\Fondo Inicio.png
 wwwroot\images\fondo.jpg

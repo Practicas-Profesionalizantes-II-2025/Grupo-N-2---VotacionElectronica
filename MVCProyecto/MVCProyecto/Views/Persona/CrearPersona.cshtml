@@ -1,51 +1,68 @@
 ﻿@model MVCProyecto.Models.Persona.CrearDTO
 @{
-    Layout = null; 
+    Layout = null;
 }
 
 <div class="form-container">
-    <h1>Crear Persona</h1>
+    <h1 class="text-center">Crear nueva persona</h1>
 
     <form asp-action="CrearPersona" method="post">
-        <div class="form-group">
-            <label asp-for="NroIdentificacionPersona"></label>
-            <input asp-for="NroIdentificacionPersona" class="form-control" />
-            <span asp-validation-for="NroIdentificacionPersona" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombrePersona">Nombre</label>
+                    <input asp-for="NombrePersona" class="form-control" />
+                    <span asp-validation-for="NombrePersona" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ApellidoPersona">Apellido</label>
+                    <input asp-for="ApellidoPersona" class="form-control" />
+                    <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NroIdentificacionPersona">Número de Identificación</label>
+                    <input asp-for="NroIdentificacionPersona" class="form-control" />
+                    <span asp-validation-for="NroIdentificacionPersona" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ContraseniaPersona">Contraseña</label>
+                    <input asp-for="ContraseniaPersona" type="password" class="form-control" />
+                    <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="TipoDocumentoPersona">Tipo de documento</label>
+                    <input asp-for="TipoDocumentoPersona" class="form-control" />
+                    <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Rol">Rol</label>
+                    <input asp-for="Rol" class="form-control" />
+                    <span asp-validation-for="Rol" class="text-danger"></span>
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label asp-for="NombrePersona"></label>
-            <input asp-for="NombrePersona" class="form-control" />
-            <span asp-validation-for="NombrePersona" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="ApellidoPersona"></label>
-            <input asp-for="ApellidoPersona" class="form-control" />
-            <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="ContraseniaPersona"></label>
-            <input asp-for="ContraseniaPersona" type="password" class="form-control" />
-            <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="TipoDocumentoPersona"></label>
-            <input asp-for="TipoDocumentoPersona" class="form-control" />
-            <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Rol"></label>
-            <input asp-for="Rol" class="form-control" />
-            <span asp-validation-for="Rol" class="text-danger"></span>
-        </div>
-
-        <div class="form-actions">
+        <div class="form-actions text-center mt-3">
             <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>
+
     </form>
 </div>
 
