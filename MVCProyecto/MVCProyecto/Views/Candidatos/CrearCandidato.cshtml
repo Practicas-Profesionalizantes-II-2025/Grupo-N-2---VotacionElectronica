@@ -1,19 +1,48 @@
-﻿@model MVCProyecto.Models.Candidatos.CrearDTO
+﻿
+@model MVCProyecto.Models.Candidatos.CrearDTO
+@{
+    Layout = null;
+}
 
-<h2>Crear Candidato</h2>
+<div class="form-container">
+    <h1 class="text-center">Crear nuevo candidato</h1>
 
-<form asp-action="CrearCandidato" method="post">
-    <div class="form-group">
-        <label>Nombre</label>
-        <input asp-for="NombreCandidato" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Puesto</label>
-        <input asp-for="PuestoCandidato" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Id Lista</label>
-        <input asp-for="IdLista" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
-</form>
+    <form asp-action="CrearCandidato" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombreCandidato">Nombre</label>
+                    <input asp-for="NombreCandidato" class="form-control" />
+                    <span asp-validation-for="NombreCandidato" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PuestoCandidato">Puesto</label>
+                    <input asp-for="PuestoCandidato" class="form-control" />
+                    <span asp-validation-for="PuestoCandidato" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="IdLista">Número de identificación de lista</label>
+                    <input asp-for="IdLista" class="form-control" />
+                    <span asp-validation-for="IdLista" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-actions text-center mt-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
