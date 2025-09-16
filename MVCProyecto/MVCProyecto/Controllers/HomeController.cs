@@ -32,8 +32,16 @@ namespace MVCProyecto.Controllers
                     {
                         Titulo = "Listas",
                         Descripcion = "Asignar y administrar listas",
-                        Controller = "ListaLista",
-                        Action = "Index",
+                        Controller = "Lista",
+                        Action = "ListaLista",
+                        Icono = "bi bi-people"
+                    },
+                    new MenuItemViewModel
+                    {
+                        Titulo = "Candidatos",
+                        Descripcion = "Asignar y administrar candidatos",
+                        Controller = "Candidatos",
+                        Action = "ListaCandidatos",
                         Icono = "bi bi-people"
                     },
                     new MenuItemViewModel
