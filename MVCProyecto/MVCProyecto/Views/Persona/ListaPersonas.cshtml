@@ -59,9 +59,11 @@
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
 
-                                <form asp-action="EliminarPersona" asp-route-id="@p.Id" method="post" style="display:inline;">
-                                    <button type="submit" class="btnEliminar btn-sm"><i class="fa-solid fa-trash"></i></button>
-                                </form>
+                                <button type="button" class="btnEliminar btn-sm"
+                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-url="@Url.Action("EliminarPersona", new { id = p.Id })">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                     }
