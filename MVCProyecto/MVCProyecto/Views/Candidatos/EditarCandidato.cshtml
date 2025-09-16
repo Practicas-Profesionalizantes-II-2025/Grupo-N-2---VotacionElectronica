@@ -1,15 +1,38 @@
 ﻿@model MVCProyecto.Models.Candidatos.ModificarDTO
+@{
+    Layout = null; 
+}
 
-<h2>Editar Candidato</h2>
+<div class="form-container">
+    <h1 class="text-center">Editar Candidato</h1>
 
-<form asp-action="EditarCandidato" method="post">
-    <div class="form-group">
-        <label>Nombre</label>
-        <input asp-for="NombreCandidato" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Puesto</label>
-        <input asp-for="PuestoCandidato" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-success">Guardar Cambios</button>
-</form>
+    <form asp-action="EditarCandidato" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombreCandidato">Nombre</label>
+                    <input asp-for="NombreCandidato" class="form-control" />
+                    <span asp-validation-for="NombreCandidato" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PuestoCandidato">Puesto</label>
+                    <input asp-for="PuestoCandidato" class="form-control" />
+                    <span asp-validation-for="PuestoCandidato" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-actions text-center mt-3">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
