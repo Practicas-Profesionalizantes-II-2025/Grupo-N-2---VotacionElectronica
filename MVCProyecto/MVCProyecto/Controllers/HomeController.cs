@@ -25,23 +25,23 @@ namespace MVCProyecto.Controllers
                         Titulo = "Elecciones",
                         Descripcion = "Gestionar elecciones existentes",
                         Controller = "Eleccion",
-                        Action = "Index",
+                        Action = "ListaEleccion",
                         Icono = "bi bi-ballot"
                     },
                     new MenuItemViewModel
                     {
                         Titulo = "Listas",
                         Descripcion = "Asignar y administrar listas",
-                        Controller = "Lista",
+                        Controller = "ListaLista",
                         Action = "Index",
                         Icono = "bi bi-people"
                     },
                     new MenuItemViewModel
                     {
-                        Titulo = "Candidatos",
-                        Descripcion = "Ver y asignar candidatos a listas",
-                        Controller = "Candidatos",
-                        Action = "Index",
+                        Titulo = "Personas",
+                        Descripcion = "Ver y crear personas",
+                        Controller = "Persona",
+                        Action = "ListaPersonas",
                         Icono = "bi bi-person-badge"
                     },
                     new MenuItemViewModel

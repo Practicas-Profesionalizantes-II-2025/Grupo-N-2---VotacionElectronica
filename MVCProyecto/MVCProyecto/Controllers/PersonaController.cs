@@ -129,7 +129,7 @@ namespace MVCProyecto.Controllers
                 }
 
                 // Si todo ok -> lo redirigimos al home o lista
-                return RedirectToAction(nameof(ListaPersonas));
+                return RedirectToAction("Index", "Home");
             }
             catch (HttpRequestException)
             {
