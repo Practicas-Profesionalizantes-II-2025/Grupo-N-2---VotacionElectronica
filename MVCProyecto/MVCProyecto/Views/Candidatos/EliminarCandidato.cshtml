@@ -1,12 +1,15 @@
-﻿@model MVCProyecto.Models.Candidatos.VerDTO
+﻿
+@model MVCProyecto.Models.Candidatos.VerDTO
 
-<h2>Eliminar Candidato</h2>
+<h1>Eliminar Candidato</h1>
 
 <div>
-    <h3>¿Seguro que desea eliminar al candidato <b>@Model.NombreCandidato</b>?</h3>
-    <form asp-action="EliminarConfirmado" method="post">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Eliminar</button>
-        <a asp-action="ListaCandidatos" class="btn btn-secondary">Cancelar</a>
-    </form>
+    <p>¿Está seguro que desea eliminar a <strong>@Model.NombreCandidato @Model.PuestoCandidato</strong>?</p>
 </div>
+
+<form asp-action="EliminarCandidato" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="ListaCandidatos" class="btn btn-secondary">Cancelar</a>
+</form>

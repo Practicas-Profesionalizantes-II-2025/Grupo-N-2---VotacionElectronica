@@ -86,7 +86,15 @@ namespace MVCProyecto.Controllers
             return View(dto);
         }
 
-        
+        // GET: Candidatos/EliminarCandidato/5
+        [HttpGet]
+        public async Task<IActionResult> EliminarCandidato(int id)
+        {
+            var candidato = await _httpClient.GetFromJsonAsync<VerDTO>($"Candidatos/{id}");
+            if (candidato == null) return NotFound();
+            return PartialView("EliminarCandidato", candidato);
+        }
+
 
         // POST: Candidatos/EliminarCandidato/5
         [HttpPost, ActionName("EliminarCandidato")]
