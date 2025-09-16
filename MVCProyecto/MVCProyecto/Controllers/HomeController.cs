@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCProyecto.Models;
+using MVCProyecto.ViewModels;
 
 namespace MVCProyecto.Controllers
 {
@@ -15,7 +16,46 @@ namespace MVCProyecto.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var menu = new MenuViewModel
+            {
+                Items = new List<MenuItemViewModel>
+                {
+                    new MenuItemViewModel
+                    {
+                        Titulo = "Elecciones",
+                        Descripcion = "Gestionar elecciones existentes",
+                        Controller = "Eleccion",
+                        Action = "Index",
+                        Icono = "bi bi-ballot"
+                    },
+                    new MenuItemViewModel
+                    {
+                        Titulo = "Listas",
+                        Descripcion = "Asignar y administrar listas",
+                        Controller = "Lista",
+                        Action = "Index",
+                        Icono = "bi bi-people"
+                    },
+                    new MenuItemViewModel
+                    {
+                        Titulo = "Candidatos",
+                        Descripcion = "Ver y asignar candidatos a listas",
+                        Controller = "Candidatos",
+                        Action = "Index",
+                        Icono = "bi bi-person-badge"
+                    },
+                    new MenuItemViewModel
+                    {
+                        Titulo = "Resultados",
+                        Descripcion = "Visualizar resultados de elecciones",
+                        Controller = "Resultado",
+                        Action = "Index",
+                        Icono = "bi bi-bar-chart"
+                    }
+                }
+            };
+
+            return View(menu);
         }
 
         public IActionResult Privacy()
@@ -30,3 +70,6 @@ namespace MVCProyecto.Controllers
         }
     }
 }
+
+
+

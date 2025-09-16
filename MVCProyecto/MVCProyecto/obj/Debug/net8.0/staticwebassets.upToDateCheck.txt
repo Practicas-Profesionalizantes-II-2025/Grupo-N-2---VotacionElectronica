@@ -1,5 +1,6 @@
 wwwroot\css\site.css
 wwwroot\css\style.css
+wwwroot\css\stylehome.css
 wwwroot\css\stylepersona.css
 wwwroot\favicon.ico
 wwwroot\images\Fondo Inicio.png
