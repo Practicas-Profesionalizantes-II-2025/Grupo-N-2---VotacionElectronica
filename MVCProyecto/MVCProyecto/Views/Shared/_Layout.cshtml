@@ -22,31 +22,44 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @{
+                    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+                    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+                }
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <!-- Menú principal a la izquierda -->
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Persona" asp-action="ListaPersonas">Personas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Candidatos" asp-action="ListaCandidatos">Candidatos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Eleccion" asp-action="ListaEleccion">Elecciones</a>
-                        </li>
+                        @if (currentController == "Home" && currentAction == "Index")
+                        {
+                            <!-- En Home/Index NO mostramos las otras opciones -->
+                        }
+                        else
+                        {
+                            <!-- Menú completo en las demás pantallas -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Persona" asp-action="ListaPersonas">Personas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Candidatos" asp-action="ListaCandidatos">Candidatos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Eleccion" asp-action="ListaEleccion">Elecciones</a>
+                            </li>
+                        }
                     </ul>
 
-                    <!-- Salir -->
-                    <!-- Botón que abre el modal -->
+                    <!-- Botón de cerrar sesión (siempre visible) -->
                     <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">
                         <i class="bi bi-box-arrow-right"></i> Cerrar sesión
                     </a>
+                </div>
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-hidden="true">
@@ -73,14 +86,16 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - MVCProyecto - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top bg-white text-dark py-3">
+        <div class="container text-center">
+            &copy; 2025 - Votación Electrónica
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
