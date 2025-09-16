@@ -25,7 +25,7 @@ body {
     align-items: center;
     padding: 5px;
     margin-top: 90px;
-    background-color: rgb(128, 182, 233);
+    background-color: #3AB397;
     border-top: 20px solid white;
     border-right: 20px solid white;
     border-left: 20px solid white;
@@ -34,17 +34,17 @@ body {
 .table_header h1 {
     margin-left: 40px;
     font-size: 35px;
-    color: black;
+    color: white;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 .buscar-registrar {
     display: flex;
-    justify-content: flex-end; /* alineo todo a la derecha */
+    justify-content: flex-end;
     align-items: center;
-    gap: 10px; /* espacio entre el input y el botón */
-    width: 58%; /* para que no ocupe todo el ancho */
+    gap: 10px; 
+    width: 58%; 
 }
 
 
@@ -68,7 +68,8 @@ button {
 
 /* Botones buscar, editar, eliminar */
 .buscar button:nth-child(2) {
-    background-color: #6396e4;
+    background-color: #e9edf5;
+    color: #3AB397;
     border-radius: 6px;
 }
 

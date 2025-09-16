@@ -19,6 +19,5 @@ namespace MVCProyecto.Models.Persona
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string ContraseniaPersona { get; set; }
 
-
     }
 }
