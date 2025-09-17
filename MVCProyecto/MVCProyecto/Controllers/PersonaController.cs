@@ -135,7 +135,11 @@ namespace MVCProyecto.Controllers
                     return View(dto);
                 }
 
-                // Si todo ok -> lo redirigimos al home o lista
+                // ✅ Guardamos usuario y rol en sesión
+                HttpContext.Session.SetString("Usuario", persona.NombrePersona); // o DNI, lo que quieras
+                HttpContext.Session.SetString("Rol", persona.Rol); // importante para filtrar menú
+
+                // Redirigimos al home
                 return RedirectToAction("Index", "Home");
             }
             catch (HttpRequestException)
@@ -144,5 +148,6 @@ namespace MVCProyecto.Controllers
                 return View(dto);
             }
         }
+
     }
 }
