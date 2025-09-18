@@ -1,0 +1,14 @@
+﻿@model MVCProyecto.Models.Lista.VerDTO
+
+<h1>Eliminar Lista</h1>
+
+<div>
+    <p>¿Está seguro que desea eliminar a <strong>@Model.NombreLista @Model.DescripcionLista</strong>?</p>
+</div>
+
+<form asp-action="EliminarLista" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="ListaLista" class="btn btn-secondary">Cancelar</a>
+</form>

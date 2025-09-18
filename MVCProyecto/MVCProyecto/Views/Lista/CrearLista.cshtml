@@ -1,0 +1,38 @@
+﻿@model MVCProyecto.Models.Lista.CrearDTO
+@{
+	Layout = null;
+}
+
+<div class="form-container">
+    <h1 class="text-center">Crear nueva lista</h1>
+
+    <form asp-action="CrearLista" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombreLista">Nombre</label>
+                    <input asp-for="NombreLista" class="form-control" />
+                    <span asp-validation-for="NombreLista" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="DescripcionLista">Descripción</label>
+                    <input asp-for="DescripcionLista" class="form-control" />
+                    <span asp-validation-for="DescripcionLista" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions text-center mt-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

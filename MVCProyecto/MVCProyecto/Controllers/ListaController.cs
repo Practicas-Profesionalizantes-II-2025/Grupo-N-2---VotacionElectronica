@@ -18,33 +18,71 @@ namespace MVCProyecto.Controllers
             return View(listas ?? new List<VerDTO>());
         }
 
+        // GET: Lista/CrearLista
+        public IActionResult CrearLista() => View();
+
+        // POST: Lista/CrearLista
         [HttpPost]
-        public async Task<IActionResult> Crear([FromBody] CrearDTO dto)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CrearLista(CrearDTO dto)
         {
+            if (!ModelState.IsValid) return View(dto);
+
             var response = await _httpClient.PostAsJsonAsync("Lista", dto);
-            if (!response.IsSuccessStatusCode)
-            {
-                return BadRequest(await response.Content.ReadAsStringAsync());
-            }
-            return Ok();
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction(nameof(ListaLista));
+
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            return View(dto);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Editar(int id, [FromBody] ModificarDTO dto)
+
+        // GET: Lista/EditarLista/5
+        public async Task<IActionResult> EditarLista(int id)
         {
-            var response = await _httpClient.PutAsJsonAsync($"Lista/{id}", dto);
-            if (!response.IsSuccessStatusCode)
+            var lista = await _httpClient.GetFromJsonAsync<VerDTO>($"Lista/{id}");
+            if (lista == null) return NotFound();
+
+            var dto = new ModificarDTO
             {
-                return BadRequest(await response.Content.ReadAsStringAsync());
-            }
-            return Ok();
+                NombreLista = lista.NombreLista,
+                DescripcionLista = lista.DescripcionLista
+            };
+            return View(dto);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Eliminar(int id)
+        // POST: Lista/EditarLista/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarLista(int id, ModificarDTO dto)
+        {
+            if (!ModelState.IsValid) return View(dto);
+
+            var response = await _httpClient.PutAsJsonAsync($"Lista/{id}", dto);
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction(nameof(ListaLista));
+
+            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
+            return View(dto);
+        }
+
+        // GET: Lista/EliminarLista/5
+        [HttpGet]
+        public async Task<IActionResult> EliminarLista(int id)
+        {
+            var lista = await _httpClient.GetFromJsonAsync<VerDTO>($"Lista/{id}");
+            if (lista == null) return NotFound();
+            return PartialView("EliminarLista", lista);
+        }
+
+
+        // POST: Lista/EliminarLista/5
+        [HttpPost, ActionName("EliminarLista")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarConfirmado(int id)
         {
             var response = await _httpClient.DeleteAsync($"Lista/{id}");
-            return response.IsSuccessStatusCode ? Ok() : BadRequest();
+            return RedirectToAction(nameof(ListaLista));
         }
     }
 }
