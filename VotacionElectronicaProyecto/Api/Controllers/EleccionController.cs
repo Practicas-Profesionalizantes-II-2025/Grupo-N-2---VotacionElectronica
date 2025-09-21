@@ -105,5 +105,19 @@ namespace Api.Controllers
             await _logica.AsignarPersona(dto);
             return Ok("Persona asignada correctamente.");
         }
+
+        [HttpGet("{eleccionId}/Personas")]
+        public async Task<IActionResult> ObtenerPersonasPorEleccion(int eleccionId)
+        {
+            var personas = await _logica.ObtenerPersonasPorEleccion(eleccionId);
+
+            if (personas == null || personas.Count == 0)
+                return NotFound($"No hay personas asignadas a la elección {eleccionId}");
+
+            return Ok(personas);
+        }
+
+
+
     }
 }

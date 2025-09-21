@@ -235,19 +235,20 @@
           document.getElementById('EleccionIdPersona').value = eleccionId;
 
           try {
-            const response = await fetch('/Persona/ObtenerPersonasDisponibles'); // Cambia al endpoint correcto
+            const response = await fetch(`/Eleccion/ObtenerPersonasDisponibles?eleccionId=${eleccionId}`);
             if (!response.ok) throw new Error('No se pudieron cargar las personas.');
 
             const personas = await response.json();
             const select = document.getElementById('PersonaId');
             select.innerHTML = '<option value="">-- Seleccione --</option>';
 
-            personas.forEach(p => {
-              const opt = document.createElement('option');
-              opt.value = p.id;
-              opt.text = p.dni;
-              select.appendChild(opt);
-            });
+                    personas.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          opt.text = `${p.nombrePersona} ${p.apellidoPersona} - ${p.dni}`;
+          select.appendChild(opt);
+        });
+
           } catch (err) {
             alert(err.message);
           }
