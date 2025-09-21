@@ -61,5 +61,12 @@ namespace Api.Controllers
             await _logica.EliminarCandidato(id);
             return NoContent();
         }
+
+        [HttpGet("PorLista/{listaId}")]
+        public async Task<IActionResult> ObtenerPorLista(int listaId)
+        {
+            var candidatos = await _logica.ObtenerPorLista(listaId);
+            return Ok(candidatos);
+        }
     }
 }

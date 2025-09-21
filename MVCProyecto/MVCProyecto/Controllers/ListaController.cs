@@ -17,6 +17,15 @@ namespace MVCProyecto.Controllers
             var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Lista");
             return View(listas ?? new List<VerDTO>());
         }
+        [HttpGet]
+        public async Task<IActionResult> PorEleccion(int eleccionId)
+        {
+            // Llamo a la API que devuelve listas de una elección
+            var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Lista/PorEleccion/{eleccionId}");
+
+            ViewBag.EleccionId = eleccionId;
+            return View("ListasPorEleccion", listas ?? new List<VerDTO>());
+        }
 
         // GET: Lista/CrearLista
         public IActionResult CrearLista() => View();

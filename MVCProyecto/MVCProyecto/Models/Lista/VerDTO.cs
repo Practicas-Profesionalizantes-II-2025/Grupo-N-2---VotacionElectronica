@@ -11,6 +11,5 @@ namespace MVCProyecto.Models.Lista
         public int Id { get; set; }
         public string NombreLista { get; set; }
         public string DescripcionLista { get; set; }
-        
     }
 }

@@ -136,6 +136,7 @@ namespace MVCProyecto.Controllers
                 }
 
                 // ✅ Guardamos usuario y rol en sesión
+                HttpContext.Session.SetInt32("UsuarioId", persona.Id);
                 HttpContext.Session.SetString("Usuario", persona.NombrePersona); // o DNI, lo que quieras
                 HttpContext.Session.SetString("Rol", persona.Rol); // importante para filtrar menú
 

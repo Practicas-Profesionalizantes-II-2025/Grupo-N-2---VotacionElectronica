@@ -24,16 +24,16 @@ namespace Negocio.Logica
         public async Task RegistrarVoto(CrearDTO votoDto)
         {
             if (votoDto == null)
-                throw new ArgumentNullException(nameof(votoDto), "Los datos del voto son obligatorios.");
+                throw new ArgumentNullException(nameof(votoDto));
 
             if (votoDto.PersonaId <= 0)
-                throw new ArgumentException("El ID de la persona es inválido.", nameof(votoDto.PersonaId));
+                throw new ArgumentException("ID de persona inválido.", nameof(votoDto.PersonaId));
 
             if (votoDto.EleccionId <= 0)
-                throw new ArgumentException("El ID de la elección es inválido.", nameof(votoDto.EleccionId));
+                throw new ArgumentException("ID de elección inválido.", nameof(votoDto.EleccionId));
 
-            if (votoDto.ListaId <= 0)
-                throw new ArgumentException("El ID de la lista es inválido.", nameof(votoDto.ListaId));
+            if (votoDto.ListaId < 0)
+                throw new ArgumentException("ID de lista inválido.", nameof(votoDto.ListaId));
 
             var personaEleccion = await _personaEleccionRepo.ObtenerPorPersonaYEleccion(
                 votoDto.PersonaId, votoDto.EleccionId);
@@ -44,10 +44,7 @@ namespace Negocio.Logica
             if (!personaEleccion.Autorizada)
                 throw new InvalidOperationException("La persona no está autorizada para votar o ya ha votado.");
 
-            var votoExistente = await _personaEleccionRepo.ObtenerPorPersonaYEleccion(votoDto.PersonaId, votoDto.EleccionId);
-            if (votoExistente != null)
-                throw new InvalidOperationException("Ya existe un voto registrado para esta persona en esta elección.");
-
+            // Registro el voto (anónimo)
             var voto = new Voto
             {
                 FechaVoto = DateTime.Now,
@@ -57,9 +54,11 @@ namespace Negocio.Logica
 
             await _votoRepo.Crear(voto);
 
+            // Desautorizo para que no pueda volver a votar
             personaEleccion.Autorizada = false;
             await _personaEleccionRepo.Actualizar(personaEleccion);
         }
+
 
         public async Task EliminarVoto(int id)
         {

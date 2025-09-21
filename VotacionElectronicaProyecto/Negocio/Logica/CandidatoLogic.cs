@@ -102,7 +102,17 @@ namespace Negocio.Logica
 
             await _repositorio.Eliminar(id);
         }
-    }
 
+        public async Task<List<Candidatos>> ObtenerPorLista(int listaId)
+        {
+            {
+                if (listaId <= 0)
+                    throw new ArgumentException("Id de lista inválido");
+
+                return await _repositorio.ObtenerPorLista(listaId);
+            }
+
+        }
+    }
 }
 
