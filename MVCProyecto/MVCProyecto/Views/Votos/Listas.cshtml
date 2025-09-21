@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MVCProyecto.Models.Lista.VerDTO>
+@{
+    ViewBag.Title = "Listas disponibles";
+    var eleccionId = ViewBag.EleccionId;
+}
+
+<h2>Listas de la elección</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lista in Model)
+        {
+            <tr>
+                <td>@lista.NombreLista</td>
+                <td>@lista.DescripcionLista</td>
+                <td>
+                    <button class="btn btn-info ver-candidatos" data-lista-id="@lista.Id">Ver</button>
+
+                    <form asp-controller="Votos" asp-action="Registrar" method="post" class="d-inline">
+                        <input type="hidden" name="eleccionId" value="@eleccionId" />
+                        <input type="hidden" name="listaId" value="@lista.Id" />
+                        <button type="submit" class="btn btn-success">Votar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Botón para voto en blanco -->
+<form asp-controller="Votos" asp-action="Registrar" method="post">
+    <input type="hidden" name="eleccionId" value="@eleccionId" />
+    <input type="hidden" name="listaId" value="0" />
+    <button type="submit" class="btn btn-secondary">Votar en blanco</button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="candidatosModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Candidatos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="candidatosContent">
+                Cargando...
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".ver-candidatos").click(function () {
+                var listaId = $(this).data("lista-id");
+                $("#candidatosContent").html("Cargando...");
+
+                $.get("/Lista/VerCandidatos/" + listaId, function (data) {
+                    $("#candidatosContent").html(data);
+                    var modal = new bootstrap.Modal(document.getElementById('candidatosModal'));
+                    modal.show();
+                });
+            });
+        });
+    </script>
+}

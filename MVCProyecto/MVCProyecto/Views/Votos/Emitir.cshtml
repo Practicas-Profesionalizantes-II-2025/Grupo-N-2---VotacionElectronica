@@ -1,0 +1,21 @@
+﻿@model List<MVCProyecto.Models.Eleccion.VerDTO>
+
+<div class="container mt-4">
+    <h2>Seleccione una Elección</h2>
+    <div class="row">
+        @foreach (var eleccion in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5>@eleccion.NombreEleccion</h5>
+                        <p>@eleccion.DescripcionEleccion</p>
+                        <a asp-action="Listas" asp-route-eleccionId="@eleccion.Id" class="btn btn-primary">
+                            Entrar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

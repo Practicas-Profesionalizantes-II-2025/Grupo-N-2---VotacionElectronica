@@ -64,5 +64,12 @@ namespace Datos.Repositorios
             }
         }
 
+        public async Task<List<Candidatos>> ObtenerPorLista(int listaId)
+        {
+            return await _context.Candidatos
+                .Where(c => c.IdLista == listaId)
+                .ToListAsync();
+        }
+
     }
 }
