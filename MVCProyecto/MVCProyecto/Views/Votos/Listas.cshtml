@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Listas disponibles";
     var eleccionId = ViewBag.EleccionId;
+    var listaBlanco = Model.FirstOrDefault(l => l.NombreLista == "Voto en Blanco");
 }
 
 <h2>Listas de la elección</h2>
@@ -15,13 +16,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var lista in Model)
+        @foreach (var lista in Model.Where(l => l.NombreLista != "Voto en Blanco"))
         {
             <tr>
                 <td>@lista.NombreLista</td>
                 <td>@lista.DescripcionLista</td>
                 <td>
-                    <button class="btn btn-info ver-candidatos" data-lista-id="@lista.Id">Ver</button>
+                    <!-- Botón que abre el modal -->
+                    <button class="btn btn-info"
+                            data-bs-toggle="modal"
+                            data-bs-target="#candidatosModal"
+                            data-id="@lista.Id">
+                        Ver Candidatos
+                    </button>
 
                     <form asp-controller="Votos" asp-action="Registrar" method="post" class="d-inline">
                         <input type="hidden" name="eleccionId" value="@eleccionId" />
@@ -34,14 +41,16 @@
     </tbody>
 </table>
 
-<!-- Botón para voto en blanco -->
-<form asp-controller="Votos" asp-action="Registrar" method="post">
-    <input type="hidden" name="eleccionId" value="@eleccionId" />
-    <input type="hidden" name="listaId" value="0" />
-    <button type="submit" class="btn btn-secondary">Votar en blanco</button>
-</form>
+@if (listaBlanco != null)
+{
+    <form asp-controller="Votos" asp-action="Registrar" method="post">
+        <input type="hidden" name="eleccionId" value="@eleccionId" />
+        <input type="hidden" name="listaId" value="@listaBlanco.Id" />
+        <button type="submit" class="btn btn-secondary">Votar en blanco</button>
+    </form>
+}
 
-<!-- Modal -->
+<!-- Modal: Ver Candidatos -->
 <div class="modal fade" id="candidatosModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -58,17 +67,36 @@
 
 @section Scripts {
     <script>
-        $(document).ready(function () {
-            $(".ver-candidatos").click(function () {
-                var listaId = $(this).data("lista-id");
-                $("#candidatosContent").html("Cargando...");
+        const modalCandidatos = document.getElementById('candidatosModal');
 
-                $.get("/Lista/VerCandidatos/" + listaId, function (data) {
-                    $("#candidatosContent").html(data);
-                    var modal = new bootstrap.Modal(document.getElementById('candidatosModal'));
-                    modal.show();
-                });
-            });
+        modalCandidatos.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const listaId = button.getAttribute('data-id');
+
+            const content = document.getElementById('candidatosContent');
+            content.innerHTML = "Cargando...";
+
+            try {
+                const response = await fetch(`/Candidatos/PorLista/${listaId}`);
+                if (!response.ok) throw new Error("Error al cargar candidatos");
+
+                const data = await response.json();
+                if (data && data.length > 0) {
+                    let html = "<ul class='list-group'>";
+                    data.forEach(c => {
+                        html += `
+                          <li class='list-group-item'>
+                            <strong>${c.nombreCandidato} ${c.apellidoCandidato}</strong> - ${c.dni}
+                          </li>`;
+                    });
+                    html += "</ul>";
+                    content.innerHTML = html;
+                } else {
+                    content.innerHTML = "<p>No hay candidatos para esta lista.</p>";
+                }
+            } catch (err) {
+                content.innerHTML = "<p class='text-danger'>Error al cargar los candidatos.</p>";
+            }
         });
     </script>
 }

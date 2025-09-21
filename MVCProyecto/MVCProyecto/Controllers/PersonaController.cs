@@ -139,6 +139,7 @@ namespace MVCProyecto.Controllers
                 HttpContext.Session.SetInt32("UsuarioId", persona.Id);
                 HttpContext.Session.SetString("Usuario", persona.NombrePersona); // o DNI, lo que quieras
                 HttpContext.Session.SetString("Rol", persona.Rol); // importante para filtrar menú
+                HttpContext.Session.SetString("Dni", persona.Dni); // ✅ lo necesitás
 
                 // Redirigimos al home
                 return RedirectToAction("Index", "Home");

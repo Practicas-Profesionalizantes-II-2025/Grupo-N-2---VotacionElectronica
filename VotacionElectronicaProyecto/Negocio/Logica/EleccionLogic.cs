@@ -8,15 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Negocio.Logica
 {
     public class EleccionLogic : IEleccionLogic
     {
         private readonly IEleccionRepository _repositorio;
+        private readonly IListaRepository _listaRepositorio;
 
-        public EleccionLogic(IEleccionRepository repositorio)
+        public EleccionLogic(IEleccionRepository repositorio, IListaRepository listaRepositorio)
         {
             _repositorio = repositorio;
+            _listaRepositorio = listaRepositorio;
         }
 
 
@@ -114,10 +117,19 @@ public async Task Crear(CrearDTO dto)
     };
 
     await _repositorio.Crear(eleccion);
-}
+            var listaBlanco = new Lista
+            {
+                NombreLista = "Voto en Blanco",
+                DescripcionLista = "Opción automática de voto en blanco",
+                EleccionId = eleccion.Id
+            };
+
+            await _listaRepositorio.Crear(listaBlanco);
+
+        }
 
 
-public async Task Actualizar(int id, ModificarDTO dto)
+        public async Task Actualizar(int id, ModificarDTO dto)
 {
     if (id <= 0)
         throw new ArgumentException("El ID de la elección es inválido.", nameof(id));

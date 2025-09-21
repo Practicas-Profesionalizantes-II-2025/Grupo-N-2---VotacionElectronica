@@ -15,9 +15,20 @@ namespace MVCProyecto.Controllers
         // GET: Votos/Emitir
         public async Task<IActionResult> Emitir()
         {
-            var elecciones = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Eleccion.VerDTO>>("Eleccion");
+            var dni = HttpContext.Session.GetString("Dni");
+            if (string.IsNullOrEmpty(dni))
+            {
+                TempData["Error"] = "No se pudo obtener el DNI del usuario en sesión.";
+                return RedirectToAction("Login", "Persona");
+            }
+
+            // Llamo al endpoint de PersonaController
+            var elecciones = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Eleccion.VerDTO>>(
+                $"Persona/eleccionesAutorizadas/{dni}");
+
             return View(elecciones ?? new List<MVCProyecto.Models.Eleccion.VerDTO>());
         }
+
 
         // GET: Votos/Listas/5
         public async Task<IActionResult> Listas(int eleccionId)
