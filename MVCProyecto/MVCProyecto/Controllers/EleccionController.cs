@@ -144,12 +144,7 @@ namespace MVCProyecto.Controllers
         }
 
 
-        // GET: Eleccion/AsignarPersona/5
-        public IActionResult AsignarPersonaEleccion(int id)
-        {
-            var dto = new AsignarPersonaEleccionDTO { EleccionId = id };
-            return View(dto);
-        }
+        
 
         // POST: Eleccion/AsignarPersona
         [HttpPost]
@@ -160,11 +155,34 @@ namespace MVCProyecto.Controllers
 
             var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarPersona", dto);
             if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(VerEleccion), new { id = dto.EleccionId });
+                return RedirectToAction(nameof(ListaEleccion));
 
             ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
             return View(dto);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ObtenerPersonasDisponibles(int eleccionId)
+        {
+            // 1) Todas las personas
+            var todas = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Persona.VerDTO>>("Persona");
+
+            // 2) Personas ya asignadas a esta elección
+            var asignadas = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Persona.VerDTO>>($"Eleccion/{eleccionId}/Personas");
+
+            todas ??= new List<MVCProyecto.Models.Persona.VerDTO>();
+            asignadas ??= new List<MVCProyecto.Models.Persona.VerDTO>();
+
+            // 3) Filtrar: solo las que no están asignadas y cuyo rol sea "Votante"
+            var disponibles = todas
+                .Where(p => asignadas.All(a => a.Id != p.Id) && p.Rol.Equals("Votante", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return Json(disponibles);
+        }
+
+
+
 
     }
 }

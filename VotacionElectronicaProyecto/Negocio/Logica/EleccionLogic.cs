@@ -202,5 +202,9 @@ public async Task AsignarPersona(AsignarPersonaEleccionDTO dto)
     await _repositorio.AsignarPersona(dto);
 }
 
+        public async Task<List<Shared.Dtos.Persona.VerDTO>> ObtenerPersonasPorEleccion(int eleccionId)
+        {
+            return await _repositorio.ObtenerPersonasPorEleccion(eleccionId);
+        }
     }
 }
