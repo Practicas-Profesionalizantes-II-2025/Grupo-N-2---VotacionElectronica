@@ -105,5 +105,12 @@ namespace MVCProyecto.Controllers
             return RedirectToAction(nameof(ListaCandidatos));
         }
 
+        [HttpGet("Candidatos/PorLista/{listaId}")]
+        public async Task<IActionResult> PorLista(int listaId)
+        {
+            var candidatos = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Candidatos/PorLista/{listaId}");
+            return Json(candidatos ?? new List<VerDTO>());
+        }
+
     }
 }

@@ -45,18 +45,7 @@
             <div class="modal-body">
                 <canvas id="resultadoChart"></canvas>
                 <hr />
-                <table class="table table-bordered mt-3" id="tablaResultados">
-                    <thead>
-                        <tr>
-                            <th>Lista</th>
-                            <th>Votos</th>
-                            <th>Porcentaje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- dinámico -->
-                    </tbody>
-                </table>
+                
             </div>
         </div>
     </div>
@@ -125,18 +114,7 @@
                     }
                 });
 
-                // Llenar tabla
-                const tbody = document.querySelector("#tablaResultados tbody");
-                tbody.innerHTML = "";
-                data.forEach((r, i) => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${r.nombreLista}</td>
-                        <td>${r.totalVotos}</td>
-                        <td>${porcentajes[i]}%</td>
-                    `;
-                    tbody.appendChild(row);
-                });
+                
 
             } catch (err) {
                 alert(err.message);
