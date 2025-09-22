@@ -28,5 +28,13 @@ namespace MVCProyecto.Controllers
             var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>($"resultado/{eleccionId}");
             return Json(resultados ?? new List<ResultadoDto>());
         }
+
+        [HttpGet("Resultado/Obtener/{eleccionId}")]
+        public async Task<IActionResult> Obtener(int eleccionId)
+        {
+            var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>($"resultado/{eleccionId}");
+            return Json(resultados ?? new List<ResultadoDto>());
+        }
+
     }
 }
