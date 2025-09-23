@@ -13,9 +13,5 @@ namespace MVCProyecto.Models.Candidatos
         public string PuestoCandidato { get; set; }
         public int IdLista { get; set; }
         public string? NombreLista { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-
     }
 }
