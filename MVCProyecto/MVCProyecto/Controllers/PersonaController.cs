@@ -120,7 +120,7 @@ namespace MVCProyecto.Controllers
 
             try
             {
-                // Llamamos a la API por DNI
+                // 📌 Buscar persona por DNI
                 var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/dni/{dto.Dni}");
                 if (persona == null)
                 {
@@ -128,20 +128,25 @@ namespace MVCProyecto.Controllers
                     return View(dto);
                 }
 
-                // Comparamos contraseña
+                // 📌 Validar contraseña
                 if (persona.Contrasenia != dto.Password)
                 {
                     ModelState.AddModelError("", "Contraseña incorrecta");
                     return View(dto);
                 }
 
-                // ✅ Guardamos usuario y rol en sesión
+                // 📌 Guardamos usuario en sesión
                 HttpContext.Session.SetInt32("UsuarioId", persona.Id);
-                HttpContext.Session.SetString("Usuario", persona.NombrePersona); // o DNI, lo que quieras
-                HttpContext.Session.SetString("Rol", persona.Rol); // importante para filtrar menú
-                HttpContext.Session.SetString("Dni", persona.Dni); // ✅ lo necesitás
+                HttpContext.Session.SetString("Usuario", persona.NombrePersona);
+                HttpContext.Session.SetString("Rol", persona.Rol);
+                HttpContext.Session.SetString("Dni", persona.Dni);
 
-                // Redirigimos al home
+                if (persona.PrimerLogin == true)   // 👈 propiedad que ya definiste
+                {
+                    return RedirectToAction("CambiarContrasenia", "Persona");
+                }
+
+                // ✅ Si ya cambió la contraseña antes, va al Home
                 return RedirectToAction("Index", "Home");
             }
             catch (HttpRequestException)
@@ -151,5 +156,31 @@ namespace MVCProyecto.Controllers
             }
         }
 
+
+
+        [HttpGet]
+        public IActionResult CambiarContrasenia()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CambiarContrasenia(string nuevaContrasenia)
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return RedirectToAction("Login");
+
+            var response = await _httpClient.PostAsJsonAsync($"Persona/{usuarioId}/CambiarContrasenia", nuevaContrasenia);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Contraseña actualizada correctamente";
+                return RedirectToAction("Index", "Home");
+            }
+
+            TempData["Error"] = "Error al cambiar la contraseña";
+            return View();
+        }
     }
 }

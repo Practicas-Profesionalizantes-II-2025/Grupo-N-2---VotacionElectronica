@@ -14,10 +14,13 @@ namespace Negocio.Logica
     public class PersonaLogic : IPersonaLogic
     {
         private readonly IPersonaRepository _repositorio;
+        private readonly SeguridadServicio _seguridad;
 
-        public PersonaLogic(IPersonaRepository repositorio)
+        public PersonaLogic(IPersonaRepository repositorio, SeguridadServicio seguridad)
         {
             _repositorio = repositorio;
+            _seguridad = seguridad;
+
         }
 
         public async Task<List<VerDTO>> ObtenerTodas()
@@ -30,7 +33,8 @@ namespace Negocio.Logica
                 ApellidoPersona = p.ApellidoPersona,
                 Dni = p.NroIdentificacionPersona,
                 Rol = p.Rol,
-                Contrasenia = p.ContraseniaPersona
+                Contrasenia = p.ContraseniaPersona,
+                PrimerLogin = p.PrimerLogin
             }).ToList();
         }
 
@@ -52,7 +56,9 @@ namespace Negocio.Logica
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
                 Rol = persona.Rol,
-                Contrasenia = persona.ContraseniaPersona
+                Contrasenia = persona.ContraseniaPersona,
+                PrimerLogin = persona.PrimerLogin
+
             };
         }
 
@@ -69,7 +75,9 @@ namespace Negocio.Logica
                 ApellidoPersona = p.ApellidoPersona,
                 Dni = p.NroIdentificacionPersona,
                 Rol = p.Rol,
-                Contrasenia = p.ContraseniaPersona
+                Contrasenia = p.ContraseniaPersona,
+                PrimerLogin = p.PrimerLogin
+
 
             }).ToList();
         }
@@ -90,7 +98,8 @@ namespace Negocio.Logica
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
                 Rol = persona.Rol,
-                Contrasenia = persona.ContraseniaPersona
+                Contrasenia = persona.ContraseniaPersona,
+                PrimerLogin = persona.PrimerLogin
 
             };
         }
@@ -121,30 +130,29 @@ namespace Negocio.Logica
 
             var persona = new Persona
             {
-                NombrePersona = dto.NombrePersona.Trim(),
-                ApellidoPersona = dto.ApellidoPersona.Trim(),
-                TipoDocumentoPersona = dto.TipoDocumentoPersona.Trim(),
-                NroIdentificacionPersona = dto.NroIdentificacionPersona.Trim(),
-                Rol = dto.Rol.Trim()
+                NombrePersona = dto.NombrePersona,
+                ApellidoPersona = dto.ApellidoPersona,
+                NroIdentificacionPersona = dto.NroIdentificacionPersona,
+                Rol = dto.Rol,
+                TipoDocumentoPersona = dto.TipoDocumentoPersona,
+                ContraseniaPersona = _seguridad.CrearContrasenia(dto.NroIdentificacionPersona),
+                PrimerLogin = true
             };
-
-
-            if (dto.Rol.Equals("Votante", StringComparison.OrdinalIgnoreCase))
-            {
-                var seguridadServicio = new SeguridadServicio();
-                persona.ContraseniaPersona = seguridadServicio.CrearContrasenia(dto.NroIdentificacionPersona);
-            }
-            else
-            {
-                if (string.IsNullOrWhiteSpace(dto.ContraseniaPersona))
-                    throw new ArgumentException("La contraseña es obligatoria para roles distintos de Votante.", nameof(dto.ContraseniaPersona));
-
-                persona.ContraseniaPersona = dto.ContraseniaPersona;
-            }
 
             await _repositorio.Crear(persona);
         }
 
+        public async Task CambiarContrasenia(int id, string nuevaContrasenia)
+        {
+            var persona = await _repositorio.ObtenerPorId(id);
+            if (persona == null)
+                throw new Exception("Persona no encontrada");
+
+            persona.ContraseniaPersona = nuevaContrasenia;
+            persona.PrimerLogin = false;
+
+            await _repositorio.Actualizar(persona);
+        }
         public async Task Actualizar(int id, ModificarDTO dto)
         {
             if (id <= 0)

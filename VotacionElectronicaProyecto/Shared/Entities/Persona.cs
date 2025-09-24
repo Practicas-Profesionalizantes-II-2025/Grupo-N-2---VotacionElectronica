@@ -23,6 +23,8 @@ namespace Shared.Entities
         public string TipoDocumentoPersona { get; set; }
 
         public string Rol { get; set; }
+        public bool PrimerLogin { get; set; } = true;
+
         public ICollection<PersonaEleccion> PersonaElecciones { get; set; }
 
     }

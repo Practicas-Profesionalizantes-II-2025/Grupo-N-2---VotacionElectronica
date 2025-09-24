@@ -33,14 +33,12 @@ namespace Shared.Dtos.Persona
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string? ApellidoPersona { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string ContraseniaPersona { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string TipoDocumentoPersona { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string Rol { get; set; }
+        public string Rol { get; set; } 
 
         public int Id { get; set; }
 

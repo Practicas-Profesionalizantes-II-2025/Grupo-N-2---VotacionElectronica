@@ -14,6 +14,7 @@ namespace Shared.Dtos.Persona
         public string Rol { get; set; }
         public string Dni { get; set; }
         public string Contrasenia { get; set; }
+        public bool PrimerLogin { get; set; } 
 
     }
 
