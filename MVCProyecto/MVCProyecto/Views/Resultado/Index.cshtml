@@ -45,7 +45,6 @@
             <div class="modal-body">
                 <canvas id="resultadoChart"></canvas>
                 <hr />
-                
             </div>
         </div>
     </div>
@@ -56,6 +55,13 @@
     <script>
         let chart;
         const modalResultados = document.getElementById('resultadoModal');
+
+        // Función para generar colores distintos según cantidad de listas
+        function generarColores(cantidad) {
+            return Array.from({ length: cantidad }, (_, i) =>
+                `hsl(${(i * 360) / cantidad}, 70%, 60%)`
+            );
+        }
 
         modalResultados.addEventListener('show.bs.modal', async function (event) {
             const button = event.relatedTarget;
@@ -79,7 +85,7 @@
                 const labels = data.map(r => r.nombreLista);
                 const votos = data.map(r => r.totalVotos);
                 const total = votos.reduce((a, b) => a + b, 0);
-                const porcentajes = votos.map(v => ((v / total) * 100).toFixed(2));
+                const colores = generarColores(labels.length);
 
                 // Destruir gráfico previo
                 if (chart) chart.destroy();
@@ -93,8 +99,8 @@
                         datasets: [{
                             label: "Votos",
                             data: votos,
-                            backgroundColor: "rgba(54, 162, 235, 0.6)",
-                            borderColor: "rgba(54, 162, 235, 1)",
+                            backgroundColor: colores,
+                            borderColor: colores,
                             borderWidth: 1
                         }]
                     },
@@ -105,7 +111,9 @@
                                 callbacks: {
                                     label: function (context) {
                                         let votos = context.raw;
-                                        let porcentaje = ((votos / total) * 100).toFixed(2);
+                                        let porcentaje = total > 0
+                                            ? ((votos / total) * 100).toFixed(2)
+                                            : 0;
                                         return `${votos} votos (${porcentaje}%)`;
                                     }
                                 }
@@ -113,8 +121,6 @@
                         }
                     }
                 });
-
-                
 
             } catch (err) {
                 alert(err.message);

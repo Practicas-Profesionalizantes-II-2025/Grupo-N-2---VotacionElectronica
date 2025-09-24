@@ -95,37 +95,54 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
 }
 
 
-public async Task Crear(CrearDTO dto)
-{
-    if (dto == null)
-        throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
-    if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
-        throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
-    if (dto.CantidadListas < 0)
-        throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
-    if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
-        throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
+        public async Task Crear(CrearDTO dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
+            if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
+                throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
+            if (dto.CantidadListas < 0)
+                throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
+            if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
+                throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
 
-    var eleccion = new Eleccion
-    {
-        NombreEleccion = dto.NombreEleccion,
-        DescripcionEleccion = dto.DescripcionEleccion,
-        CantidadListas = dto.CantidadListas,
-        FechaInicioEleccion = dto.FechaInicioEleccion,
-        FechaFinEleccion = dto.FechaFinEleccion,
-        CreatedDate = dto.CreatedDate
-    };
+            // 1. Crear elección
+            var eleccion = new Eleccion
+            {
+                NombreEleccion = dto.NombreEleccion,
+                DescripcionEleccion = dto.DescripcionEleccion,
+                CantidadListas = dto.CantidadListas,
+                FechaInicioEleccion = dto.FechaInicioEleccion,
+                FechaFinEleccion = dto.FechaFinEleccion,
+                CreatedDate = dto.CreatedDate
+            };
 
-    await _repositorio.Crear(eleccion);
+            await _repositorio.Crear(eleccion);
+
+            // 2. Crear lista "Voto en Blanco"
             var listaBlanco = new Lista
             {
                 NombreLista = "Voto en Blanco",
-                DescripcionLista = "Opción automática de voto en blanco",
-                EleccionId = eleccion.Id
+                DescripcionLista = "Opción automática de voto en blanco"
             };
 
             await _listaRepositorio.Crear(listaBlanco);
 
+            // 3. Asociar lista a la elección (igual que AsignarListaDTO)
+            var asignacion = new AsignarListaDTO
+            {
+                EleccionId = eleccion.Id,
+                ListaId = listaBlanco.Id,
+                Descripcion = "Asignada automáticamente al crear la elección"
+            };
+
+            await _repositorio.AsignarLista(asignacion);
+
+            // 4. Opcional: asegurar que CantidadListas quede bien
+            eleccion.CantidadListas = await _repositorio.ObtenerListasPorEleccion(eleccion.Id)
+                                                        .ContinueWith(t => t.Result.Count);
+
+            await _repositorio.Actualizar(eleccion);
         }
 
 

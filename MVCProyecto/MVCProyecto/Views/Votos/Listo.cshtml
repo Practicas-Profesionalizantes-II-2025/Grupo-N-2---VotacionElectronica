@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Confirmación de Voto";
+    var eleccionId = TempData["EleccionId"];
+    var eleccionNombre = TempData["EleccionNombre"] ?? "Resultados";
 }
 
 <div class="text-center mt-5">
@@ -10,7 +12,100 @@
         Volver a Elecciones
     </a>
 
-    <a asp-controller="Resultado" asp-action="Index" class="btn btn-success mt-4 ms-2">
-        Ver Resultados
-    </a>
+    @if (eleccionId != null)
+    {
+        <button class="btn btn-success mt-4 ms-2"
+                data-bs-toggle="modal"
+                data-bs-target="#resultadoModal"
+                data-id="@eleccionId"
+                data-nombre="@eleccionNombre">
+            Ver Resultados
+        </button>
+    }
 </div>
+
+<!-- Modal Resultados -->
+<div class="modal fade" id="resultadoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <canvas id="resultadoChart"></canvas>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let chart;
+        const modalResultados = document.getElementById('resultadoModal');
+
+        modalResultados.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+            const nombre = button.getAttribute('data-nombre');
+
+            // título del modal
+            modalResultados.querySelector('.modal-title').textContent = `Resultados - ${nombre}`;
+
+            try {
+                const response = await fetch(`/Resultado/Obtener/${eleccionId}`);
+                if (!response.ok) throw new Error("No hay resultados disponibles.");
+
+                const data = await response.json();
+                if (!data || data.length === 0) {
+                    alert("No hay resultados disponibles.");
+                    return;
+                }
+
+                const labels = data.map(r => r.nombreLista);
+                const votos = data.map(r => r.totalVotos);
+                const total = votos.reduce((a, b) => a + b, 0);
+
+                // colores automáticos para cada lista
+                const colores = labels.map((_, i) =>
+                    `hsl(${(i * 360 / labels.length)}, 70%, 50%)`
+                );
+
+                if (chart) chart.destroy();
+
+                const ctx = document.getElementById("resultadoChart").getContext("2d");
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Votos",
+                            data: votos,
+                            backgroundColor: colores,
+                            borderColor: colores,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        let votos = context.raw;
+                                        let porcentaje = ((votos / total) * 100).toFixed(2);
+                                        return `${votos} votos (${porcentaje}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    </script>
+}
