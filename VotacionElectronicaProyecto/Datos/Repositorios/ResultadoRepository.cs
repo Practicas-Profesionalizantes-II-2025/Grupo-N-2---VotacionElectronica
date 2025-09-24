@@ -21,17 +21,18 @@ namespace Datos.Repositorios
 
         public async Task<List<ResultadoDto>> ObtenerResultadosAgrupados(int eleccionId)
         {
-            return await _context.Voto
-                .Where(v => v.EleccionId == eleccionId)
-                .GroupBy(v => new { v.ListaId, v.Lista.NombreLista })
-                .Select(g => new ResultadoDto
+            return await _context.EleccionListas
+                .Where(el => el.IdEleccion == eleccionId)
+                .Select(el => new ResultadoDto
                 {
-                    ListaId = g.Key.ListaId,
-                    NombreLista = g.Key.NombreLista,
-                    TotalVotos = g.Count()
+                    ListaId = el.IdLista,
+                    NombreLista = el.Lista.NombreLista,
+                    TotalVotos = _context.Voto
+                        .Count(v => v.EleccionId == eleccionId && v.ListaId == el.IdLista)
                 })
                 .ToListAsync();
         }
+
 
     }
 }

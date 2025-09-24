@@ -38,17 +38,16 @@ namespace MVCProyecto.Controllers
             return View(listas ?? new List<MVCProyecto.Models.Lista.VerDTO>());
         }
 
-        // POST: Votos/Registrar
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registrar(int eleccionId, int listaId)
         {
             var personaId = HttpContext.Session.GetInt32("UsuarioId") ?? 0;
-            // 0 = voto en blanco
+
             var dto = new Models.Voto.CrearDTO
             {
                 EleccionId = eleccionId,
-                ListaId = listaId, // puede ser >0 (lista real) o 0 (blanco)
+                ListaId = listaId,
                 PersonaId = personaId
             };
 
@@ -56,13 +55,23 @@ namespace MVCProyecto.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                // Vamos a la pantalla de confirmación
+                // Guardar info en TempData para mostrar resultados en el modal
+                TempData["EleccionId"] = eleccionId;
+
+                // Traemos el nombre de la elección para mostrar en el título del modal
+                var eleccion = await _httpClient.GetFromJsonAsync<MVCProyecto.Models.Eleccion.VerDTO>($"Eleccion/{eleccionId}");
+                if (eleccion != null)
+                {
+                    TempData["EleccionNombre"] = eleccion.NombreEleccion;
+                }
+
                 return RedirectToAction("Listo");
             }
 
             TempData["Error"] = await response.Content.ReadAsStringAsync();
             return RedirectToAction("Emitir");
         }
+
 
         // GET: Votos/Listo
         public IActionResult Listo()

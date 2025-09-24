@@ -111,11 +111,10 @@ namespace Api.Controllers
         {
             var personas = await _logica.ObtenerPersonasPorEleccion(eleccionId);
 
-            if (personas == null || personas.Count == 0)
-                return NotFound($"No hay personas asignadas a la elección {eleccionId}");
-
-            return Ok(personas);
+            // Siempre devolvemos 200 OK, aunque no haya resultados
+            return Ok(personas ?? new List<Shared.Dtos.Persona.VerDTO>());
         }
+
 
 
 
