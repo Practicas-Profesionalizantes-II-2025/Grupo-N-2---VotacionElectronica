@@ -135,7 +135,7 @@ namespace Negocio.Logica
                 NroIdentificacionPersona = dto.NroIdentificacionPersona,
                 Rol = dto.Rol,
                 TipoDocumentoPersona = dto.TipoDocumentoPersona,
-                ContraseniaPersona = _seguridad.CrearContrasenia(dto.NroIdentificacionPersona),
+                ContraseniaPersona = dto.NroIdentificacionPersona,
                 PrimerLogin = true
             };
 
