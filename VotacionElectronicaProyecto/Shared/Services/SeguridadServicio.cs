@@ -17,17 +17,25 @@ namespace Shared.Services
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
-
-                // Convertir el resultado a una cadena hexadecimal completa
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < 4; i++)
-                {
                     builder.Append(bytes[i].ToString("x2"));
-                }
 
                 return builder.ToString();
             }
+        }
 
+        public string HashContrasenia(string contrasenia)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
+                StringBuilder builder = new StringBuilder();
+                foreach (var b in bytes)
+                    builder.Append(b.ToString("x2"));
+
+                return builder.ToString();
+            }
         }
     }
 }

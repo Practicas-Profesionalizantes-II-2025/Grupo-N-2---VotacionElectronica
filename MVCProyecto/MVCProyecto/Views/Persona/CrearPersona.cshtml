@@ -31,15 +31,7 @@
                     <span asp-validation-for="NroIdentificacionPersona" class="text-danger"></span>
                 </div>
             </div>
-
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="ContraseniaPersona">Contraseña</label>
-                    <input asp-for="ContraseniaPersona" type="password" class="form-control" />
-                    <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
-                </div>
-            </div>
+   
 
             <div class="col-md-6">
                 <div class="form-group">
@@ -52,10 +44,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Rol">Rol</label>
-                    <input asp-for="Rol" class="form-control" />
+                    <select asp-for="Rol" class="form-control">
+                        <option value="Votante">Votante</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
                     <span asp-validation-for="Rol" class="text-danger"></span>
                 </div>
             </div>
+
         </div>
 
         <div class="form-actions text-center mt-3">
