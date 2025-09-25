@@ -1,41 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Shared.Services
 {
     public class SeguridadServicio
     {
-        public string CrearContrasenia(string numeroIdentificacion)
-        {
-            var salt = Guid.NewGuid().ToString();
-            string contrasenia = numeroIdentificacion + "SomeFixedString" + salt;
-
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < 4; i++)
-                    builder.Append(bytes[i].ToString("x2"));
-
-                return builder.ToString();
-            }
-        }
+        private readonly PasswordHasher<string> _hasher = new();
 
         public string HashContrasenia(string contrasenia)
         {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
-                StringBuilder builder = new StringBuilder();
-                foreach (var b in bytes)
-                    builder.Append(b.ToString("x2"));
+            return _hasher.HashPassword(null, contrasenia);
+        }
 
-                return builder.ToString();
-            }
+        public bool VerificarContrasenia(string contraseniaIngresada, string hashGuardado)
+        {
+            var result = _hasher.VerifyHashedPassword(null, hashGuardado, contraseniaIngresada);
+            return result == PasswordVerificationResult.Success
+                   || result == PasswordVerificationResult.SuccessRehashNeeded;
         }
     }
 }

@@ -135,7 +135,7 @@ namespace Negocio.Logica
                 NroIdentificacionPersona = dto.NroIdentificacionPersona,
                 Rol = dto.Rol,
                 TipoDocumentoPersona = dto.TipoDocumentoPersona,
-                ContraseniaPersona = dto.NroIdentificacionPersona,
+                ContraseniaPersona = _seguridad.HashContrasenia(dto.NroIdentificacionPersona),
                 PrimerLogin = true
             };
 
@@ -148,7 +148,7 @@ namespace Negocio.Logica
             if (persona == null)
                 throw new Exception("Persona no encontrada");
 
-            persona.ContraseniaPersona = nuevaContrasenia;
+            persona.ContraseniaPersona = _seguridad.HashContrasenia(nuevaContrasenia);
             persona.PrimerLogin = false;
 
             await _repositorio.Actualizar(persona);
@@ -176,7 +176,8 @@ namespace Negocio.Logica
 
             persona.NombrePersona = dto.NombrePersona.Trim();
             persona.ApellidoPersona = dto.ApellidoPersona.Trim();
-            persona.ContraseniaPersona = dto.ContraseniaPersona;
+            persona.ContraseniaPersona = _seguridad.HashContrasenia(dto.ContraseniaPersona) ;
+            persona.PrimerLogin = dto.PrimerLogin;
 
             await _repositorio.Actualizar(persona);
         }
@@ -195,14 +196,18 @@ namespace Negocio.Logica
         }
 
 
-        public async Task<VerDTO> AutenticarPorContrasenia(string contrasenia)
+        public async Task<VerDTO> Autenticar(string dni, string contrasenia)
         {
-            if (string.IsNullOrWhiteSpace(contrasenia))
-                throw new ArgumentException("La contraseña es obligatoria.", nameof(contrasenia));
+            if (string.IsNullOrWhiteSpace(dni) || string.IsNullOrWhiteSpace(contrasenia))
+                throw new ArgumentException("DNI y contraseña son obligatorios.");
 
-            var persona = await _repositorio.AutenticarPorContrasenia(contrasenia);
+            var persona = await _repositorio.ObtenerPorDNI(dni);
             if (persona == null)
-                throw new InvalidOperationException("No se encontró una persona con la contraseña proporcionada.");
+                throw new InvalidOperationException("Persona no encontrada.");
+
+            if (!_seguridad.VerificarContrasenia(contrasenia, persona.ContraseniaPersona))
+                throw new InvalidOperationException("Contraseña incorrecta.");
+
             return new VerDTO
             {
                 Id = persona.Id,
@@ -210,10 +215,11 @@ namespace Negocio.Logica
                 ApellidoPersona = persona.ApellidoPersona,
                 Dni = persona.NroIdentificacionPersona,
                 Rol = persona.Rol,
-                Contrasenia = persona.ContraseniaPersona
-
+                Contrasenia = persona.ContraseniaPersona,
+                PrimerLogin = persona.PrimerLogin
             };
         }
+
 
 
         public async Task<List<Eleccion>> ObtenerEleccionesAutorizadas(string dni)

@@ -70,13 +70,20 @@ namespace Api.Controllers
             return NoContent();
         }
 
-        [HttpGet("autenticar/{contrasenia}")]
-        public async Task<IActionResult> Autenticar(string contrasenia)
+        [HttpPost("autenticar")]
+        public async Task<IActionResult> Autenticar([FromBody] LoginDto dto)
         {
-            var persona = await _logic.AutenticarPorContrasenia(contrasenia);
-            if (persona == null) return Unauthorized();
-            return Ok(persona);
+            try
+            {
+                var persona = await _logic.Autenticar(dto.Dni, dto.Password);
+                return Ok(persona);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Unauthorized(new { message = ex.Message });
+            }
         }
+
 
         [HttpGet("eleccionesAutorizadas/{dni}")]
         public async Task<IActionResult> ObtenerEleccionesAutorizadas(string dni)

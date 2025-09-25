@@ -16,7 +16,6 @@ namespace Datos.Repositorios.IRepositorios
         Task Crear(Persona persona);
         Task Actualizar(Persona persona);
         Task Eliminar(int id);
-        Task<Persona> AutenticarPorContrasenia(string contrasenia);
         Task<List<Eleccion>> ObtenerEleccionesAutorizadas(string dni);
 
     }

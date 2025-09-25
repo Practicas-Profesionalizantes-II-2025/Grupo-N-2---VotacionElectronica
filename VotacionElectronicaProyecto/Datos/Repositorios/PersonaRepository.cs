@@ -64,11 +64,7 @@ namespace Datos.Repositorios
             }
         }
 
-        public async Task<Persona> AutenticarPorContrasenia(string contrasenia)
-        {
-            return await _context.Persona
-                .FirstOrDefaultAsync(p => p.ContraseniaPersona == contrasenia);
-        }
+       
 
         public async Task<List<Eleccion>> ObtenerEleccionesAutorizadas(string dni)
         {

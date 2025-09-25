@@ -120,20 +120,16 @@ namespace MVCProyecto.Controllers
 
             try
             {
-                // 📌 Buscar persona por DNI
-                var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/dni/{dto.Dni}");
-                if (persona == null)
+                // 🔥 Llamar a la API para autenticar
+                var response = await _httpClient.PostAsJsonAsync("Persona/autenticar", dto);
+
+                if (!response.IsSuccessStatusCode)
                 {
-                    ModelState.AddModelError("", "El usuario no existe");
+                    ModelState.AddModelError("", "Usuario o contraseña incorrectos");
                     return View(dto);
                 }
 
-                // 📌 Validar contraseña
-                if (persona.Contrasenia != dto.Password)
-                {
-                    ModelState.AddModelError("", "Contraseña incorrecta");
-                    return View(dto);
-                }
+                var persona = await response.Content.ReadFromJsonAsync<VerDTO>();
 
                 // 📌 Guardamos usuario en sesión
                 HttpContext.Session.SetInt32("UsuarioId", persona.Id);
@@ -141,12 +137,11 @@ namespace MVCProyecto.Controllers
                 HttpContext.Session.SetString("Rol", persona.Rol);
                 HttpContext.Session.SetString("Dni", persona.Dni);
 
-                if (persona.PrimerLogin == true)   // 👈 propiedad que ya definiste
+                if (persona.PrimerLogin == true)
                 {
                     return RedirectToAction("CambiarContrasenia", "Persona");
                 }
 
-                // ✅ Si ya cambió la contraseña antes, va al Home
                 return RedirectToAction("Index", "Home");
             }
             catch (HttpRequestException)
@@ -155,6 +150,7 @@ namespace MVCProyecto.Controllers
                 return View(dto);
             }
         }
+
 
 
 
@@ -171,7 +167,24 @@ namespace MVCProyecto.Controllers
             if (usuarioId == null)
                 return RedirectToAction("Login");
 
-            var response = await _httpClient.PostAsJsonAsync($"Persona/{usuarioId}/CambiarContrasenia", nuevaContrasenia);
+            // 🔎 Traer los datos actuales de la persona
+            var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{usuarioId}");
+            if (persona == null)
+            {
+                TempData["Error"] = "Usuario no encontrado";
+                return RedirectToAction("Login");
+            }
+
+            // 📝 Crear el DTO con todos los campos necesarios
+            var dto = new ModificarDTO
+            {
+                NombrePersona = persona.NombrePersona,
+                ApellidoPersona = persona.ApellidoPersona,
+                ContraseniaPersona = nuevaContrasenia,
+                PrimerLogin = false
+            };
+
+            var response = await _httpClient.PutAsJsonAsync($"Persona/{usuarioId}", dto);
 
             if (response.IsSuccessStatusCode)
             {
@@ -182,5 +195,7 @@ namespace MVCProyecto.Controllers
             TempData["Error"] = "Error al cambiar la contraseña";
             return View();
         }
+
+
     }
 }

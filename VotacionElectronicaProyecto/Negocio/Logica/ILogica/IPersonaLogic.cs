@@ -16,7 +16,7 @@ namespace Negocio.Logica.ILogica
         Task Crear(CrearDTO dto);
         Task Actualizar(int id, ModificarDTO dto);
         Task Eliminar(int id);
-        Task<VerDTO> AutenticarPorContrasenia(string contrasenia);
+        Task<VerDTO> Autenticar(string dni, string contrasenia);
         Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAutorizadas(string dni);
         Task CambiarContrasenia(int personaId, string nuevaContrasenia);
 
