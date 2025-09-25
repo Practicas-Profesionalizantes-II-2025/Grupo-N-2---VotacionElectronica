@@ -1,0 +1,128 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
+}
+
+.table {
+    width: 120%;
+    max-width: 1000px;
+    margin: 0 auto;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.table_header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 90px;
+    background-color: #3AB397;
+    border-top: 20px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+}
+
+    .table_header h1 {
+        font-size: 35px;
+        color: white;
+        margin: 0;
+    }
+
+.table_section {
+    height: 650px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    min-width: 800px;
+    border-collapse: collapse;
+    border-left: 20px solid white;
+    border-bottom: 20px solid white;
+    border-right: 20px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8393a5;
+    font-size: 15px;
+    text-align: center;
+    z-index: 1;
+}
+
+th, td {
+    border-bottom: 1px solid #dddddd;
+    padding: 12px 20px;
+    text-align: center;
+    word-break: break-word;
+    background-color: white;
+}
+
+tr:hover td {
+    background-color: #b4bec9;
+    color: #3a4add;
+    cursor: pointer;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0b25b9;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #3a4add;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3AB397;
+    border-radius: 10px;
+}
+
+#resultadoModal .modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+#resultadoModal .modal-header {
+    background-color: #3AB397;
+    color: white;
+    border-bottom: none;
+}
+
+#resultadoModal .modal-body {
+    padding: 20px;
+    background-color: #f6f9fc;
+}
