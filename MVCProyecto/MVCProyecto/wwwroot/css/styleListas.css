@@ -46,7 +46,6 @@ body {
     word-break: break-word; /* soporte adicional para navegadores */
 }
 
-
 .buscar-registrar {
     display: flex;
     justify-content: flex-end;
@@ -73,10 +72,20 @@ button {
     color: white;
 }
 
-/* Botones buscar, ver, editar, eliminar */
+/* Botones buscar, ver, editar, eliminar, asignar */
 .buscar button:nth-child(2) {
     background-color: #e9edf5;
     color: #3AB397;
+    border-radius: 6px;
+}
+
+.btnALista {
+    background-color: #ede93b;
+    border-radius: 6px;
+}
+
+.btnAPersona {
+    background-color: #9fde16;
     border-radius: 6px;
 }
 
@@ -145,7 +154,7 @@ thead th {
 
 th, td {
     border-bottom: 1px solid #dddddd;
-    padding: 10px 20px;
+    padding: 20px 20px;
     word-break: break-all;
     text-align: center;
     background-color: white;
