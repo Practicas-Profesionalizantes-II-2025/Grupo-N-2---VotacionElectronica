@@ -12,12 +12,13 @@ body {
 }
 
 .table {
-    width: 120%;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 90%; /* ocupa 90% del contenedor */
+    max-width: 1200px; /* opcional, límite superior */
+    margin: 0 auto; /* centra la tabla */
     table-layout: auto;
     border-collapse: collapse;
 }
+
 
 .table_header {
     display: flex;
@@ -38,6 +39,13 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.table td, .table th {
+    white-space: normal; /* permite que el texto se divida en varias líneas */
+    word-wrap: break-word; /* rompe palabras largas si no caben */
+    word-break: break-word; /* soporte adicional para navegadores */
+}
+
 
 .buscar-registrar {
     display: flex;
@@ -65,10 +73,15 @@ button {
     color: white;
 }
 
-/* Botones buscar, editar, eliminar */
+/* Botones buscar, ver, editar, eliminar */
 .buscar button:nth-child(2) {
     background-color: #e9edf5;
     color: #3AB397;
+    border-radius: 6px;
+}
+
+.btnVer {
+    background-color: #72caf6;
     border-radius: 6px;
 }
 
