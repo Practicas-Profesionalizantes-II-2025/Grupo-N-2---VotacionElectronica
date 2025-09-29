@@ -28,34 +28,52 @@
                 }
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @{
+                        var rol = Context.Session.GetString("Rol");
+                    }
                     <ul class="navbar-nav flex-grow-1">
                         @if (currentController == "Home" && currentAction == "Index")
                         {
-                            <!-- En Home/Index NO mostramos las otras opciones -->
+                            <!-- En Home/Index no mostramos nada -->
                         }
                         else
                         {
-                            <!-- Menú completo en las demás pantallas -->
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Persona" asp-action="ListaPersonas">Personas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Lista" asp-action="ListaLista">Listas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Candidatos" asp-action="ListaCandidatos">Candidatos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Eleccion" asp-action="ListaEleccion">Elecciones</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Resultado" asp-action="Index">Resultados</a>
-                            </li>
+                            if (rol == "Administrador")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Persona" asp-action="ListaPersonas">Personas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Lista" asp-action="ListaLista">Listas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Candidatos" asp-action="ListaCandidatos">Candidatos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Eleccion" asp-action="ListaEleccion">Elecciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Resultado" asp-action="Index">Resultados</a>
+                                </li>
+                            }
+                            else if (rol == "Votante")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Votos" asp-action="Emitir">Voto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Resultado" asp-action="Index">Resultados</a>
+                                </li>
+                            }
                         }
                     </ul>
+
 
                     <!-- Botón de cerrar sesión (siempre visible) -->
                     <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">
