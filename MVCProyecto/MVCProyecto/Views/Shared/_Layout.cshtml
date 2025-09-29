@@ -75,10 +75,20 @@
                     </ul>
 
 
-                    <!-- Botón de cerrar sesión (siempre visible) -->
-                    <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">
-                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-                    </a>
+                    <div class="d-flex align-items-center">
+                        @if (Context.Session.GetString("Usuario") != null)
+                        {
+                            <div class="user-box me-3">
+                                Bienvenido, @Context.Session.GetString("Usuario")
+                            </div>
+                        }
+
+                        <!-- Botón de cerrar sesión -->
+                        <a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">
+                            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                        </a>
+                    </div>
+
                 </div>
 
 

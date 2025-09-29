@@ -26,3 +26,11 @@ body {
     max-width: 300px;
     max-height: 200px;
 }
+
+.user-box {
+    border: 1px solid #007bff; /* borde azul */
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    font-weight: bold;
+}
