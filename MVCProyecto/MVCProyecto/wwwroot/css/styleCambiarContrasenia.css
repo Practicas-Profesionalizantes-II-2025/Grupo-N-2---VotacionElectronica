@@ -1,0 +1,38 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* espacio para que el footer siga abajo */
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.container-cambiar {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.container-cambiar h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
