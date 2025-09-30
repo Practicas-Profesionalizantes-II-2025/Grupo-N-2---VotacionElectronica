@@ -11,14 +11,14 @@ body {
     background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
 }
 
+/* ------------------ CABECERA ------------------ */
 .table {
-    width: 90%; /* ocupa 90% del contenedor */
-    max-width: 1200px; /* opcional, límite superior */
-    margin: 0 auto; /* centra la tabla */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     table-layout: auto;
     border-collapse: collapse;
 }
-
 
 .table_header {
     display: flex;
@@ -36,26 +36,21 @@ body {
     margin-left: 40px;
     font-size: 35px;
     color: white;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.table td, .table th {
-    white-space: normal; /* permite que el texto se divida en varias líneas */
-    word-wrap: break-word; /* rompe palabras largas si no caben */
-    word-break: break-word; /* soporte adicional para navegadores */
-}
-
+/* ------------------ BUSCADOR Y BOTONES ------------------ */
 .buscar-registrar {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px; 
-    width: 58%; 
+    gap: 10px;
+    width: 58%;
 }
 
-.registrar{
-    background-color:transparent !important;
+.registrar {
+    background-color: transparent !important;
 }
 
 .buscar {
@@ -72,7 +67,7 @@ button {
     color: white;
 }
 
-/* Botones buscar, ver, editar, eliminar, asignar */
+/* Botones */
 .buscar button:nth-child(2) {
     background-color: #e9edf5;
     color: #3AB397;
@@ -103,7 +98,6 @@ button {
     background-color: #ff0000;
     border-radius: 6px;
 }
-/* --------------------------- */
 
 .registrarPersona {
     padding: 10px 5px;
@@ -125,10 +119,15 @@ input {
     color: #6396e4;
 }
 
-
+/* ------------------ TABLA Y SCROLL ------------------ */
 .table_section {
     height: 650px;
-    overflow: auto;
+    overflow-y: auto;
+    border-left: 20px solid white;
+    border-bottom: 20px solid white;
+    border-right: 20px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    background: white;
 }
 
 table {
@@ -137,10 +136,6 @@ table {
     min-width: 1000px;
     border-collapse: collapse;
     overflow: hidden;
-    border-left: 20px solid white;
-    border-bottom: 20px solid white;
-    border-right: 20px solid white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 thead th {
@@ -160,31 +155,33 @@ th, td {
     background-color: white;
 }
 
-
 tr:hover td {
     color: #3a4add;
     cursor: pointer;
     background-color: #b4bec9;
 }
 
-::placeholder {
-    color: gray;
-}
-
+/* ------------------ SCROLLBAR PERSONALIZADA ------------------ */
 ::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+    background: #f1f1f1;
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+    background: #3AB397;
+    border-radius: 6px;
 }
 
-/*Modal Crear Persona*/
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2e8c75;
+    }
+
+/* ------------------ MODAL ------------------ */
 #personaModal .modal-dialog {
     max-width: 600px;
 }
