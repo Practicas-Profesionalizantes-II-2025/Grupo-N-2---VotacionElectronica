@@ -54,7 +54,8 @@ namespace Api.Data
                 entity.HasMany(e => e.Candidatos)
                 .WithOne(e => e.Lista)
                 .HasForeignKey("IdLista")
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             });
             modelBuilder.Entity<Persona>(entity =>
@@ -100,7 +101,8 @@ namespace Api.Data
             modelBuilder.Entity<PersonaEleccion>()
                 .HasOne(pe => pe.Eleccion)
                 .WithMany(e => e.PersonaElecciones)
-                .HasForeignKey(pe => pe.EleccionId);
+                .HasForeignKey(pe => pe.EleccionId)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 
@@ -109,12 +111,12 @@ namespace Api.Data
                     .HasOne(e => e.Eleccion)
                     .WithMany()
                     .HasForeignKey(e => e.IdEleccion)
-                    .OnDelete(DeleteBehavior.NoAction);
+                    .OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<EleccionLista>()
                     .HasOne(e => e.Lista)
                     .WithMany()
                     .HasForeignKey(e => e.IdLista)
-                    .OnDelete(DeleteBehavior.NoAction);
+                    .OnDelete(DeleteBehavior.Cascade);
         }
 
         public override int SaveChanges()
