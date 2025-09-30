@@ -9,27 +9,41 @@
 
 body {
     background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 .container-elecciones {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 90px;
-    padding: 20px;
-    border-top: 20px solid white;
-    border-left: 20px solid white;
-    border-right: 20px solid white;
     background-color: #3AB397;
+    padding: 30px;
+    margin-top: 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    max-height: 80vh; /* Limita altura */
+    overflow-y: auto; /* Scroll interno */
+}
+
+    /* Scrollbar solo dentro del container */
+.container-elecciones::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container-elecciones::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3); /* color oscuro translúcido */
+    border-radius: 6px;
+}
+
+.container-elecciones::-webkit-scrollbar-track {
+    background: rgba(58, 179, 151, 0.4); /* tono del container */
+    border-radius: 6px;
 }
 
 .container-elecciones h1 {
-    font-size: 35px;
-    color: white;
-    margin: 0 0 20px 40px;
-    text-align: left;
+    color: #ffffff;
+    text-align: center;
+    font-size: 32px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 .elecciones-grid {
@@ -48,23 +62,23 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-    .eleccion-card:hover {
-        background-color: #b4bec9;
-        transform: translateY(-5px);
-        cursor: pointer;
-    }
+.eleccion-card:hover {
+    background-color: #b4bec9;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
 
-    .eleccion-card h2 {
-        font-size: 20px;
-        color: #222;
-        margin-bottom: 10px;
-    }
+.eleccion-card h2 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 10px;
+}
 
-    .eleccion-card p {
-        font-size: 15px;
-        color: #555;
-        margin-bottom: 20px;
-    }
+.eleccion-card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
 
 .btnEntrar {
     background-color: #0b25b9;
@@ -77,13 +91,13 @@ body {
     display: inline-block;
 }
 
-    .btnEntrar i {
-        margin-right: 5px;
-    }
+.btnEntrar i {
+    margin-right: 5px;
+}
 
-    .btnEntrar:hover {
-        background-color: #3a4add;
-    }
+.btnEntrar:hover {
+    background-color: #3a4add;
+}
 
 .alerta-info {
     background-color: #f6f9fc;
@@ -95,18 +109,4 @@ body {
     margin: 20px auto;
     max-width: 600px;
     text-align: center;
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.3);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.2);
 }
