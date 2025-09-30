@@ -56,13 +56,29 @@ namespace Datos.Repositorios
 
         public async Task Eliminar(int id)
         {
-            var existente = await _context.Lista.FindAsync(id);
+            var existente = await _context.Lista
+                .Include(l => l.Elecciones) // traer las elecciones relacionadas
+                .FirstOrDefaultAsync(l => l.Id == id);
+
             if (existente != null)
             {
+                // Guardar las elecciones relacionadas antes de eliminar
+                var eleccionesRelacionadas = existente.Elecciones.ToList();
+
                 _context.Lista.Remove(existente);
+                await _context.SaveChangesAsync();
+
+                // Recalcular la cantidad de listas de cada elección
+                foreach (var eleccion in eleccionesRelacionadas)
+                {
+                    eleccion.CantidadListas = await _context.EleccionListas
+                        .CountAsync(el => el.IdEleccion == eleccion.Id);
+                }
+
                 await _context.SaveChangesAsync();
             }
         }
+
 
     }
 }
