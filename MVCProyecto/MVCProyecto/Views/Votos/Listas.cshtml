@@ -28,6 +28,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Descripción</th>
+                        <th>Candidatos</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -45,7 +46,8 @@
                                         data-id="@lista.Id">
                                     <i class="fa-solid fa-users"></i> Ver Candidatos
                                 </button>
-
+                            </td>
+                            <td class="d-flex align-items-center gap-2">
                                 <!-- Votar -->
                                 <form asp-controller="Votos" asp-action="Registrar" method="post" class="d-inline">
                                     <input type="hidden" name="eleccionId" value="@eleccionId" />
@@ -54,6 +56,19 @@
                                         <i class="fa-solid fa-check"></i> Votar
                                     </button>
                                 </form>
+
+                                @if (listaBlanco != null)
+                                {
+                                    <div class="voto-blanco">
+                                        <form asp-controller="Votos" asp-action="Registrar" method="post">
+                                            <input type="hidden" name="eleccionId" value="@eleccionId" />
+                                            <input type="hidden" name="listaId" value="@listaBlanco.Id" />
+                                            <button type="submit" class="btnBlanco btn-sm">
+                                                <i class="fa-solid fa-file"></i> Votar en blanco
+                                            </button>
+                                        </form>
+                                    </div>
+                                }
                             </td>
                         </tr>
                     }
@@ -61,18 +76,7 @@
             </table>
         </div>
 
-        @if (listaBlanco != null)
-        {
-            <div class="voto-blanco">
-                <form asp-controller="Votos" asp-action="Registrar" method="post">
-                    <input type="hidden" name="eleccionId" value="@eleccionId" />
-                    <input type="hidden" name="listaId" value="@listaBlanco.Id" />
-                    <button type="submit" class="btnBlanco btn-sm">
-                        <i class="fa-solid fa-file"></i> Votar en blanco
-                    </button>
-                </form>
-            </div>
-        }
+        
     </div>
 
     <!-- Modal candidatos -->

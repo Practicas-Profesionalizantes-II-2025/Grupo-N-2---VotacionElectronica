@@ -99,6 +99,16 @@ button {
     border-radius: 6px;
 }
 
+.btnVotar {
+    background-color: #055819;
+    border-radius: 6px;
+}
+
+.btnBlanco {
+    background-color: #56565b;
+    border-radius: 6px;
+}
+
 .registrarPersona {
     padding: 10px 5px;
     color: #ffffff;
