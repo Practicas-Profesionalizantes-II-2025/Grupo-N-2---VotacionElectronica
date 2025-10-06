@@ -15,9 +15,10 @@ body {
 .table {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
-    table-layout: auto;
-    border-collapse: collapse;
+    margin: 0 auto; /* centrado horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .table_header {
@@ -25,11 +26,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    margin-top: 90px;
+    margin-top: 60px;
     background-color: #3AB397;
     border-top: 20px solid white;
     border-right: 20px solid white;
     border-left: 20px solid white;
+    width: 100%;
 }
 
 .table_header h1 {
@@ -131,21 +133,37 @@ input {
 
 /* ------------------ TABLA Y SCROLL ------------------ */
 .table_section {
-    height: 650px;
-    overflow-y: auto;
+    width: 100%;
+    max-width: 1200px;
+    max-height: 350px;
     border-left: 20px solid white;
-    border-bottom: 20px solid white;
     border-right: 20px solid white;
+    border-bottom: 20px solid white;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     background: white;
+    overflow-x: auto; /* scroll horizontal si hace falta */
+    overflow-y: hidden;
 }
 
-table {
+.table_section table {
+    width: 100%;
+    table-layout: fixed; /* mantiene ancho de columnas fijo y cabecera alineada */
+    min-width: 1000px; /* ancho mínimo */
+    border-collapse: collapse;
+}
+
+/* Scroll solo para tbody */
+.table_section tbody {
+    display: block;
+    height: 500px; /* altura fija */
+    overflow-y: auto;
+    overflow-x: hidden; /* horizontal lo maneja el contenedor */
+}
+
+.table_section thead, .table_section tbody tr {
+    display: table;
     width: 100%;
     table-layout: fixed;
-    min-width: 1000px;
-    border-collapse: collapse;
-    overflow: hidden;
 }
 
 thead th {
@@ -155,12 +173,13 @@ thead th {
     color: #8393a5;
     font-size: 15px;
     text-align: center;
+    z-index: 2;
 }
 
 th, td {
     border-bottom: 1px solid #dddddd;
-    padding: 20px 20px;
-    word-break: break-all;
+    padding: 20px;
+    word-break: break-word;
     text-align: center;
     background-color: white;
 }
@@ -172,22 +191,21 @@ tr:hover td {
 }
 
 /* ------------------ SCROLLBAR PERSONALIZADA ------------------ */
-::-webkit-scrollbar {
+.table_section tbody::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
 }
 
-::-webkit-scrollbar-track {
+.table_section tbody::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb {
+.table_section tbody::-webkit-scrollbar-thumb {
     background: #3AB397;
     border-radius: 6px;
 }
 
-    ::-webkit-scrollbar-thumb:hover {
+    .table_section tbody::-webkit-scrollbar-thumb:hover {
         background: #2e8c75;
     }
 

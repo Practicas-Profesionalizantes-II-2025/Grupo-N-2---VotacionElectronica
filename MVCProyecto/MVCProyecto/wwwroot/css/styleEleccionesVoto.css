@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     gap: 20px;
     justify-content: flex-start;
-    max-height: 80vh; /* Limita altura */
+    max-height: 65vh; /* Limita altura */
     overflow-y: auto; /* Scroll interno */
 }
 
