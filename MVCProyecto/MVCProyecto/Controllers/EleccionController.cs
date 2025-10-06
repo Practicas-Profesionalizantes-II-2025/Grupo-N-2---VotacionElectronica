@@ -100,24 +100,30 @@ namespace MVCProyecto.Controllers
         [HttpGet]
         public async Task<IActionResult> ObtenerListasDisponibles(int eleccionId)
         {
-            // 1) Primero intento endpoint específico (si existe en tu API)
             var prefer = await _httpClient.GetAsync($"Lista/Disponibles?eleccionId={eleccionId}");
             if (prefer.IsSuccessStatusCode)
             {
                 var listas = await prefer.Content.ReadFromJsonAsync<List<Models.Lista.VerDTO>>();
-                return Json(listas);
+                // ⚠️ Filtrar “Voto en blanco”
+                var filtradas = listas?.Where(l => !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase)).ToList();
+                return Json(filtradas);
             }
 
-            // 2) Fallback: traigo todas y resto las ya asignadas
-            var todas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>("Lista"); // <-- asegúrate de tener ListaController en la API. Si no, crealo.
+            // Fallback
+            var todas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>("Lista");
             var asignadas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>($"Eleccion/{eleccionId}/Listas");
 
             todas ??= new List<Models.Lista.VerDTO>();
             asignadas ??= new List<Models.Lista.VerDTO>();
 
-            var disponibles = todas.Where(l => asignadas.All(a => a.Id != l.Id)).ToList();
+            var disponibles = todas
+                .Where(l => asignadas.All(a => a.Id != l.Id)
+                            && !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
             return Json(disponibles);
         }
+
 
         // ---------- AJAX: listas asignadas a una elección ----------
         [HttpGet]

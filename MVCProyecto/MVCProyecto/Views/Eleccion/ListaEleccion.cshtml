@@ -251,7 +251,8 @@
         });
 
         // ---------- VER LISTAS ASIGNADAS ----------
-        const modalVer = document.getElementById('modalVerListas');
+            const modalVer = document.getElementById('modalVerListas');
+
         modalVer.addEventListener('show.bs.modal', async function (event) {
             const button = event.relatedTarget;
             const eleccionId = button.getAttribute('data-id');
@@ -277,12 +278,18 @@
                         <td>${l.nombreLista ?? ''}</td>
                         <td>${l.descripcionLista ?? ''}</td>
                         <td>
-                            <form method="post" action="/Eleccion/QuitarLista">
-                                <input type="hidden" name="__RequestVerificationToken" value="${token}" />
-                                <input type="hidden" name="eleccionId" value="${eleccionId}" />
-                                <input type="hidden" name="listaId" value="${l.id}" />
-                                <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
-                            </form>
+                            ${
+                                l.nombreLista && l.nombreLista.toLowerCase() === "voto en blanco"
+                                ? "<em>No se puede quitar</em>"
+                                : `
+                                    <form method="post" action="/Eleccion/QuitarLista">
+                                        <input type="hidden" name="__RequestVerificationToken" value="${token}" />
+                                        <input type="hidden" name="eleccionId" value="${eleccionId}" />
+                                        <input type="hidden" name="listaId" value="${l.id}" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
+                                    </form>
+                                `
+                            }
                         </td>
                     `;
                     tbody.appendChild(tr);

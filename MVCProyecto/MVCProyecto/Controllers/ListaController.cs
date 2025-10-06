@@ -15,8 +15,11 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> ListaLista()
         {
             var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Lista");
-            return View(listas ?? new List<VerDTO>());
+            // Filtrar voto en blanco
+            var filtradas = listas?.Where(l => !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase)).ToList();
+            return View(filtradas ?? new List<VerDTO>());
         }
+
         [HttpGet]
         public async Task<IActionResult> PorEleccion(int eleccionId)
         {
