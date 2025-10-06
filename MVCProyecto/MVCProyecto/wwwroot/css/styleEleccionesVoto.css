@@ -80,6 +80,19 @@ body {
     margin-bottom: 20px;
 }
 
+.container-fin {
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    max-height: 65vh; 
+    overflow-y: auto;
+}
+
 .btnEntrar {
     background-color: #0b25b9;
     color: #fff;
