@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styleListas.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/scriptLista.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +25,7 @@
                 </div>
                 <div class="registrar">
                     <button type="button" class="registrarPersona"
-                            data-bs-toggle="modal" data-bs-target="#personaModal"
+                            data-bs-toggle="modal" data-bs-target="#ModalLista"
                             data-url="@Url.Action("CrearPersona")">
                         Crear persona
                     </button>
@@ -54,13 +55,13 @@
                             <td>@p.Rol</td>
                             <td>
                                 <button type="button" class="btnEditar btn-sm"
-                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
                                         data-url="@Url.Action("EditarPersona", new { id = p.Id })">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
 
                                 <button type="button" class="btnEliminar btn-sm"
-                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
                                         data-url="@Url.Action("EliminarPersona", new { id = p.Id })">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
@@ -73,29 +74,15 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="personaModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="ModalLista" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div id="personaModalContent"></div>
+                    <div id="ModalListaContent"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Cargar el contenido del modal dinámicamente (pero sin AJAX POST todavía)
-        var personaModal = document.getElementById('personaModal');
-        personaModal.addEventListener('show.bs.modal', function (event) {
-            var button = event.relatedTarget;
-            var url = button.getAttribute('data-url');
-            var modalContent = document.getElementById('personaModalContent');
-
-            fetch(url)
-                .then(response => response.text())
-                .then(html => modalContent.innerHTML = html);
-        });
-    </script>
 </body>
 </html>
