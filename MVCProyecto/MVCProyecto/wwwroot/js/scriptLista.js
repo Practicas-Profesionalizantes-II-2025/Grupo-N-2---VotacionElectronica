@@ -229,3 +229,118 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+//Eleccion
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Helper: tomar token AntiForgery global
+    function getCsrfToken() {
+        const input = document.querySelector('#__afForm input[name="__RequestVerificationToken"]');
+        return input ? input.value : '';
+    }
+
+    // ---------- ASIGNAR LISTA ----------
+    const modalLista = document.getElementById('modalAsignarLista');
+    if (modalLista) {
+        modalLista.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+            document.getElementById('EleccionIdLista').value = eleccionId;
+
+            try {
+                const response = await fetch(`/Eleccion/ObtenerListasDisponibles?eleccionId=${eleccionId}`);
+                if (!response.ok) throw new Error('No se pudieron cargar las listas disponibles.');
+                const listas = await response.json();
+
+                const select = document.getElementById('ListaId');
+                select.innerHTML = '<option value="">-- Seleccione --</option>';
+                listas.forEach(l => {
+                    const opt = document.createElement('option');
+                    opt.value = l.id;
+                    opt.text = l.nombreLista;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    }
+
+    // ---------- VER LISTAS ASIGNADAS ----------
+    const modalVer = document.getElementById('modalVerListas');
+    if (modalVer) {
+        modalVer.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+
+            try {
+                const response = await fetch(`/Eleccion/ObtenerListasAsignadas?eleccionId=${eleccionId}`);
+                if (!response.ok) throw new Error('No se pudieron cargar las listas asignadas.');
+                const listas = await response.json();
+
+                const token = getCsrfToken();
+                const tbody = document.getElementById('listasAsignadasBody');
+                tbody.innerHTML = '';
+
+                if (!listas || listas.length === 0) {
+                    tbody.innerHTML = "<tr><td colspan='4' class='text-center'>No hay listas asignadas</td></tr>";
+                    return;
+                }
+
+                listas.forEach(l => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${l.id}</td>
+                        <td>${l.nombreLista ?? ''}</td>
+                        <td>${l.descripcionLista ?? ''}</td>
+                        <td>
+                            ${l.nombreLista && l.nombreLista.toLowerCase() === "voto en blanco"
+                            ? "<em>No se puede quitar</em>"
+                            : `
+                                    <form method="post" action="/Eleccion/QuitarLista">
+                                        <input type="hidden" name="__RequestVerificationToken" value="${token}" />
+                                        <input type="hidden" name="eleccionId" value="${eleccionId}" />
+                                        <input type="hidden" name="listaId" value="${l.id}" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
+                                    </form>
+                                `
+                        }
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    }
+
+    // ---------- ASIGNAR PERSONA ----------
+    const modalPersona = document.getElementById('modalAsignarPersona');
+    if (modalPersona) {
+        modalPersona.addEventListener('show.bs.modal', async function (event) {
+            const button = event.relatedTarget;
+            const eleccionId = button.getAttribute('data-id');
+            document.getElementById('EleccionIdPersona').value = eleccionId;
+
+            try {
+                const response = await fetch(`/Eleccion/ObtenerPersonasDisponibles?eleccionId=${eleccionId}`);
+                if (!response.ok) throw new Error('No se pudieron cargar las personas.');
+
+                const personas = await response.json();
+                const select = document.getElementById('PersonaId');
+                select.innerHTML = '<option value="">-- Seleccione --</option>';
+
+                personas.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.text = `${p.nombrePersona} ${p.apellidoPersona} - ${p.dni}`;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    }
+});
+
