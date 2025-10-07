@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styleListas.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/scriptLista.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +30,7 @@
                 </div>
                 <div class="registrar">
                     <button type="button" class="registrarPersona"
-                            data-bs-toggle="modal" data-bs-target="#personaModal"
+                            data-bs-toggle="modal" data-bs-target="#ModalLista"
                             data-url="@Url.Action("CrearEleccion")">
                         Crear elección
                     </button>
@@ -69,19 +70,19 @@
                             <td>@e.FechaFinEleccion</td>
                             <td style="width: 150px">
                                 <button type="button" class="btnVer btn-sm"
-                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
                                         data-url="@Url.Action("VerEleccion", new { id = e.Id })">
                                     <i class="fa-solid fa-eye"></i>
                                 </button>
 
                                 <button type="button" class="btnEditar btn-sm"
-                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
                                         data-url="@Url.Action("ModificarEleccion", new { id = e.Id })">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
 
                                 <button type="button" class="btnEliminar btn-sm"
-                                        data-bs-toggle="modal" data-bs-target="#personaModal"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
                                         data-url="@Url.Action("EliminarEleccion", new { id = e.Id })">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
@@ -107,30 +108,15 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="personaModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="ModalLista" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div id="personaModalContent"></div>
+                    <div id="ModalListaContent"></div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Cargar el contenido del modal dinámicamente (pero sin AJAX POST todavía)
-        var personaModal = document.getElementById('personaModal');
-        personaModal.addEventListener('show.bs.modal', function (event) {
-            var button = event.relatedTarget;
-            var url = button.getAttribute('data-url');
-            var modalContent = document.getElementById('personaModalContent');
-
-            fetch(url)
-                .then(response => response.text())
-                .then(html => modalContent.innerHTML = html);
-        });
-    </script>
 </body>
 </html>
 
@@ -217,114 +203,4 @@
 </div>
 
 
-@section Scripts {
-    <script>
-        // Helper: tomar token AntiForgery global
-        function getCsrfToken() {
-            const input = document.querySelector('#__afForm input[name="__RequestVerificationToken"]');
-            return input ? input.value : '';
-        }
 
-        // ---------- ASIGNAR LISTA ----------
-        const modalLista = document.getElementById('modalAsignarLista');
-        modalLista.addEventListener('show.bs.modal', async function (event) {
-            const button = event.relatedTarget;
-            const eleccionId = button.getAttribute('data-id');
-            document.getElementById('EleccionIdLista').value = eleccionId;
-
-            try {
-                const response = await fetch(`/Eleccion/ObtenerListasDisponibles?eleccionId=${eleccionId}`);
-                if (!response.ok) throw new Error('No se pudieron cargar las listas disponibles.');
-                const listas = await response.json();
-
-                const select = document.getElementById('ListaId');
-                select.innerHTML = '<option value="">-- Seleccione --</option>';
-                listas.forEach(l => {
-                    const opt = document.createElement('option');
-                    opt.value = l.id;
-                    opt.text = l.nombreLista;
-                    select.appendChild(opt);
-                });
-            } catch (err) {
-                alert(err.message);
-            }
-        });
-
-        // ---------- VER LISTAS ASIGNADAS ----------
-            const modalVer = document.getElementById('modalVerListas');
-
-        modalVer.addEventListener('show.bs.modal', async function (event) {
-            const button = event.relatedTarget;
-            const eleccionId = button.getAttribute('data-id');
-
-            try {
-                const response = await fetch(`/Eleccion/ObtenerListasAsignadas?eleccionId=${eleccionId}`);
-                if (!response.ok) throw new Error('No se pudieron cargar las listas asignadas.');
-                const listas = await response.json();
-
-                const token = getCsrfToken();
-                const tbody = document.getElementById('listasAsignadasBody');
-                tbody.innerHTML = '';
-
-                if (!listas || listas.length === 0) {
-                    tbody.innerHTML = "<tr><td colspan='4' class='text-center'>No hay listas asignadas</td></tr>";
-                    return;
-                }
-
-                listas.forEach(l => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${l.id}</td>
-                        <td>${l.nombreLista ?? ''}</td>
-                        <td>${l.descripcionLista ?? ''}</td>
-                        <td>
-                            ${
-                                l.nombreLista && l.nombreLista.toLowerCase() === "voto en blanco"
-                                ? "<em>No se puede quitar</em>"
-                                : `
-                                    <form method="post" action="/Eleccion/QuitarLista">
-                                        <input type="hidden" name="__RequestVerificationToken" value="${token}" />
-                                        <input type="hidden" name="eleccionId" value="${eleccionId}" />
-                                        <input type="hidden" name="listaId" value="${l.id}" />
-                                        <button type="submit" class="btn btn-danger btn-sm">Quitar</button>
-                                    </form>
-                                `
-                            }
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            } catch (err) {
-                alert(err.message);
-            }
-        });
-
-        const modalPersona = document.getElementById('modalAsignarPersona');
-        modalPersona.addEventListener('show.bs.modal', async function (event) {
-          const button = event.relatedTarget;
-          const eleccionId = button.getAttribute('data-id');
-          document.getElementById('EleccionIdPersona').value = eleccionId;
-
-          try {
-            const response = await fetch(`/Eleccion/ObtenerPersonasDisponibles?eleccionId=${eleccionId}`);
-            if (!response.ok) throw new Error('No se pudieron cargar las personas.');
-
-            const personas = await response.json();
-            const select = document.getElementById('PersonaId');
-            select.innerHTML = '<option value="">-- Seleccione --</option>';
-
-                    personas.forEach(p => {
-          const opt = document.createElement('option');
-          opt.value = p.id;
-          opt.text = `${p.nombrePersona} ${p.apellidoPersona} - ${p.dni}`;
-          select.appendChild(opt);
-        });
-
-          } catch (err) {
-            alert(err.message);
-          }
-        });
-    </script>
-
-
-}
