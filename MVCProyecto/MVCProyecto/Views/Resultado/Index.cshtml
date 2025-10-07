@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styleResultados.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="~/js/scriptLista.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -72,83 +74,5 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        let chart;
-        const modalResultados = document.getElementById('resultadoModal');
-
-        // Función para generar colores distintos según cantidad de listas
-        function generarColores(cantidad) {
-            return Array.from({ length: cantidad }, (_, i) =>
-                `hsl(${(i * 360) / cantidad}, 70%, 60%)`
-            );
-        }
-
-        modalResultados.addEventListener('show.bs.modal', async function (event) {
-            const button = event.relatedTarget;
-            const eleccionId = button.getAttribute('data-id');
-            const nombre = button.getAttribute('data-nombre');
-
-            // Setear título con el nombre de la elección
-            modalResultados.querySelector('.modal-title').textContent = `Resultados - ${nombre}`;
-
-            try {
-                const response = await fetch(`/Resultado/Obtener/${eleccionId}`);
-                if (!response.ok) throw new Error("No hay resultados disponibles.");
-
-                const data = await response.json();
-                if (!data || data.length === 0) {
-                    alert("No hay resultados disponibles.");
-                    return;
-                }
-
-                // Datos para gráfico
-                const labels = data.map(r => r.nombreLista);
-                const votos = data.map(r => r.totalVotos);
-                const total = votos.reduce((a, b) => a + b, 0);
-                const colores = generarColores(labels.length);
-
-                // Destruir gráfico previo
-                if (chart) chart.destroy();
-
-                // Crear gráfico
-                const ctx = document.getElementById("resultadoChart").getContext("2d");
-                chart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: "Votos",
-                            data: votos,
-                            backgroundColor: colores,
-                            borderColor: colores,
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            tooltip: {
-                                callbacks: {
-                                    label: function (context) {
-                                        let votos = context.raw;
-                                        let porcentaje = total > 0
-                                            ? ((votos / total) * 100).toFixed(2)
-                                            : 0;
-                                        return `${votos} votos (${porcentaje}%)`;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-
-            } catch (err) {
-                alert(err.message);
-            }
-        });
-    </script>
 </body>
 </html>
