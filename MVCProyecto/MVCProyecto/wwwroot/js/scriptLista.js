@@ -1,8 +1,21 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+// Cargar el contenido del modal dinámicamente
+document.addEventListener('DOMContentLoaded', function () {
+    var listaModal = document.getElementById('ModalLista');
+    if (listaModal) {
+        listaModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var url = button.getAttribute('data-url');
+            var modalContent = document.getElementById('ModalListaContent');
 
+            fetch(url)
+                .then(response => response.text())
+                .then(html => modalContent.innerHTML = html);
+        });
+    }
+});
 
-//Funciones de búsqueda
+//--------Funciones de búsqueda--------
 // Buscar persona 
 document.addEventListener("DOMContentLoaded", function () {  // Espera a que la página cargue
     const btnBuscar = document.getElementById("btnBuscar");
@@ -48,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 //Buscar lista
 document.addEventListener("DOMContentLoaded", function () {
