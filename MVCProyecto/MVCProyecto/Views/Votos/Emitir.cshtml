@@ -6,42 +6,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styleEleccionesVoto.css" asp-append-version="true" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/scriptElecciones.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Elecciones</title>
 </head>
 <body>
-    <div class="container-elecciones">
+    <div class="container-elecciones mt-4">
         <h1>Seleccione una Elección</h1>
 
         @if (!Model.Any())
         {
-            <div class="alerta-info">
-                <i class="fa-solid fa-circle-info"></i> Ya votó todo lo que podía.
+            <div class="alert alert-info mt-3">
+                <i class="fa-solid fa-circle-info"></i> No hay elecciones disponibles.
             </div>
         }
         else
         {
-            <div class="elecciones-grid">
+            <div class="elecciones-grid d-flex flex-wrap gap-3">
                 @foreach (var eleccion in Model)
                 {
-                    <div class="eleccion-card">
-                        <h2>@eleccion.NombreEleccion</h2>
-                        <p>@eleccion.DescripcionEleccion</p>
-                        <a asp-action="Listas"
-                           asp-route-eleccionId="@eleccion.Id"
-                           class="btnEntrar">
-                            <i class="fa-solid fa-door-open"></i> Entrar
-                        </a>
+                    var ahora = DateTime.Now;
+                    bool noIniciada = eleccion.FechaInicioEleccion.HasValue && eleccion.FechaInicioEleccion > ahora;
+                    bool finalizada = eleccion.FechaFinEleccion.HasValue && eleccion.FechaFinEleccion < ahora;
+                    bool activa = !noIniciada && !finalizada;
+
+                    <div class="eleccion-card card p-3 @(activa ? "border-success" : "border-secondary")" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@eleccion.NombreEleccion</h5>
+                            <p class="card-text">@eleccion.DescripcionEleccion</p>
+
+                            @if (noIniciada)
+                            {
+                                <span data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                      title="Comienza el @eleccion.FechaInicioEleccion?.ToString("dd/MM/yyyy HH:mm")">
+                                    <button type="button"
+                                            class="btn btn-secondary"
+                                            disabled>
+                                        <i class="fa-solid fa-clock"></i> Aún no comienza
+                                    </button>
+                                </span>
+                            }
+                            else if (finalizada)
+                            {
+                                <span data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                      title="Finalizó el @eleccion.FechaFinEleccion?.ToString("dd/MM/yyyy HH:mm")">
+                                    <button type="button"
+                                            class="btn btn-danger"
+                                            disabled>
+                                        <i class="fa-solid fa-flag-checkered"></i> Finalizada
+                                    </button>
+                                </span>
+                            }
+                            else
+                            {
+                                <a asp-action="Listas"
+                                   asp-route-eleccionId="@eleccion.Id"
+                                   class="btn btn-success"
+                                   data-bs-toggle="tooltip"
+                                   data-bs-placement="top"
+                                   title="Votación activa hasta @eleccion.FechaFinEleccion?.ToString("dd/MM/yyyy HH:mm")">
+                                    <i class="fa-solid fa-door-open"></i> Entrar
+                                </a>
+                            }
+                        </div>
                     </div>
                 }
             </div>
         }
     </div>
 
-    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+        });
+    </script>
 </body>
 </html>
-
