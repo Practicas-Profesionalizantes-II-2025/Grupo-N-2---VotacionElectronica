@@ -26,14 +26,34 @@
             <div class="elecciones-grid">
                 @foreach (var eleccion in Model)
                 {
+                    var ahora = DateTime.Now;
+                    bool noIniciada = eleccion.FechaInicioEleccion.HasValue && eleccion.FechaInicioEleccion > ahora;
+                    bool finalizada = eleccion.FechaFinEleccion.HasValue && eleccion.FechaFinEleccion < ahora;
+
                     <div class="eleccion-card">
                         <h2>@eleccion.NombreEleccion</h2>
                         <p>@eleccion.DescripcionEleccion</p>
-                        <a asp-action="Listas"
-                           asp-route-eleccionId="@eleccion.Id"
-                           class="btnEntrar">
-                            <i class="fa-solid fa-door-open"></i> Entrar
-                        </a>
+
+                        @if (noIniciada)
+                        {
+                            <button class="btn btn-secondary" disabled>
+                                <i class="fa-solid fa-clock"></i> Aún no comienza
+                            </button>
+                        }
+                        else if (finalizada)
+                        {
+                            <button class="btn btn-danger" disabled>
+                                <i class="fa-solid fa-flag-checkered"></i> Finalizada
+                            </button>
+                        }
+                        else
+                        {
+                            <a asp-action="Listas"
+                               asp-route-eleccionId="@eleccion.Id"
+                               class="btn btn-success">
+                                <i class="fa-solid fa-door-open"></i> Entrar
+                            </a>
+                        }
                     </div>
                 }
             </div>
@@ -43,4 +63,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
