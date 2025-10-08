@@ -20,6 +20,8 @@ namespace Negocio.Logica.ILogica
         Task<VerDTO> Autenticar(string dni, string contrasenia);
         Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAutorizadas(string dni);
         Task CambiarContrasenia(int personaId, string nuevaContrasenia);
+        Task<List<VerDTO>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId);
+
 
 
     }

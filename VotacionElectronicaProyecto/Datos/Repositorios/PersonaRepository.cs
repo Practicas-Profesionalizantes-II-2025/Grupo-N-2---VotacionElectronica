@@ -80,5 +80,16 @@ namespace Datos.Repositorios
                 .ToListAsync();
         }
 
+        public async Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            return await _context.Persona
+                .Where(p => p.CreadorId == solicitanteId &&
+                            p.Rol == "Votante" &&
+                            !_context.PersonaElecciones
+                                .Any(ep => ep.PersonaId == p.Id && ep.EleccionId == eleccionId))
+                .ToListAsync();
+        }
+
+
     }
 }

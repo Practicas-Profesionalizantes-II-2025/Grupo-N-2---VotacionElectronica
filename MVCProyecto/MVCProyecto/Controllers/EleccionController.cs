@@ -112,28 +112,16 @@ namespace MVCProyecto.Controllers
         [HttpGet]
         public async Task<IActionResult> ObtenerListasDisponibles(int eleccionId)
         {
-            var prefer = await _httpClient.GetAsync($"Lista/Disponibles?eleccionId={eleccionId}");
-            if (prefer.IsSuccessStatusCode)
-            {
-                var listas = await prefer.Content.ReadFromJsonAsync<List<Models.Lista.VerDTO>>();
-                // ⚠️ Filtrar “Voto en blanco”
-                var filtradas = listas?.Where(l => !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase)).ToList();
-                return Json(filtradas);
-            }
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return Json(new { error = "Usuario no autenticado" });
 
-            // Fallback
-            var todas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>("Lista");
-            var asignadas = await _httpClient.GetFromJsonAsync<List<Models.Lista.VerDTO>>($"Eleccion/{eleccionId}/Listas");
+            var response = await _httpClient.GetAsync($"Lista/noAsignadas/{eleccionId}/{usuarioId}");
+            if (!response.IsSuccessStatusCode)
+                return Json(new List<MVCProyecto.Models.Lista.VerDTO>());
 
-            todas ??= new List<Models.Lista.VerDTO>();
-            asignadas ??= new List<Models.Lista.VerDTO>();
-
-            var disponibles = todas
-                .Where(l => asignadas.All(a => a.Id != l.Id)
-                            && !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            return Json(disponibles);
+            var listas = await response.Content.ReadFromJsonAsync<List<MVCProyecto.Models.Lista.VerDTO>>();
+            return Json(listas ?? new List<MVCProyecto.Models.Lista.VerDTO>());
         }
 
 
@@ -191,21 +179,16 @@ namespace MVCProyecto.Controllers
         [HttpGet]
         public async Task<IActionResult> ObtenerPersonasDisponibles(int eleccionId)
         {
-            // 1) Todas las personas
-            var todas = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Persona.VerDTO>>("Persona");
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return Json(new { error = "Usuario no autenticado" });
 
-            // 2) Personas ya asignadas a esta elección
-            var asignadas = await _httpClient.GetFromJsonAsync<List<MVCProyecto.Models.Persona.VerDTO>>($"Eleccion/{eleccionId}/Personas");
+            var response = await _httpClient.GetAsync($"Persona/noAsignadas/{eleccionId}/{usuarioId}");
+            if (!response.IsSuccessStatusCode)
+                return Json(new List<MVCProyecto.Models.Persona.VerDTO>());
 
-            todas ??= new List<MVCProyecto.Models.Persona.VerDTO>();
-            asignadas ??= new List<MVCProyecto.Models.Persona.VerDTO>();
-
-            // 3) Filtrar: solo las que no están asignadas y cuyo rol sea "Votante"
-            var disponibles = todas
-                .Where(p => asignadas.All(a => a.Id != p.Id) && p.Rol.Equals("Votante", StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            return Json(disponibles);
+            var personas = await response.Content.ReadFromJsonAsync<List<MVCProyecto.Models.Persona.VerDTO>>();
+            return Json(personas ?? new List<MVCProyecto.Models.Persona.VerDTO>());
         }
 
 
