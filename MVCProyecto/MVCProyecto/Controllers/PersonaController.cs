@@ -25,7 +25,12 @@ namespace MVCProyecto.Controllers
         // GET: Persona/ListaPersonas
         public async Task<IActionResult> ListaPersonas()
         {
-            var personas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Persona");
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return RedirectToAction("Login");
+
+            // 👇 Llamada al endpoint filtrado
+            var personas = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Persona/porUsuario/{usuarioId}");
             return View(personas);
         }
 
@@ -46,8 +51,14 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> CrearPersona(CrearDTO dto)
         {
             if (!ModelState.IsValid) return View(dto);
+            var creadorId = HttpContext.Session.GetInt32("UsuarioId");
+                       if (creadorId == null)
+            {
+                ModelState.AddModelError("", "No estás autenticado.");
+                return View(dto);
+            }
 
-            var response = await _httpClient.PostAsJsonAsync("Persona", dto);
+            var response = await _httpClient.PostAsJsonAsync($"Persona?id={creadorId}", dto);
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(ListaPersonas));
 
@@ -181,8 +192,10 @@ namespace MVCProyecto.Controllers
                 NombrePersona = persona.NombrePersona,
                 ApellidoPersona = persona.ApellidoPersona,
                 ContraseniaPersona = nuevaContrasenia,
+                SolicitanteId = usuarioId,
                 PrimerLogin = false
             };
+
 
             var response = await _httpClient.PutAsJsonAsync($"Persona/{usuarioId}", dto);
 

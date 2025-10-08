@@ -23,9 +23,18 @@ namespace Negocio.Logica
 
         }
 
-        public async Task<List<VerDTO>> ObtenerTodas()
+        public async Task<List<VerDTO>> ObtenerTodas(int solicitanteId)
         {
+            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
             var personas = await _repositorio.ObtenerTodas();
+
+            // 🕶️ Si no es SuperAdmin, filtra por las que él creó
+            if (solicitante.Rol != "SuperAdmin")
+                personas = personas.Where(p => p.CreadorId == solicitante.Id).ToList();
+
             return personas.Select(p => new VerDTO
             {
                 Id = p.Id,
@@ -104,7 +113,7 @@ namespace Negocio.Logica
             };
         }
 
-        public async Task Crear(CrearDTO dto)
+        public async Task Crear(CrearDTO dto, int creadorId)
         {
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la persona son obligatorios.");
@@ -123,10 +132,21 @@ namespace Negocio.Logica
 
             if (string.IsNullOrWhiteSpace(dto.Rol))
                 throw new ArgumentException("El rol es obligatorio.", nameof(dto.Rol));
+            var superAdminExistente = await _repositorio.ObtenerPorRol("SuperAdmin");
+            if (dto.Rol == "SuperAdmin" && superAdminExistente != null)
+                throw new InvalidOperationException("Ya existe un SuperAdmin. Solo puede haber uno.");
+            var creador = await _repositorio.ObtenerPorId(creadorId);
+            if (creador == null)
+                throw new InvalidOperationException("El creador no existe.");
 
             var existente = await _repositorio.ObtenerPorDNI(dto.NroIdentificacionPersona);
             if (existente != null)
                 throw new InvalidOperationException("Ya existe una persona con este número de identificación.");
+            if (dto.Rol == "Admin" && creador.Rol != "SuperAdmin")
+                throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear administradores.");
+
+            if (dto.Rol == "SuperAdmin" && creador.Rol != "SuperAdmin")
+                throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear otro SuperAdmin (y solo si no existe).");
 
             var persona = new Persona
             {
@@ -136,6 +156,7 @@ namespace Negocio.Logica
                 Rol = dto.Rol,
                 TipoDocumentoPersona = dto.TipoDocumentoPersona,
                 ContraseniaPersona = _seguridad.HashContrasenia(dto.NroIdentificacionPersona),
+                CreadorId = creadorId,
                 PrimerLogin = true
             };
 
@@ -153,8 +174,14 @@ namespace Negocio.Logica
 
             await _repositorio.Actualizar(persona);
         }
-        public async Task Actualizar(int id, ModificarDTO dto)
+        public async Task Actualizar(int id, ModificarDTO dto, int solicitanteId)
         {
+            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
+            var persona = await _repositorio.ObtenerPorId(id);
+
+            if (solicitante.Rol != "SuperAdmin" && persona.Rol == "Admin" && persona.Id != solicitante.Id)
+                throw new UnauthorizedAccessException("No puedes modificar ni eliminar a otro administrador.");
+
             if (id <= 0)
                 throw new ArgumentException("El ID de la persona es inválido.", nameof(id));
 
@@ -170,7 +197,6 @@ namespace Negocio.Logica
             if (string.IsNullOrWhiteSpace(dto.ContraseniaPersona))
                 throw new ArgumentException("La contraseña es obligatoria.", nameof(dto.ContraseniaPersona));
 
-            var persona = await _repositorio.ObtenerPorId(id);
             if (persona == null)
                 throw new InvalidOperationException("Persona no encontrada.");
 
@@ -183,12 +209,19 @@ namespace Negocio.Logica
         }
 
 
-        public async Task Eliminar(int id)
+        public async Task Eliminar(int id, int solicitanteId)
         {
+            var persona = await _repositorio.ObtenerPorId(id);
+            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
+
+            if (solicitante.Rol != "SuperAdmin" && persona.Rol == "Admin" && persona.Id != solicitante.Id)
+                throw new UnauthorizedAccessException("No puedes modificar ni eliminar a otro administrador.");
+
+
+
             if (id <= 0)
                 throw new ArgumentException("El ID de la persona es inválido.", nameof(id));
 
-            var persona = await _repositorio.ObtenerPorId(id);
             if (persona == null)
                 throw new InvalidOperationException("No se puede eliminar: la persona no existe.");
 

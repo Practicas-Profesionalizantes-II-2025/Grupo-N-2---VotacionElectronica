@@ -22,6 +22,9 @@ namespace Shared.Entities
         public string ContraseniaPersona { get; set; }
         public string TipoDocumentoPersona { get; set; }
 
+        public int? CreadorId { get; set; }
+        public Persona Creador { get; set; }
+
         public string Rol { get; set; }
         public bool PrimerLogin { get; set; } = true;
 

@@ -15,26 +15,36 @@ namespace Negocio.Logica
     {
         private readonly IEleccionRepository _repositorio;
         private readonly IListaRepository _listaRepositorio;
+        private readonly IPersonaRepository _personaRepo;
 
-        public EleccionLogic(IEleccionRepository repositorio, IListaRepository listaRepositorio)
+        public EleccionLogic(IEleccionRepository repositorio, IListaRepository listaRepositorio, IPersonaRepository personaRepo)
         {
             _repositorio = repositorio;
             _listaRepositorio = listaRepositorio;
+            _personaRepo = personaRepo;
         }
 
 
-        public async Task<List<VerDTO>> ObtenerTodas()
+        public async Task<List<VerDTO>> ObtenerTodas(int solicitanteId)
 {
-    var lista = await _repositorio.ObtenerTodas();
-    return lista.Select(e => new VerDTO
-    {
-        Id = e.Id,
-        NombreEleccion = e.NombreEleccion,
-        DescripcionEleccion = e.DescripcionEleccion,
-        CantidadListas = e.CantidadListas,
-        FechaInicioEleccion = e.FechaInicioEleccion,
-        FechaFinEleccion = e.FechaFinEleccion,
-    }).ToList();
+            var solicitante = await _personaRepo.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var elecciones = await _repositorio.ObtenerTodas();
+
+            if (solicitante.Rol != "SuperAdmin")
+                elecciones = elecciones.Where(e => e.CreadorId == solicitante.Id).ToList();
+
+            return elecciones.Select(e => new VerDTO
+            {
+                Id = e.Id,
+                NombreEleccion = e.NombreEleccion,
+                DescripcionEleccion = e.DescripcionEleccion,
+                CantidadListas = e.CantidadListas,
+                FechaInicioEleccion = e.FechaInicioEleccion,
+                FechaFinEleccion = e.FechaFinEleccion,
+            }).ToList();
 }
 
 
@@ -95,7 +105,7 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
 }
 
 
-        public async Task Crear(CrearDTO dto)
+        public async Task Crear(CrearDTO dto, int solicitanteId)
         {
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
@@ -114,6 +124,7 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
                 CantidadListas = dto.CantidadListas,
                 FechaInicioEleccion = dto.FechaInicioEleccion,
                 FechaFinEleccion = dto.FechaFinEleccion,
+                CreadorId = solicitanteId,
                 CreatedDate = dto.CreatedDate
             };
 
@@ -123,7 +134,8 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
             var listaBlanco = new Lista
             {
                 NombreLista = "Voto en Blanco",
-                DescripcionLista = "Opción automática de voto en blanco"
+                DescripcionLista = "Opción automática de voto en blanco",
+                CreadorId = solicitanteId
             };
 
             await _listaRepositorio.Crear(listaBlanco);

@@ -28,6 +28,8 @@ namespace Shared.Entities
 
         public int EleccionId { get; set; }
 
+        public int CreadorId { get; set; }
+        public Persona Creador { get; set; }
         public ICollection<Voto> Votos { get; set; }
 
         public ICollection <Candidatos> Candidatos{ get; set; }

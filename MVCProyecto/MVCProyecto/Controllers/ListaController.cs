@@ -14,9 +14,14 @@ namespace MVCProyecto.Controllers
         // GET: Lista
         public async Task<IActionResult> ListaLista()
         {
-            var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Lista");
-            // Filtrar voto en blanco
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return RedirectToAction("Login");
+
+            // 👇 Ahora encaja con la ruta de la API
+            var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Lista/porUsuario/{usuarioId}");
             var filtradas = listas?.Where(l => !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase)).ToList();
+
             return View(filtradas ?? new List<VerDTO>());
         }
 
@@ -40,7 +45,15 @@ namespace MVCProyecto.Controllers
         {
             if (!ModelState.IsValid) return View(dto);
 
-            var response = await _httpClient.PostAsJsonAsync("Lista", dto);
+            var creadorId = HttpContext.Session.GetInt32("UsuarioId");
+            if (creadorId == null)
+            {
+                ModelState.AddModelError("", "No estás autenticado.");
+                return View(dto);
+            }
+
+            // 👇 Ruta corregida según la API
+            var response = await _httpClient.PostAsJsonAsync($"Lista/{creadorId}", dto);
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(ListaLista));
 
