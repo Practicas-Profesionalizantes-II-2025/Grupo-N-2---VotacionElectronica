@@ -12,16 +12,18 @@ body {
 }
 
 .container-elecciones {
-    background-color: #3AB397;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     padding: 30px;
     margin-top: 28px;
     border-radius: 12px;
-    display: flex;
+    display: center;
     flex-direction: column;
     gap: 20px;
     justify-content: flex-start;
     max-height: 65vh; /* Limita altura */
     overflow-y: auto; /* Scroll interno */
+    max-width: 1200px;
 }
 
     /* Scrollbar solo dentro del container */
@@ -51,6 +53,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px;
+    justify-items: center;
+    justify-content: center;
 }
 
 .eleccion-card {
@@ -60,6 +64,8 @@ body {
     padding: 20px;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    width: 100%;
+    max-width: 300px; 
 }
 
 .eleccion-card:hover {
