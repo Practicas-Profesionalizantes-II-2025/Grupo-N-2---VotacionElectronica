@@ -263,6 +263,18 @@ namespace Negocio.Logica
             return await _repositorio.ObtenerEleccionesAutorizadas(dni);
         }
 
+        public async Task<List<VerDTO>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var personas = await _repositorio.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
+            return personas.Select(p => new VerDTO
+            {
+                Id = p.Id,
+                NombrePersona = p.NombrePersona,
+                Dni = p.NroIdentificacionPersona,
+                Rol = p.Rol
+            }).ToList();
+        }
+
     }
 }
 

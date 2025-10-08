@@ -15,5 +15,8 @@ namespace Negocio.Logica.ILogica
         Task CrearLista(CrearDTO dto, int Creador);
         Task ActualizarLista(int id, ModificarDTO dto);
         Task EliminarLista(int id);
+        Task<List<VerDTO>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId);
+
+
     }
 }

@@ -79,6 +79,16 @@ namespace Datos.Repositorios
             }
         }
 
+        public async Task<List<Lista>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            return await _context.Lista
+                .Where(l => l.CreadorId == solicitanteId &&
+                            !_context.EleccionListas
+                                .Any(el => el.IdLista == l.Id && el.IdEleccion == eleccionId))
+                .ToListAsync();
+        }
+
+
 
     }
 }

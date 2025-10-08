@@ -111,6 +111,18 @@ namespace Negocio.Logica
 
             await _repositorio.Eliminar(id);
         }
+
+        public async Task<List<VerDTO>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var listas = await _repositorio.ObtenerListasNoAsignadas(eleccionId, solicitanteId);
+            return listas.Select(l => new VerDTO
+            {
+                Id = l.Id,
+                NombreLista = l.NombreLista,
+                DescripcionLista = l.DescripcionLista
+            }).ToList();
+        }
+
     }
 }
 

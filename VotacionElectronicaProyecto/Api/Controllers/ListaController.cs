@@ -63,6 +63,14 @@ namespace Api.Controllers
             await _logica.EliminarLista(id);
             return NoContent();
         }
+
+        [HttpGet("noAsignadas/{eleccionId:int}/{solicitanteId:int}")]
+        public async Task<IActionResult> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var listas = await _logica.ObtenerListasNoAsignadas(eleccionId, solicitanteId);
+            return Ok(listas);
+        }
+
     }
 }
 

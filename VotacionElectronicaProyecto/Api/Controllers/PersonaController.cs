@@ -92,6 +92,12 @@ namespace Api.Controllers
             return Ok(elecciones);
         }
 
+        [HttpGet("noAsignadas/{eleccionId:int}/{solicitanteId:int}")]
+        public async Task<IActionResult> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var personas = await _logic.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
+            return Ok(personas);
+        }
 
 
     }
