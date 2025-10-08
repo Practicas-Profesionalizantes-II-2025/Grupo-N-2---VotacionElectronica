@@ -20,7 +20,7 @@ namespace MVCProyecto.Controllers
             var rol = HttpContext.Session.GetString("Rol");
             var items = new List<MenuItemViewModel>();
 
-            if (rol == "Administrador")
+            if (rol == "Administrador" || rol == "SuperAdmin")
             {
                 items.Add(new MenuItemViewModel
                 {

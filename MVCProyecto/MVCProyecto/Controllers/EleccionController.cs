@@ -17,7 +17,12 @@ namespace MVCProyecto.Controllers
         // GET: Eleccion/ListaElecciones
         public async Task<IActionResult> ListaEleccion()
         {
-            var elecciones = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Eleccion");
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+            if (usuarioId == null)
+                return RedirectToAction("Login");
+
+            // 👇 Llamada al endpoint filtrado
+            var elecciones = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Eleccion/porUsuario/{usuarioId}");
             return View(elecciones);
         }
 
@@ -39,7 +44,14 @@ namespace MVCProyecto.Controllers
         {
             if (!ModelState.IsValid) return View(dto);
 
-            var response = await _httpClient.PostAsJsonAsync("Eleccion", dto);
+            var creadorId = HttpContext.Session.GetInt32("UsuarioId");
+            if (creadorId == null)
+            {
+                ModelState.AddModelError("", "No estás autenticado.");
+                return View(dto);
+            }
+
+            var response = await _httpClient.PostAsJsonAsync($"Eleccion/{creadorId}", dto);
             if (response.IsSuccessStatusCode)
                 return RedirectToAction(nameof(ListaEleccion));
 

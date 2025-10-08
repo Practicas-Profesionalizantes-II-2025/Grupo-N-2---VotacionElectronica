@@ -15,6 +15,10 @@ namespace Shared.Entities
         public int CantidadListas { get; set; }
         public DateTime FechaFinEleccion { get; set; }
         public DateTime FechaInicioEleccion { get; set; }
+        public int CreadorId { get; set; }
+        public Persona Creador { get; set; }
+
+
         public ICollection<Voto> Votos { get; set; }
         public ICollection<Lista> Listas { get; set; }
         public ICollection<PersonaEleccion> PersonaElecciones { get; set; }

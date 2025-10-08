@@ -24,6 +24,7 @@ namespace Datos.Repositorios
             return await _context.Persona.ToListAsync();
         }
 
+
         public async Task<Persona> ObtenerPorId(int id)
         {
             return await _context.Persona.FindAsync(id);
@@ -34,6 +35,11 @@ namespace Datos.Repositorios
             return await _context.Persona
                 .Where(p => p.NombrePersona.Contains(nombre))
                 .ToListAsync();
+        }
+        public async Task<Persona> ObtenerPorRol(string rol)
+        {
+            return await _context.Persona
+                .FirstOrDefaultAsync(p => p.Rol == rol);
         }
 
         public async Task<Persona> ObtenerPorDNI(string dni)

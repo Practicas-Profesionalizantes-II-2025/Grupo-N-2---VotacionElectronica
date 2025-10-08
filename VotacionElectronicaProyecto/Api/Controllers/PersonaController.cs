@@ -19,10 +19,10 @@ namespace Api.Controllers
             _logic = logic;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> ObtenerTodas()
+        [HttpGet("porUsuario/{solicitanteId}")]
+        public async Task<IActionResult> ObtenerTodas(int solicitanteId)
         {
-            var personas = await _logic.ObtenerTodas();
+            var personas = await _logic.ObtenerTodas(solicitanteId);
             return Ok(personas);
         }
 
@@ -50,23 +50,23 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Crear(CrearDTO dto)
+        public async Task<IActionResult> Crear(CrearDTO dto, int id)
         {
-            await _logic.Crear(dto);
+            await _logic.Crear(dto, id);
             return Ok("Persona creada correctamente");
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Actualizar(int id, ModificarDTO dto)
+        public async Task<IActionResult> Actualizar(int id, ModificarDTO dto, int solicitanteId)
         {
-            await _logic.Actualizar(id, dto);
+            await _logic.Actualizar(id, dto, dto.SolicitanteId);
             return Ok("Persona actualizada correctamente");
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Eliminar(int id)
+        public async Task<IActionResult> Eliminar(int id, int solicitanteId)
         {
-            await _logic.Eliminar(id);
+            await _logic.Eliminar(id, solicitanteId);
             return NoContent();
         }
 

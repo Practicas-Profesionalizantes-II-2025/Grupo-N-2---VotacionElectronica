@@ -23,10 +23,10 @@ namespace Api.Controllers
             _logica = logica;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<VerDTO>>> GetEleccion()
+        [HttpGet("porUsuario/{solicitanteId}")]
+        public async Task<ActionResult<IEnumerable<VerDTO>>> ObtenerTodas(int solicitanteId)
         {
-            return await _logica.ObtenerTodas();
+            return await _logica.ObtenerTodas(solicitanteId);
         }
 
         [HttpGet("{id:int}")]
@@ -56,12 +56,13 @@ namespace Api.Controllers
             return Ok(lista);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> PostEleccion(CrearDTO dto)
+        [HttpPost("{solicitanteId:int}")]
+        public async Task<ActionResult> CrearEleccion(int solicitanteId, [FromBody] CrearDTO dto)
         {
-            await _logica.Crear(dto);
+            await _logica.Crear(dto, solicitanteId);
             return Ok();
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEleccion(int id, ModificarDTO dto)

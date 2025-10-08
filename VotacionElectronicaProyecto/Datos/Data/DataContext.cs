@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shared.Entities;
+using Shared.Services;
 
 namespace Api.Data
 {
     public partial class DataContext : DbContext
     {
+
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
@@ -23,6 +25,9 @@ namespace Api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            string Contra = "SuperAdmin";
+            string hashSuperAdmin = new SeguridadServicio().HashContrasenia(Contra);
+
             //modelBuilder.HasAnnotation("Relational:Collation", "en_US.UTF-8");
 
             //modelBuilder.Entity<Candidatos>(entity =>
@@ -32,6 +37,11 @@ namespace Api.Data
             //    entity.Property(x => x.CreatedDate).HasDefaultValue(DateTime.Now);
             //});
             modelBuilder.Entity<Candidatos>().Property(x => x.CreatedDate).HasDefaultValueSql("GETDATE()");
+            modelBuilder.Entity<Candidatos>()
+                .HasOne(e => e.Creador)
+                .WithMany()
+                .HasForeignKey(e => e.CreadorId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Eleccion>(entity =>
             {
                 entity.HasKey(e => e.Id)
@@ -46,6 +56,12 @@ namespace Api.Data
                     a => a.HasOne<Eleccion>().WithMany().HasForeignKey(e => e.IdEleccion));
 
             });
+            modelBuilder.Entity<Eleccion>()
+                .HasOne(e => e.Creador)
+                .WithMany()
+                .HasForeignKey(e => e.CreadorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<Lista>(entity =>
             {
                 entity.HasKey(e => e.Id)
@@ -58,6 +74,11 @@ namespace Api.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             });
+            modelBuilder.Entity<Lista>()
+                .HasOne(e => e.Creador)
+                .WithMany()
+                .HasForeignKey(e => e.CreadorId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Persona>(entity =>
             {
                 entity.HasKey(e => e.Id)
@@ -65,7 +86,30 @@ namespace Api.Data
                 entity.Property(x => x.CreatedDate)
                     .HasDefaultValueSql("GETDATE()");
 
+
             });
+            modelBuilder.Entity<Persona>()
+                .HasOne(p => p.Creador)
+                .WithMany()
+                .HasForeignKey(p => p.CreadorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<Persona>().HasData(
+                new Persona
+                {
+                    Id = 1,
+                    NombrePersona = "Super",
+                    ApellidoPersona = "Admin",
+                    NroIdentificacionPersona = "99999999",
+                    TipoDocumentoPersona = "DNI",
+
+                    Rol = "SuperAdmin",
+                    ContraseniaPersona = hashSuperAdmin,
+                    PrimerLogin = true
+                }
+            );
+
             modelBuilder.Entity<Resultado>(entity =>
             {
                 entity.HasKey(e => e.Id)

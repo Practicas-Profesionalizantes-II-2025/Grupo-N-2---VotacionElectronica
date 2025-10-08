@@ -9,10 +9,10 @@ namespace Negocio.Logica.ILogica
 {
     public interface IListaLogic
     {
-        Task<List<VerDTO>> ObtenerListas();
+        Task<List<VerDTO>> ObtenerListas(int Creador);
         Task<VerDTO> ObtenerListasPorId(int id);
         Task<List<VerDTO>> ObtenerListasPorNombre(string nombre);
-        Task CrearLista(CrearDTO dto);
+        Task CrearLista(CrearDTO dto, int Creador);
         Task ActualizarLista(int id, ModificarDTO dto);
         Task EliminarLista(int id);
     }
