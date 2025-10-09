@@ -80,15 +80,28 @@ namespace Datos.Repositorios
                 .ToListAsync();
         }
 
-        public async Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
+        public async Task<List<Eleccion>> ObtenerEleccionesAsignadas(string dni)
         {
-            return await _context.Persona
-                .Where(p => p.CreadorId == solicitanteId &&
-                            p.Rol == "Votante" &&
-                            !_context.PersonaElecciones
-                                .Any(ep => ep.PersonaId == p.Id && ep.EleccionId == eleccionId))
+            return await _context.PersonaElecciones
+                .Where(pe => pe.Persona.NroIdentificacionPersona == dni)
+                .Select(pe => pe.Eleccion)
                 .ToListAsync();
         }
+
+        public async Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int? solicitanteId)
+        {
+            var query = _context.Persona
+                .Where(p => p.Rol == "Votante" &&
+                            !_context.PersonaElecciones
+                                .Any(ep => ep.PersonaId == p.Id && ep.EleccionId == eleccionId));
+
+            if (solicitanteId.HasValue)
+                query = query.Where(p => p.CreadorId == solicitanteId.Value);
+
+            return await query.ToListAsync();
+        }
+
+
 
 
     }

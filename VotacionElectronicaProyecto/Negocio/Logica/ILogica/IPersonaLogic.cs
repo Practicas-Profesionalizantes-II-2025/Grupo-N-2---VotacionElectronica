@@ -19,6 +19,9 @@ namespace Negocio.Logica.ILogica
         Task Eliminar(int id, int solicitanteId);
         Task<VerDTO> Autenticar(string dni, string contrasenia);
         Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAutorizadas(string dni);
+        Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAsignadas(string dni);
+
+
         Task CambiarContrasenia(int personaId, string nuevaContrasenia);
         Task<List<VerDTO>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId);
 

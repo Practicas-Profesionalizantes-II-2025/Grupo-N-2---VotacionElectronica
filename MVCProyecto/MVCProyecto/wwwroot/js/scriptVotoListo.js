@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modalResultados.querySelector('.modal-title').textContent = `Resultados - ${nombre}`;
 
         try {
-            const response = await fetch(`/Resultado/Obtener/${eleccionId}`);
+            const response = await fetch(`/Resultado/ObtenerResultados?eleccionId=${eleccionId}`);
             if (!response.ok) throw new Error("No hay resultados disponibles.");
 
             const data = await response.json();

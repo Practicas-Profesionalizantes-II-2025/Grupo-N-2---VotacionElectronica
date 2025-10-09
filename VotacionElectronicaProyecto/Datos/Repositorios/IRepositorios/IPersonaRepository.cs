@@ -21,7 +21,9 @@ namespace Datos.Repositorios.IRepositorios
         Task Actualizar(Persona persona);
         Task Eliminar(int id);
         Task<List<Eleccion>> ObtenerEleccionesAutorizadas(string dni);
-        Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId);
+        Task<List<Eleccion>> ObtenerEleccionesAsignadas(string dni);
+
+        Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int? solicitanteId);
 
 
     }

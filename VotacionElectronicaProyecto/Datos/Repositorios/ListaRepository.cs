@@ -79,14 +79,18 @@ namespace Datos.Repositorios
             }
         }
 
-        public async Task<List<Lista>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
+        public async Task<List<Lista>> ObtenerListasNoAsignadas(int eleccionId, int? solicitanteId)
         {
-            return await _context.Lista
-                .Where(l => l.CreadorId == solicitanteId &&
-                            !_context.EleccionListas
-                                .Any(el => el.IdLista == l.Id && el.IdEleccion == eleccionId))
-                .ToListAsync();
+            var query = _context.Lista
+                .Where(l => !_context.EleccionListas
+                    .Any(el => el.IdLista == l.Id && el.IdEleccion == eleccionId));
+
+            if (solicitanteId.HasValue)
+                query = query.Where(l => l.CreadorId == solicitanteId.Value);
+
+            return await query.ToListAsync();
         }
+
 
 
 
