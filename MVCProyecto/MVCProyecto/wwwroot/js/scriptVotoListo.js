@@ -1,4 +1,5 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿//Votos-Listo
+document.addEventListener('DOMContentLoaded', function () {
     let chart;
     const modalResultados = document.getElementById('resultadoModal');
 
@@ -65,4 +66,38 @@
             alert(err.message);
         }
     });
+});
+
+//Votos-Emitir
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof bootstrap === "undefined") {
+        console.warn("Bootstrap no está disponible todavía para inicializar tooltips.");
+        return;
+    }
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+});
+
+//Buscar Eleccion
+document.addEventListener("DOMContentLoaded", function () {
+    const btnBuscar = document.getElementById("btnBuscar");
+    const inputBuscar = document.getElementById("buscarEleccion");
+
+    if (btnBuscar && inputBuscar) {
+        btnBuscar.addEventListener("click", function () {
+            let valor = inputBuscar.value.toLowerCase().trim();
+            let tarjetas = document.querySelectorAll(".eleccion-card");
+
+            tarjetas.forEach(tarjeta => {
+                let titulo = tarjeta.querySelector(".card-title")?.textContent.toLowerCase() || "";
+
+                if (valor === "") {
+                    tarjeta.style.display = "";
+                } else {
+                    tarjeta.style.display = titulo.includes(valor) ? "" : "none";
+                }
+            });
+        });
+    }
 });

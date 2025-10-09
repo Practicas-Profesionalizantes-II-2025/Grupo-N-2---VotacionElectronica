@@ -15,16 +15,18 @@ body {
     background-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     padding: 30px;
-    margin-top: 28px;
+    margin: 28px auto; 
     border-radius: 12px;
-    display: center;
+    display: flex; 
     flex-direction: column;
     gap: 20px;
     justify-content: flex-start;
-    max-height: 65vh; /* Limita altura */
-    overflow-y: auto; /* Scroll interno */
+    max-height: 65vh;
+    overflow-y: auto;
     max-width: 1200px;
+    width: 90%; 
 }
+
 
     /* Scrollbar solo dentro del container */
 .container-elecciones::-webkit-scrollbar {
@@ -128,4 +130,61 @@ body {
     margin: 20px auto;
     max-width: 600px;
     text-align: center;
+}
+
+
+/* Seccion Buscar */
+.table_header {
+    display: flex;
+    justify-content: space-between; /* h1 a la izq, búsqueda a la der */
+    align-items: center;
+    padding: 5px 40px; /* agrega espacio a los bordes */
+    margin-top: 10px;
+    width: 100%;
+}
+
+.table_header h1 {
+    margin-left: 40px;
+    font-size: 35px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buscar {
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* separa input y botón */
+}
+
+
+button {
+    background-color: #1850ed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btnBuscar {
+    background-color: #1850ed;
+    color: #3AB397;
+    border-radius: 6px;
+}
+
+input {
+    padding: 5px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 6px;
+    color: #0b25b9;
+    width: 400px;
+}
+
+::placeholder {
+    color: #6396e4;
 }
