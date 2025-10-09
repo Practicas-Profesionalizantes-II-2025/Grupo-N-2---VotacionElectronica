@@ -168,11 +168,15 @@ namespace Negocio.Logica
             var persona = await _repositorio.ObtenerPorId(id);
             if (persona == null)
                 throw new Exception("Persona no encontrada");
+            if (persona.ContraseniaPersona != nuevaContrasenia)
+                throw new Exception("La contraseña no puede ser la misma");
 
             persona.ContraseniaPersona = _seguridad.HashContrasenia(nuevaContrasenia);
             persona.PrimerLogin = false;
 
             await _repositorio.Actualizar(persona);
+            
+
         }
         public async Task Actualizar(int id, ModificarDTO dto, int solicitanteId)
         {
