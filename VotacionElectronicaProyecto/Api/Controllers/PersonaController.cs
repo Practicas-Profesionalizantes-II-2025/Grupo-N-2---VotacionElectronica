@@ -52,9 +52,29 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Crear(CrearDTO dto, int id)
         {
-            await _logic.Crear(dto, id);
-            return Ok("Persona creada correctamente");
+            try
+            {
+                await _logic.Crear(dto, id);
+                return Ok("Persona creada correctamente");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Actualizar(int id, ModificarDTO dto, int solicitanteId)

@@ -7,12 +7,13 @@
     <h1 class="text-center">Editar Persona</h1>
 
     <form asp-action="EditarPersona" method="post">
+       <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="NombrePersona">Nombre</label>
                     <input asp-for="NombrePersona" class="form-control" />
-                    <span asp-validation-for="NombrePersona" class="text-danger"></span>
                 </div>
             </div>
 
@@ -20,15 +21,6 @@
                 <div class="form-group">
                     <label for="ApellidoPersona">Apellido</label>
                     <input asp-for="ApellidoPersona" class="form-control" />
-                    <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="ContraseniaPersona">Contraseña</label>
-                    <input asp-for="ContraseniaPersona" type="password" class="form-control" />
-                    <span asp-validation-for="ContraseniaPersona" class="text-danger"></span>
                 </div>
             </div>
 

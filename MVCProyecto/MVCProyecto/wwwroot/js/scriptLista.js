@@ -344,3 +344,63 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// ---------- CREAR PERSONA (modal AJAX) ----------
+document.addEventListener("DOMContentLoaded", function () {
+    const modalCrear = document.getElementById("modalCrearPersona");
+
+    if (!modalCrear) return; // Si no existe en esta vista, no hace nada
+
+    // Cuando se abre el modal, carga el contenido parcial
+    modalCrear.addEventListener("show.bs.modal", async function (event) {
+        const button = event.relatedTarget;
+        const url = button.getAttribute("data-url"); // ej: /Persona/CrearPersona
+        const modalContent = modalCrear.querySelector(".modal-content");
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Error al cargar el formulario.");
+            const html = await response.text();
+            modalContent.innerHTML = html;
+        } catch (err) {
+            modalContent.innerHTML = `<div class="p-3 text-danger">${err.message}</div>`;
+        }
+    });
+
+    // Delegación: manejar el submit del formulario dentro del modal
+    modalCrear.addEventListener("submit", async function (event) {
+        const form = event.target;
+        if (!form.matches("form")) return; // solo formularios
+        event.preventDefault();
+
+        const modalContent = modalCrear.querySelector(".modal-content");
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { "X-Requested-With": "XMLHttpRequest" } // indica petición AJAX
+            });
+
+            // Si devuelve JSON => creación exitosa
+            const contentType = response.headers.get("content-type");
+            if (response.ok && contentType && contentType.includes("application/json")) {
+                const data = await response.json();
+                if (data.success) {
+                    bootstrap.Modal.getInstance(modalCrear).hide(); // cierra el modal
+                    location.reload(); // o actualizá solo la tabla si querés
+                    return;
+                }
+            }
+
+            // Si devuelve HTML => hubo error de validación, se reemplaza el contenido del modal
+            const html = await response.text();
+            modalContent.innerHTML = html;
+
+        } catch (err) {
+            console.error(err);
+            modalContent.innerHTML = `<div class="p-3 text-danger">Error al enviar el formulario.</div>`;
+        }
+    });
+});
+
