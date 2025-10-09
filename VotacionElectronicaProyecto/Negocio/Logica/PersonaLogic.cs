@@ -262,18 +262,36 @@ namespace Negocio.Logica
 
             return await _repositorio.ObtenerEleccionesAutorizadas(dni);
         }
+        public async Task<List<Eleccion>> ObtenerEleccionesAsignadas(string dni)
+        {
+            if (string.IsNullOrWhiteSpace(dni))
+                throw new ArgumentException("El DNI es obligatorio.", nameof(dni));
+
+            return await _repositorio.ObtenerEleccionesAsignadas(dni);
+        }
+
+
 
         public async Task<List<VerDTO>> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
         {
-            var personas = await _repositorio.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
+            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var personas = solicitante.Rol == "SuperAdmin"
+                ? await _repositorio.ObtenerPersonasNoAsignadas(eleccionId, null) // traer todas
+                : await _repositorio.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
+
             return personas.Select(p => new VerDTO
             {
                 Id = p.Id,
                 NombrePersona = p.NombrePersona,
+                ApellidoPersona = p.ApellidoPersona,
                 Dni = p.NroIdentificacionPersona,
                 Rol = p.Rol
             }).ToList();
         }
+
 
     }
 }

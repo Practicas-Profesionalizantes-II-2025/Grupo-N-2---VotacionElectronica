@@ -114,7 +114,14 @@ namespace Negocio.Logica
 
         public async Task<List<VerDTO>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
         {
-            var listas = await _repositorio.ObtenerListasNoAsignadas(eleccionId, solicitanteId);
+            var solicitante = await _personaRepo.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var listas = solicitante.Rol == "SuperAdmin"
+                ? await _repositorio.ObtenerListasNoAsignadas(eleccionId, null)
+                : await _repositorio.ObtenerListasNoAsignadas(eleccionId, solicitanteId);
+
             return listas.Select(l => new VerDTO
             {
                 Id = l.Id,
@@ -122,6 +129,7 @@ namespace Negocio.Logica
                 DescripcionLista = l.DescripcionLista
             }).ToList();
         }
+
 
     }
 }

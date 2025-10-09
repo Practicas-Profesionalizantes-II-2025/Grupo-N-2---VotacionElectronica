@@ -24,9 +24,8 @@ namespace MVCProyecto.Controllers
                 return RedirectToAction("Login", "Persona");
             }
 
-            // 👇 Usa el mismo endpoint que VotosController.Emitir()
             var elecciones = await _httpClient.GetFromJsonAsync<List<VerDTO>>(
-                $"Persona/eleccionesAutorizadas/{dni}");
+                $"Persona/eleccionesAsignadas/{dni}");
 
             return View(elecciones ?? new List<VerDTO>());
         }
@@ -39,7 +38,7 @@ namespace MVCProyecto.Controllers
                 return BadRequest("ID de elección inválido.");
 
             var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>(
-                $"api/resultado/{eleccionId}");
+                $"resultado/{eleccionId}");
 
             return Json(resultados ?? new List<ResultadoDto>());
         }
