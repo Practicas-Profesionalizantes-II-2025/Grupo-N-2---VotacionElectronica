@@ -6,7 +6,10 @@
     <p>¿Está seguro que desea eliminar a <strong>@Model.NombrePersona @Model.ApellidoPersona</strong>?</p>
 </div>
 
+
 <form asp-action="EliminarPersona" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Eliminar</button>

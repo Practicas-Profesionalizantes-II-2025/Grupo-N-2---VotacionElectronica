@@ -198,9 +198,6 @@ namespace Negocio.Logica
             if (string.IsNullOrWhiteSpace(dto.ApellidoPersona))
                 throw new ArgumentException("El apellido de la persona es obligatorio.", nameof(dto.ApellidoPersona));
 
-            if (string.IsNullOrWhiteSpace(dto.ContraseniaPersona))
-                throw new ArgumentException("La contraseña es obligatoria.", nameof(dto.ContraseniaPersona));
-
             if (persona == null)
                 throw new InvalidOperationException("Persona no encontrada.");
 

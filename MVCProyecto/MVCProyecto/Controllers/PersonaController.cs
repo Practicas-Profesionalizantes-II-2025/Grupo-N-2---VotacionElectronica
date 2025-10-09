@@ -50,21 +50,33 @@ namespace MVCProyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CrearPersona(CrearDTO dto)
         {
-            if (!ModelState.IsValid) return View(dto);
-            var creadorId = HttpContext.Session.GetInt32("UsuarioId");
-                       if (creadorId == null)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "No estás autenticado.");
-                return View(dto);
+                // Extraemos los errores de ModelState
+                var errores = ModelState.Values
+                                .SelectMany(v => v.Errors)
+                                .Select(e => e.ErrorMessage)
+                                .ToList();
+                return Json(new { success = false, message = string.Join("<br>", errores) });
+            }
+
+            var creadorId = HttpContext.Session.GetInt32("UsuarioId");
+            if (creadorId == null)
+            {
+                return Json(new { success = false, message = "No estás autenticado." });
             }
 
             var response = await _httpClient.PostAsJsonAsync($"Persona?id={creadorId}", dto);
-            if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(ListaPersonas));
 
-            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-            return View(dto);
+            if (response.IsSuccessStatusCode)
+                return Json(new { success = true, message = "Persona creada correctamente." });
+
+            // Mensaje del backend
+            var mensajeError = await response.Content.ReadAsStringAsync();
+            return Json(new { success = false, message = mensajeError });
         }
+
+
 
         // GET: Persona/EditarPersona/5
         public async Task<IActionResult> EditarPersona(int id)
