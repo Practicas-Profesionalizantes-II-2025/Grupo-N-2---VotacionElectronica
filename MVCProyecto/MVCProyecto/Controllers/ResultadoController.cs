@@ -14,27 +14,34 @@ namespace MVCProyecto.Controllers
             _httpClient = httpClientFactory.CreateClient("ApiClient");
         }
 
-        // Muestra todas las elecciones disponibles
+        // GET: Resultado/Index
         public async Task<IActionResult> Index()
         {
-            var elecciones = await _httpClient.GetFromJsonAsync<List<VerDTO>>("Eleccion");
+            var dni = HttpContext.Session.GetString("Dni");
+            if (string.IsNullOrEmpty(dni))
+            {
+                TempData["Error"] = "No se pudo obtener el DNI del usuario en sesión.";
+                return RedirectToAction("Login", "Persona");
+            }
+
+            // 👇 Usa el mismo endpoint que VotosController.Emitir()
+            var elecciones = await _httpClient.GetFromJsonAsync<List<VerDTO>>(
+                $"Persona/eleccionesAutorizadas/{dni}");
+
             return View(elecciones ?? new List<VerDTO>());
         }
 
-        // Devuelve resultados en JSON (para el modal)
+        // GET: Resultado/ObtenerResultados?eleccionId=5
         [HttpGet]
         public async Task<IActionResult> ObtenerResultados(int eleccionId)
         {
-            var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>($"resultado/{eleccionId}");
+            if (eleccionId <= 0)
+                return BadRequest("ID de elección inválido.");
+
+            var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>(
+                $"api/resultado/{eleccionId}");
+
             return Json(resultados ?? new List<ResultadoDto>());
         }
-
-        [HttpGet("Resultado/Obtener/{eleccionId}")]
-        public async Task<IActionResult> Obtener(int eleccionId)
-        {
-            var resultados = await _httpClient.GetFromJsonAsync<List<ResultadoDto>>($"resultado/{eleccionId}");
-            return Json(resultados ?? new List<ResultadoDto>());
-        }
-
     }
 }
