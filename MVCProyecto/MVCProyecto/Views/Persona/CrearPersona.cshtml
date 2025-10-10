@@ -30,12 +30,15 @@
                     <input asp-for="NroIdentificacionPersona" class="form-control" />
                 </div>
             </div>
-   
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="TipoDocumentoPersona">Tipo de documento</label>
-                    <input asp-for="TipoDocumentoPersona" class="form-control" />
+                    <label for="TipoDocumentoPersona">Tipo Documento</label>
+                    <select asp-for="TipoDocumentoPersona" class="form-control">
+                        <option value="DNI">DNI</option>
+                        <option value="CUIL">CUIL</option>
+                        <option value="Libreta de Enrolamiento">Libreta de Enrolamiento</option>
+                    </select>
                 </div>
             </div>
 
