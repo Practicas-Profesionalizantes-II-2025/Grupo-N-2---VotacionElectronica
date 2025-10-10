@@ -10,17 +10,13 @@ namespace MVCProyecto.Models.Persona
     public class CrearDTO
     {
         public string NombrePersona { get; set; }
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string NroIdentificacionPersona { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string? ApellidoPersona { get; set; }
 
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string TipoDocumentoPersona { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Rol { get; set; }
 
         public int Id { get; set; }

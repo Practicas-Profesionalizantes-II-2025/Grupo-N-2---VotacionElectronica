@@ -151,26 +151,26 @@ namespace Negocio.Logica
             if (dto.TipoDocumentoPersona == "DNI")
             {
                 if (dto.NroIdentificacionPersona.Length != 8 || !dto.NroIdentificacionPersona.All(char.IsDigit))
-                    throw new ArgumentException("El DNI debe tener exactamente 8 dígitos numéricos.");
+                    throw new InvalidOperationException("El DNI debe tener exactamente 8 dígitos numéricos.");
             }
             else if (dto.TipoDocumentoPersona == "CUIL")
             {
                 if (dto.NroIdentificacionPersona.Length != 11 || !dto.NroIdentificacionPersona.All(char.IsDigit))
-                    throw new ArgumentException("El CUIL debe tener exactamente 11 dígitos numéricos.");
+                    throw new InvalidOperationException("El CUIL debe tener exactamente 11 dígitos numéricos.");
 
                 if (!dto.NroIdentificacionPersona.StartsWith("20") &&
                     !dto.NroIdentificacionPersona.StartsWith("23") &&
                     !dto.NroIdentificacionPersona.StartsWith("27") &&
                     !dto.NroIdentificacionPersona.StartsWith("30"))
-                    throw new ArgumentException("El CUIL debe comenzar con 20, 23, 27 o 30.");
+                    throw new InvalidOperationException("El CUIL debe comenzar con 20, 23, 27 o 30.");
             }
             else if (dto.TipoDocumentoPersona == "Libreta de Enrolamiento")
             {
                 if (dto.NroIdentificacionPersona.Length < 6 || dto.NroIdentificacionPersona.Length > 8)
-                    throw new ArgumentException("La Libreta de Enrolamiento debe tener entre 6 y 8 dígitos.");
+                    throw new InvalidOperationException("La Libreta de Enrolamiento debe tener entre 6 y 8 dígitos.");
 
                 if (!dto.NroIdentificacionPersona.All(char.IsDigit))
-                    throw new ArgumentException("La Libreta de Enrolamiento debe contener solo números.");
+                    throw new InvalidOperationException("La Libreta de Enrolamiento debe contener solo números.");
             }
 
             var persona = new Persona
