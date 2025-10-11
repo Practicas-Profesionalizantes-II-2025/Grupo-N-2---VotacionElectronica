@@ -213,3 +213,60 @@ tr:hover td {
 #personaModal .modal-dialog {
     max-width: 600px;
 }
+
+/* ------------------ BUSQUEDA ------------------ */
+
+.table_header {
+    display: flex;
+    justify-content: space-between; /* h1 a la izq, búsqueda a la der */
+    align-items: center;
+    padding: 5px 40px; /* agrega espacio a los bordes */
+    margin-top: 10px;
+    width: 100%;
+}
+
+.table_header h1 {
+    margin-left: 40px;
+    font-size: 35px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buscar {
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* separa input y botón */
+}
+
+
+button {
+    background-color: #1850ed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btnBuscar {
+    background-color: #1850ed;
+    color: #3AB397;
+    border-radius: 6px;
+}
+
+input {
+    padding: 5px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 6px;
+    color: #0b25b9;
+    width: 400px;
+}
+
+::placeholder {
+    color: #6396e4;
+}
