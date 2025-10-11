@@ -95,28 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//Buscar resultados
-document.addEventListener("DOMContentLoaded", function () {
-    const btnBuscar = document.getElementById("btnBuscar");
-    const inputBuscar = document.getElementById("buscarResultado");
-
-    if (btnBuscar && inputBuscar) {
-        btnBuscar.addEventListener("click", function () {
-            let valor = inputBuscar.value.toLowerCase().trim();
-            let filas = document.querySelectorAll("table tbody tr");
-
-            filas.forEach(fila => {
-                let texto = fila.textContent.toLowerCase();
-
-                if (valor === "") {
-                    fila.style.display = "";
-                } else {
-                    fila.style.display = texto.includes(valor) ? "" : "none";
-                }
-            });
-        });
-    }
-});
 
 //Votos
 
@@ -159,80 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//--------Funciones de búsqueda--------
-// Buscar persona 
-document.addEventListener("DOMContentLoaded", function () {  // Espera a que la página cargue
-    const btnBuscar = document.getElementById("btnBuscar");
-    const inputBuscar = document.getElementById("buscarPersona");
-
-    if (btnBuscar && inputBuscar) {
-        btnBuscar.addEventListener("click", function () {
-            let valor = inputBuscar.value.toLowerCase().trim();
-            let filas = document.querySelectorAll("table tbody tr");
-
-            filas.forEach(fila => {
-                let texto = fila.textContent.toLowerCase();
-
-                if (valor === "") {
-                    fila.style.display = "";
-                } else {
-                    fila.style.display = texto.includes(valor) ? "" : "none";
-                }
-            });
-        });
-    }
-});
-
-//Buscar candidato
+//Busqueda
 document.addEventListener("DOMContentLoaded", function () {  
     const btnBuscar = document.getElementById("btnBuscar");
-    const inputBuscar = document.getElementById("buscarCandidato");
-
-    if (btnBuscar && inputBuscar) {
-        btnBuscar.addEventListener("click", function () {
-            let valor = inputBuscar.value.toLowerCase().trim();
-            let filas = document.querySelectorAll("table tbody tr");
-
-            filas.forEach(fila => {
-                let texto = fila.textContent.toLowerCase();
-
-                if (valor === "") {
-                    fila.style.display = "";
-                } else {
-                    fila.style.display = texto.includes(valor) ? "" : "none";
-                }
-            });
-        });
-    }
-});
-
-//Buscar lista
-document.addEventListener("DOMContentLoaded", function () {
-    const btnBuscar = document.getElementById("btnBuscar");
-    const inputBuscar = document.getElementById("buscarLista");
-
-    if (btnBuscar && inputBuscar) {
-        btnBuscar.addEventListener("click", function () {
-            let valor = inputBuscar.value.toLowerCase().trim();
-            let filas = document.querySelectorAll("table tbody tr");
-
-            filas.forEach(fila => {
-                let texto = fila.textContent.toLowerCase();
-
-                if (valor === "") {
-                    fila.style.display = "";
-                } else {
-                    fila.style.display = texto.includes(valor) ? "" : "none";
-                }
-            });
-        });
-    }
-});
-
-//Buscar elección
-document.addEventListener("DOMContentLoaded", function () {
-    const btnBuscar = document.getElementById("btnBuscar");
-    const inputBuscar = document.getElementById("buscarEleccion");
+    const inputBuscar = document.getElementById("busqueda");
 
     if (btnBuscar && inputBuscar) {
         btnBuscar.addEventListener("click", function () {
