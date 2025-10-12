@@ -147,7 +147,7 @@ namespace Negocio.Logica
 
             if (dto.Rol == "SuperAdmin" && creador.Rol != "SuperAdmin")
                 throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear otro SuperAdmin (y solo si no existe).");
-           
+
             if (dto.TipoDocumentoPersona == "DNI")
             {
                 if (dto.NroIdentificacionPersona.Length != 8 || !dto.NroIdentificacionPersona.All(char.IsDigit))
@@ -200,16 +200,13 @@ namespace Negocio.Logica
             persona.PrimerLogin = false;
 
             await _repositorio.Actualizar(persona);
-            
+
 
         }
-        public async Task Actualizar(int id, ModificarDTO dto, int solicitanteId)
+        public async Task Actualizar(int id, ModificarDTO dto)
         {
-            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
             var persona = await _repositorio.ObtenerPorId(id);
 
-            if (solicitante.Rol != "SuperAdmin" && persona.Rol == "Admin" && persona.Id != solicitante.Id)
-                throw new UnauthorizedAccessException("No puedes modificar ni eliminar a otro administrador.");
 
             if (id <= 0)
                 throw new ArgumentException("El ID de la persona es inválido.", nameof(id));
@@ -228,21 +225,16 @@ namespace Negocio.Logica
 
             persona.NombrePersona = dto.NombrePersona.Trim();
             persona.ApellidoPersona = dto.ApellidoPersona.Trim();
-            persona.ContraseniaPersona = _seguridad.HashContrasenia(dto.ContraseniaPersona) ;
+            persona.ContraseniaPersona = _seguridad.HashContrasenia(dto.ContraseniaPersona);
             persona.PrimerLogin = dto.PrimerLogin;
 
             await _repositorio.Actualizar(persona);
         }
 
 
-        public async Task Eliminar(int id, int solicitanteId)
+        public async Task Eliminar(int id)
         {
             var persona = await _repositorio.ObtenerPorId(id);
-            var solicitante = await _repositorio.ObtenerPorId(solicitanteId);
-
-            if (solicitante.Rol != "SuperAdmin" && persona.Rol == "Admin" && persona.Id != solicitante.Id)
-                throw new UnauthorizedAccessException("No puedes modificar ni eliminar a otro administrador.");
-
 
 
             if (id <= 0)

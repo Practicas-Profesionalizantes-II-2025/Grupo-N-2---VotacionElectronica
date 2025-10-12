@@ -111,8 +111,6 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
             if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
                 throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
-            if (dto.CantidadListas < 0)
-                throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
             if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
                 throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
 
@@ -121,7 +119,7 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
             {
                 NombreEleccion = dto.NombreEleccion,
                 DescripcionEleccion = dto.DescripcionEleccion,
-                CantidadListas = dto.CantidadListas,
+                CantidadListas = 0,
                 FechaInicioEleccion = dto.FechaInicioEleccion,
                 FechaFinEleccion = dto.FechaFinEleccion,
                 CreadorId = solicitanteId,
@@ -166,8 +164,6 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
         throw new ArgumentNullException(nameof(dto), "Los datos de la elección son obligatorios.");
     if (string.IsNullOrWhiteSpace(dto.NombreEleccion))
         throw new ArgumentException("El nombre de la elección es obligatorio.", nameof(dto.NombreEleccion));
-    if (dto.CantidadListas < 0)
-        throw new ArgumentException("La cantidad de listas no puede ser negativa.", nameof(dto.CantidadListas));
     if (dto.FechaInicioEleccion >= dto.FechaFinEleccion)
         throw new ArgumentException("La fecha de inicio debe ser anterior a la fecha de fin.");
 
@@ -178,7 +174,6 @@ public async Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda)
 
     existente.NombreEleccion = dto.NombreEleccion.Trim();
     existente.DescripcionEleccion = dto.DescripcionEleccion?.Trim();
-    existente.CantidadListas = dto.CantidadListas;
     existente.FechaInicioEleccion = dto.FechaInicioEleccion;
     existente.FechaFinEleccion = dto.FechaFinEleccion;
 

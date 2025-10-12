@@ -1,5 +1,4 @@
-﻿
-@model MVCProyecto.Models.Candidatos.VerDTO
+﻿@model MVCProyecto.Models.Candidatos.VerDTO
 
 <h1>Eliminar Candidato</h1>
 
@@ -8,6 +7,8 @@
 </div>
 
 <form asp-action="EliminarCandidato" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Eliminar</button>

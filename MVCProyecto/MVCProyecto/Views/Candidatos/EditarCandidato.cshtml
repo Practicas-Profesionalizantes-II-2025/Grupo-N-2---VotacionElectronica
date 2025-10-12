@@ -1,18 +1,19 @@
 ﻿@model MVCProyecto.Models.Candidatos.ModificarDTO
 @{
-    Layout = null; 
+    Layout = null;
 }
 
 <div class="form-container">
     <h1 class="text-center">Editar Candidato</h1>
 
     <form asp-action="EditarCandidato" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="NombreCandidato">Nombre</label>
                     <input asp-for="NombreCandidato" class="form-control" />
-                    <span asp-validation-for="NombreCandidato" class="text-danger"></span>
                 </div>
             </div>
 
@@ -20,7 +21,6 @@
                 <div class="form-group">
                     <label for="PuestoCandidato">Puesto</label>
                     <input asp-for="PuestoCandidato" class="form-control" />
-                    <span asp-validation-for="PuestoCandidato" class="text-danger"></span>
                 </div>
             </div>
 

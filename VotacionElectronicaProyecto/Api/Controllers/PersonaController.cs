@@ -67,7 +67,7 @@ namespace Api.Controllers
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Forbid(ex.Message); 
+                return Forbid(ex.Message);
             }
             catch (Exception ex)
             {
@@ -77,16 +77,35 @@ namespace Api.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Actualizar(int id, ModificarDTO dto, int solicitanteId)
+        public async Task<IActionResult> Actualizar(int id, ModificarDTO dto)
         {
-            await _logic.Actualizar(id, dto, dto.SolicitanteId);
-            return Ok("Persona actualizada correctamente");
+            try
+            {
+                await _logic.Actualizar(id, dto);
+                return Ok("Persona actualizada correctamente");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Eliminar(int id, int solicitanteId)
+        public async Task<IActionResult> Eliminar(int id)
         {
-            await _logic.Eliminar(id, solicitanteId);
+            await _logic.Eliminar(id);
             return NoContent();
         }
 
@@ -98,9 +117,21 @@ namespace Api.Controllers
                 var persona = await _logic.Autenticar(dto.Dni, dto.Password);
                 return Ok(persona);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
             catch (InvalidOperationException ex)
             {
-                return Unauthorized(new { message = ex.Message });
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
             }
         }
 

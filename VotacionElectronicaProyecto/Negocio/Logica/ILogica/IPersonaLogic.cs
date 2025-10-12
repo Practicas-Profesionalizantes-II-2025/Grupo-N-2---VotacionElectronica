@@ -15,8 +15,8 @@ namespace Negocio.Logica.ILogica
 
         Task<VerDTO> ObtenerPorDNI(string dni);
         Task Crear(CrearDTO dto, int creadorId);
-        Task Actualizar(int id, ModificarDTO dto, int solicitanteId);
-        Task Eliminar(int id, int solicitanteId);
+        Task Actualizar(int id, ModificarDTO dto);
+        Task Eliminar(int id);
         Task<VerDTO> Autenticar(string dni, string contrasenia);
         Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAutorizadas(string dni);
         Task<List<Shared.Entities.Eleccion>> ObtenerEleccionesAsignadas(string dni);

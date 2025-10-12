@@ -8,12 +8,13 @@
     <h1 class="text-center">Modificar Elección</h1>
 
     <form asp-action="ModificarEleccion" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="NombreEleccion">Nombre</label>
                     <input asp-for="NombreEleccion" class="form-control" />
-                    <span asp-validation-for="NombreEleccion" class="text-danger"></span>
                 </div>
             </div>
 
@@ -21,23 +22,14 @@
                 <div class="form-group">
                     <label for="DescripcionEleccion">Descripción</label>
                     <input asp-for="DescripcionEleccion" class="form-control" />
-                    <span asp-validation-for="DescripcionEleccion" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="CantidadListas">Cantidad listas</label>
-                    <input asp-for="CantidadListas" class="form-control" type="number" />
-                    <span asp-validation-for="CantidadListas" class="text-danger"></span>
-                </div>
-            </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="FechaInicio">Fecha inicio</label>
                     <input asp-for="FechaInicioEleccion" class="form-control" type="date" />
-                    <span asp-validation-for="FechaInicioEleccion" class="text-danger"></span>
                 </div>
             </div>
 
@@ -45,7 +37,6 @@
                 <div class="form-group">
                     <label for="FechaFin">Fecha fin</label>
                     <input asp-for="FechaFinEleccion" class="form-control" type="date" />
-                    <span asp-validation-for="FechaFinEleccion" class="text-danger"></span>
                 </div>
             </div>
 

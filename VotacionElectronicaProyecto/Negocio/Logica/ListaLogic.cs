@@ -69,6 +69,15 @@ namespace Negocio.Logica
 
         public async Task CrearLista(CrearDTO dto, int solicitanteId)
         {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto), "Los datos de la lista son obligatorios.");
+
+            if (string.IsNullOrWhiteSpace(dto.NombreLista))
+                throw new ArgumentException("El nombre de la lista es obligatorio.", nameof(dto.NombreLista));
+
+            if (string.IsNullOrWhiteSpace(dto.DescripcionLista))
+                throw new ArgumentException("La descripción de la lista es obligatorio.", nameof(dto.DescripcionLista));
+
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreLista);
             if (existentes.Any())
                 throw new InvalidOperationException("Ya existe una lista con ese nombre.");
