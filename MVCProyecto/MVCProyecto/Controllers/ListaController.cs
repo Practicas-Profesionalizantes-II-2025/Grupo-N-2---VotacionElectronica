@@ -45,20 +45,30 @@ namespace MVCProyecto.Controllers
         {
             if (!ModelState.IsValid) return View(dto);
 
+            if (!ModelState.IsValid)
+            {
+                // Extraemos los errores de ModelState
+                var errores = ModelState.Values
+                                .SelectMany(v => v.Errors)
+                                .Select(e => e.ErrorMessage)
+                                .ToList();
+                return Json(new { success = false, message = string.Join("<br>", errores) });
+            }
             var creadorId = HttpContext.Session.GetInt32("UsuarioId");
             if (creadorId == null)
             {
-                ModelState.AddModelError("", "No estás autenticado.");
-                return View(dto);
+                return Json(new { success = false, message = "No estás autenticado." });
             }
 
             // 👇 Ruta corregida según la API
             var response = await _httpClient.PostAsJsonAsync($"Lista/{creadorId}", dto);
             if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(ListaLista));
+                return Json(new { success = true, message = "Lista creada correctamente." });
 
-            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-            return View(dto);
+            // Mensaje del backend
+            var mensajeError = await response.Content.ReadAsStringAsync();
+            return Json(new { success = false, message = mensajeError });
+
         }
 
 
@@ -81,14 +91,23 @@ namespace MVCProyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditarLista(int id, ModificarDTO dto)
         {
-            if (!ModelState.IsValid) return View(dto);
+            if (!ModelState.IsValid)
+            {
+                // Extraemos los errores de ModelState
+                var errores = ModelState.Values
+                                .SelectMany(v => v.Errors)
+                                .Select(e => e.ErrorMessage)
+                                .ToList();
+                return Json(new { success = false, message = string.Join("<br>", errores) });
+            }
 
             var response = await _httpClient.PutAsJsonAsync($"Lista/{id}", dto);
             if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(ListaLista));
+                return Json(new { success = true, message = "Lista actualizada correctamente." });
 
-            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-            return View(dto);
+            // Mensaje del backend
+            var mensajeError = await response.Content.ReadAsStringAsync();
+            return Json(new { success = false, message = mensajeError });
         }
 
         // GET: Lista/EliminarLista/5
@@ -107,7 +126,7 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             var response = await _httpClient.DeleteAsync($"Lista/{id}");
-            return RedirectToAction(nameof(ListaLista));
+            return Json(new { success = true, message = "Lista eliminada correctamente." });
         }
     }
 }

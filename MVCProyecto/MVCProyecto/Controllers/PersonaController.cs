@@ -98,14 +98,25 @@ namespace MVCProyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditarPersona(int id, ModificarDTO dto)
         {
-            if (!ModelState.IsValid) return View(dto);
+            if (!ModelState.IsValid)
+            {
+                // Extraemos los errores de ModelState
+                var errores = ModelState.Values
+                                .SelectMany(v => v.Errors)
+                                .Select(e => e.ErrorMessage)
+                                .ToList();
+                return Json(new { success = false, message = string.Join("<br>", errores) });
+            }
 
             var response = await _httpClient.PutAsJsonAsync($"Persona/{id}", dto);
-            if (response.IsSuccessStatusCode)
-                return RedirectToAction(nameof(ListaPersonas));
 
-            ModelState.AddModelError("", await response.Content.ReadAsStringAsync());
-            return View(dto);
+            if (response.IsSuccessStatusCode)
+                return Json(new { success = true, message = "Persona actualizada correctamente." });
+
+            // Mensaje del backend
+            var mensajeError = await response.Content.ReadAsStringAsync();
+            return Json(new { success = false, message = mensajeError });
+
         }
 
         // GET: Persona/EliminarPersona/5
@@ -123,7 +134,7 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> EliminarConfirmado(int id)
         {
             var response = await _httpClient.DeleteAsync($"Persona/{id}");
-            return RedirectToAction(nameof(ListaPersonas));
+            return Json(new { success = true, message = "Persona eliminada correctamente." });
         }
 
 

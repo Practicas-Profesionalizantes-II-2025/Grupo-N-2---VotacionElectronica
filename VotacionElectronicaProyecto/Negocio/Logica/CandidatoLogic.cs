@@ -71,6 +71,15 @@ namespace Negocio.Logica
 
         public async Task CrearCandidato(CrearDTO dto, int solicitanteId)
         {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto), "Los datos del candidato son obligatorios.");
+
+            if (string.IsNullOrWhiteSpace(dto.NombreCandidato))
+                throw new ArgumentException("El nombre del candidato es obligatorio.", nameof(dto.NombreCandidato));
+
+            if (string.IsNullOrWhiteSpace(dto.PuestoCandidato))
+                throw new ArgumentException("El puesto del candidato es obligatorio.", nameof(dto.PuestoCandidato));
+
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreCandidato);
             if (existentes.Any(c => c.IdLista == dto.IdLista && c.PuestoCandidato == dto.PuestoCandidato))
                 throw new InvalidOperationException("Ya existe un candidato con ese nombre y puesto en la misma lista.");

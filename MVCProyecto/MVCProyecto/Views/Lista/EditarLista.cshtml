@@ -1,18 +1,19 @@
 ﻿@model MVCProyecto.Models.Lista.ModificarDTO
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <div class="form-container">
     <h1 class="text-center">Editar Lista</h1>
 
     <form asp-action="EditarLista" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="NombreLista">Nombre</label>
                     <input asp-for="NombreLista" class="form-control" />
-                    <span asp-validation-for="NombreLista" class="text-danger"></span>
                 </div>
             </div>
 
@@ -20,7 +21,6 @@
                 <div class="form-group">
                     <label for="DescripcionLista">Descripción</label>
                     <input asp-for="DescripcionLista" class="form-control" />
-                    <span asp-validation-for="DescripcionLista" class="text-danger"></span>
                 </div>
             </div>
 
