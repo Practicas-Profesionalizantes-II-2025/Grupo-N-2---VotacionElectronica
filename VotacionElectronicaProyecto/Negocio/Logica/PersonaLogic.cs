@@ -15,12 +15,14 @@ namespace Negocio.Logica
     {
         private readonly IPersonaRepository _repositorio;
         private readonly SeguridadServicio _seguridad;
+        private readonly IEleccionRepository _repoEleccion;
 
-        public PersonaLogic(IPersonaRepository repositorio, SeguridadServicio seguridad)
+
+        public PersonaLogic(IPersonaRepository repositorio, SeguridadServicio seguridad, IEleccionRepository repoEleccion)
         {
             _repositorio = repositorio;
             _seguridad = seguridad;
-
+            _repoEleccion = repoEleccion;
         }
 
         public async Task<List<VerDTO>> ObtenerTodas(int solicitanteId)
@@ -290,8 +292,28 @@ namespace Negocio.Logica
             if (string.IsNullOrWhiteSpace(dni))
                 throw new ArgumentException("El DNI es obligatorio.", nameof(dni));
 
+            var persona = await _repositorio.ObtenerPorDNI(dni);
+            if (persona == null)
+                throw new InvalidOperationException("No se encontró una persona con ese DNI.");
+            var elecciones = await _repoEleccion.ObtenerTodas();
+
+            if (persona.Rol == "SuperAdmin")
+            {
+                // SuperAdmin ve todas las elecciones
+                return elecciones;
+            }
+
+            if (persona.Rol == "Admin")
+            {
+                // Admin ve solo las que él creó
+                elecciones = elecciones.Where(e => e.CreadorId == persona.Id).ToList();
+                return elecciones;
+            }
+
+            // Cualquier otro rol: solo las asignadas
             return await _repositorio.ObtenerEleccionesAsignadas(dni);
         }
+
 
 
 
