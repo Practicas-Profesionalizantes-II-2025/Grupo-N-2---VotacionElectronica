@@ -139,7 +139,7 @@ namespace Negocio.Logica
             var existente = await _repositorio.ObtenerPorDNI(dto.NroIdentificacionPersona);
             if (existente != null)
                 throw new InvalidOperationException("Ya existe una persona con este número de identificación.");
-            if (dto.Rol == "Admin" && creador.Rol != "SuperAdmin")
+            if (dto.Rol == "Administrador" && creador.Rol != "SuperAdmin")
                 throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear administradores.");
 
             if (dto.Rol == "SuperAdmin" && creador.Rol != "SuperAdmin")
@@ -294,7 +294,7 @@ namespace Negocio.Logica
                 return elecciones;
             }
 
-            if (persona.Rol == "Admin")
+            if (persona.Rol == "Administrador")
             {
                 // Admin ve solo las que él creó
                 elecciones = elecciones.Where(e => e.CreadorId == persona.Id).ToList();
