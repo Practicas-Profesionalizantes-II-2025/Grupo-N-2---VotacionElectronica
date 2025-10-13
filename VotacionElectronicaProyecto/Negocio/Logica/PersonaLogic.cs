@@ -120,9 +120,13 @@ namespace Negocio.Logica
 
             if (string.IsNullOrWhiteSpace(dto.NombrePersona))
                 throw new ArgumentException("El nombre de la persona es obligatorio.", nameof(dto.NombrePersona));
+            if(!dto.NombrePersona.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+                throw new ArgumentException("El nombre de la persona solo puede contener letras y espacios.");
 
             if (string.IsNullOrWhiteSpace(dto.ApellidoPersona))
                 throw new ArgumentException("El apellido de la persona es obligatorio.", nameof(dto.ApellidoPersona));
+            if (!dto.ApellidoPersona.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+                throw new ArgumentException("El apellido de la persona solo puede contener letras y espacios.");
 
             if (string.IsNullOrWhiteSpace(dto.TipoDocumentoPersona))
                 throw new ArgumentException("El tipo de documento es obligatorio.", nameof(dto.TipoDocumentoPersona));
@@ -148,6 +152,8 @@ namespace Negocio.Logica
             if (dto.Rol == "SuperAdmin" && creador.Rol != "SuperAdmin")
                 throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear otro SuperAdmin (y solo si no existe).");
 
+            if(!dto.NroIdentificacionPersona.All(char.IsDigit))
+                throw new ArgumentException("El número de identificación debe contener solo números.");
             if (dto.TipoDocumentoPersona == "DNI")
             {
                 if (dto.NroIdentificacionPersona.Length != 8 || !dto.NroIdentificacionPersona.All(char.IsDigit))
@@ -200,7 +206,6 @@ namespace Negocio.Logica
             persona.PrimerLogin = false;
 
             await _repositorio.Actualizar(persona);
-
 
         }
         public async Task Actualizar(int id, ModificarDTO dto)
