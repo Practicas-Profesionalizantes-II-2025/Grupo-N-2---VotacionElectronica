@@ -228,24 +228,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //Busqueda
-document.addEventListener("DOMContentLoaded", function () {  
+document.addEventListener("DOMContentLoaded", function () {
     const btnBuscar = document.getElementById("btnBuscar");
     const inputBuscar = document.getElementById("busqueda");
 
     if (btnBuscar && inputBuscar) {
         btnBuscar.addEventListener("click", function () {
             let valor = inputBuscar.value.toLowerCase().trim();
-            let filas = document.querySelectorAll("table tbody tr");
+            let tbody = document.querySelector("table tbody");
+            let filas = tbody.querySelectorAll("tr");
+            let coincidencias = 0;
 
             filas.forEach(fila => {
                 let texto = fila.textContent.toLowerCase();
 
-                if (valor === "") {
+                if (valor === "" || texto.includes(valor)) {
                     fila.style.display = "";
+                    coincidencias++;
                 } else {
-                    fila.style.display = texto.includes(valor) ? "" : "none";
+                    fila.style.display = "none";
                 }
             });
+
+            // Ver si existe fila de mensaje
+            let filaMensaje = tbody.querySelector(".mensaje-busqueda");
+            if (!filaMensaje) {
+                filaMensaje = document.createElement("tr");
+                filaMensaje.classList.add("mensaje-busqueda");
+                filaMensaje.innerHTML = `<td colspan="7" style="text-align:center; color:red;">No se encontraron resultados.</td>`;
+                tbody.appendChild(filaMensaje);
+            }
+
+            // Mostrar o ocultar mensaje según coincidencias
+            filaMensaje.style.display = (coincidencias === 0) ? "" : "none";
         });
     }
 });
