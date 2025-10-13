@@ -23,6 +23,7 @@ body {
 }
 
 .table_header {
+    box-sizing: border-box; /* hace que padding y border se incluyan en el width */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +35,7 @@ body {
     border-left: 20px solid white;
     width: 100%;
 }
+
 
 .table_header h1 {
     margin-left: 40px;
