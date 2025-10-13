@@ -74,11 +74,9 @@ namespace Negocio.Logica
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos del candidato son obligatorios.");
 
-            if (string.IsNullOrWhiteSpace(dto.NombreCandidato))
-                throw new ArgumentException("El nombre del candidato es obligatorio.", nameof(dto.NombreCandidato));
-
-            if (string.IsNullOrWhiteSpace(dto.PuestoCandidato))
-                throw new ArgumentException("El puesto del candidato es obligatorio.", nameof(dto.PuestoCandidato));
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreCandidato, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.PuestoCandidato, "Puesto");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombreCandidato, "Nombre");
 
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreCandidato);
             if (existentes.Any(c => c.IdLista == dto.IdLista && c.PuestoCandidato == dto.PuestoCandidato))
@@ -98,6 +96,10 @@ namespace Negocio.Logica
         public async Task ActualizarCandidato(int id, ModificarDTO dto)
         {
             var candidatoExistente = await _repositorio.ObtenerPorId(id);
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreCandidato, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.PuestoCandidato, "Puesto");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombreCandidato, "Nombre");
+
             if (candidatoExistente == null)
                 throw new KeyNotFoundException("El candidato que intentas actualizar no existe.");
 
@@ -114,7 +116,6 @@ namespace Negocio.Logica
 
             await _repositorio.Actualizar(candidato);
         }
-
         public async Task EliminarCandidato(int id)
         {
             var candidatoExistente = await _repositorio.ObtenerPorId(id);

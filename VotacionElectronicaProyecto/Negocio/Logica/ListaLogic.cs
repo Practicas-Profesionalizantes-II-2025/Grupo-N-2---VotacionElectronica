@@ -72,11 +72,9 @@ namespace Negocio.Logica
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la lista son obligatorios.");
 
-            if (string.IsNullOrWhiteSpace(dto.NombreLista))
-                throw new ArgumentException("El nombre de la lista es obligatorio.", nameof(dto.NombreLista));
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreLista, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.DescripcionLista, "Descripcion");
 
-            if (string.IsNullOrWhiteSpace(dto.DescripcionLista))
-                throw new ArgumentException("La descripción de la lista es obligatorio.", nameof(dto.DescripcionLista));
 
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreLista);
             if (existentes.Any())
@@ -97,6 +95,7 @@ namespace Negocio.Logica
             var listaExistente = await _repositorio.ObtenerPorId(id);
             if (listaExistente == null)
                 throw new KeyNotFoundException("La lista que intentas actualizar no existe.");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreLista, "Nombre");
 
             var duplicadas = await _repositorio.BuscarPorNombre(dto.NombreLista);
             if (duplicadas.Any(l => l.Id != id))

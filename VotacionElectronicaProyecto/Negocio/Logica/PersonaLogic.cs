@@ -120,24 +120,15 @@ namespace Negocio.Logica
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la persona son obligatorios.");
 
-            if (string.IsNullOrWhiteSpace(dto.NombrePersona))
-                throw new ArgumentException("El nombre de la persona es obligatorio.", nameof(dto.NombrePersona));
-            if(!dto.NombrePersona.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
-                throw new ArgumentException("El nombre de la persona solo puede contener letras y espacios.");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombrePersona, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.ApellidoPersona, "Apellido");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.TipoDocumentoPersona, "Tipo Documento");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NroIdentificacionPersona, "Número de identificación");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.Rol, nameof(dto.Rol));
 
-            if (string.IsNullOrWhiteSpace(dto.ApellidoPersona))
-                throw new ArgumentException("El apellido de la persona es obligatorio.", nameof(dto.ApellidoPersona));
-            if (!dto.ApellidoPersona.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
-                throw new ArgumentException("El apellido de la persona solo puede contener letras y espacios.");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombrePersona, "Nombre");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.ApellidoPersona, "Apellido");
 
-            if (string.IsNullOrWhiteSpace(dto.TipoDocumentoPersona))
-                throw new ArgumentException("El tipo de documento es obligatorio.", nameof(dto.TipoDocumentoPersona));
-
-            if (string.IsNullOrWhiteSpace(dto.NroIdentificacionPersona))
-                throw new ArgumentException("El número de identificación es obligatorio.", nameof(dto.NroIdentificacionPersona));
-
-            if (string.IsNullOrWhiteSpace(dto.Rol))
-                throw new ArgumentException("El rol es obligatorio.", nameof(dto.Rol));
             var superAdminExistente = await _repositorio.ObtenerPorRol("SuperAdmin");
             if (dto.Rol == "SuperAdmin" && superAdminExistente != null)
                 throw new InvalidOperationException("Ya existe un SuperAdmin. Solo puede haber uno.");
@@ -154,7 +145,7 @@ namespace Negocio.Logica
             if (dto.Rol == "SuperAdmin" && creador.Rol != "SuperAdmin")
                 throw new UnauthorizedAccessException("Solo el SuperAdmin puede crear otro SuperAdmin (y solo si no existe).");
 
-            if(!dto.NroIdentificacionPersona.All(char.IsDigit))
+            if (!dto.NroIdentificacionPersona.All(char.IsDigit))
                 throw new ArgumentException("El número de identificación debe contener solo números.");
             if (dto.TipoDocumentoPersona == "DNI")
             {
@@ -221,11 +212,11 @@ namespace Negocio.Logica
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Los datos de la persona son obligatorios.");
 
-            if (string.IsNullOrWhiteSpace(dto.NombrePersona))
-                throw new ArgumentException("El nombre de la persona es obligatorio.", nameof(dto.NombrePersona));
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombrePersona, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.ApellidoPersona, "Apellido");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombrePersona, "Nombre");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.ApellidoPersona, "Apellido");
 
-            if (string.IsNullOrWhiteSpace(dto.ApellidoPersona))
-                throw new ArgumentException("El apellido de la persona es obligatorio.", nameof(dto.ApellidoPersona));
 
             if (persona == null)
                 throw new InvalidOperationException("Persona no encontrada.");
