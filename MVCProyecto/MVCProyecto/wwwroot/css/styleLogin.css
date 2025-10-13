@@ -33,31 +33,31 @@ body {
     overflow: hidden;
 }
 
-    .container-form form {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.5s ease-in;
-    }
+.container-form form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in;
+}
 
-    .container-form p {
-        width: 300px;
-        font-size: 20px;
-        margin-bottom: 20px;
-        align-items: center;
-    }
+.container-form p {
+    width: 300px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
 
-    .container-form h2 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
+.container-form h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
 
-    .container-form span {
-        font-size: 12px;
-        margin-bottom: 15px;
-    }
+.container-form span {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
 
 .container-input {
     width: 300px;
@@ -71,13 +71,13 @@ body {
     background-color: #EEEEEE;
 }
 
-    .container-input input {
-        border: none;
-        outline: none;
-        width: 100%;
-        height: 100%;
-        background-color: inherit;
-    }
+.container-input input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
 
 .button {
     width: 170px;

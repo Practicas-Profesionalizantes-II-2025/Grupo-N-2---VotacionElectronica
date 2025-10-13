@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250821121735_Inicial")]
-    partial class Inicial
+    [Migration("20251008132747_Lol")]
+    partial class Lol
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace Api.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CreadorId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
                         .ValueGeneratedOnAdd()
@@ -54,6 +57,8 @@ namespace Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreadorId");
+
                     b.HasIndex("IdLista");
 
                     b.ToTable("Candidatos");
@@ -68,6 +73,9 @@ namespace Api.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CantidadListas")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CreadorId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedDate")
@@ -94,6 +102,8 @@ namespace Api.Migrations
 
                     b.HasKey("Id")
                         .HasName("PK_ID_ELECCION");
+
+                    b.HasIndex("CreadorId");
 
                     b.ToTable("Eleccion");
                 });
@@ -142,10 +152,13 @@ namespace Api.Migrations
                     b.Property<int>("CantidadIntegrantes")
                         .HasColumnType("int");
 
+                    b.Property<int>("CreadorId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 8, 21, 9, 17, 34, 487, DateTimeKind.Local).AddTicks(4840));
+                        .HasDefaultValue(new DateTime(2025, 10, 8, 10, 27, 45, 334, DateTimeKind.Local).AddTicks(3209));
 
                     b.Property<string>("DescripcionLista")
                         .IsRequired()
@@ -166,6 +179,8 @@ namespace Api.Migrations
                     b.HasKey("Id")
                         .HasName("PK_ID_LISTA");
 
+                    b.HasIndex("CreadorId");
+
                     b.ToTable("Lista");
                 });
 
@@ -185,6 +200,9 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CreadorId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -197,6 +215,9 @@ namespace Api.Migrations
                     b.Property<string>("NroIdentificacionPersona")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PrimerLogin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Rol")
                         .IsRequired()
@@ -212,7 +233,22 @@ namespace Api.Migrations
                     b.HasKey("Id")
                         .HasName("PK_ID_PERSONA");
 
+                    b.HasIndex("CreadorId");
+
                     b.ToTable("Persona");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ApellidoPersona = "Admin",
+                            ContraseniaPersona = "AQAAAAIAAYagAAAAEEsNPSj7m9FYx5DLO6xh4dlFL4vXZA1IRtWbG4lzL4Vzu/lS+6gGyPh/twHsYQUCaQ==",
+                            NombrePersona = "Super",
+                            NroIdentificacionPersona = "99999999",
+                            PrimerLogin = true,
+                            Rol = "SuperAdmin",
+                            TipoDocumentoPersona = "DNI"
+                        });
                 });
 
             modelBuilder.Entity("Shared.Entities.PersonaEleccion", b =>
@@ -304,13 +340,32 @@ namespace Api.Migrations
 
             modelBuilder.Entity("Shared.Entities.Candidatos", b =>
                 {
+                    b.HasOne("Shared.Entities.Persona", "Creador")
+                        .WithMany()
+                        .HasForeignKey("CreadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Shared.Entities.Lista", "Lista")
                         .WithMany("Candidatos")
                         .HasForeignKey("IdLista")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Creador");
+
                     b.Navigation("Lista");
+                });
+
+            modelBuilder.Entity("Shared.Entities.Eleccion", b =>
+                {
+                    b.HasOne("Shared.Entities.Persona", "Creador")
+                        .WithMany()
+                        .HasForeignKey("CreadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creador");
                 });
 
             modelBuilder.Entity("Shared.Entities.EleccionLista", b =>
@@ -318,18 +373,39 @@ namespace Api.Migrations
                     b.HasOne("Shared.Entities.Eleccion", "Eleccion")
                         .WithMany()
                         .HasForeignKey("IdEleccion")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Shared.Entities.Lista", "Lista")
                         .WithMany()
                         .HasForeignKey("IdLista")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Eleccion");
 
                     b.Navigation("Lista");
+                });
+
+            modelBuilder.Entity("Shared.Entities.Lista", b =>
+                {
+                    b.HasOne("Shared.Entities.Persona", "Creador")
+                        .WithMany()
+                        .HasForeignKey("CreadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creador");
+                });
+
+            modelBuilder.Entity("Shared.Entities.Persona", b =>
+                {
+                    b.HasOne("Shared.Entities.Persona", "Creador")
+                        .WithMany()
+                        .HasForeignKey("CreadorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Creador");
                 });
 
             modelBuilder.Entity("Shared.Entities.PersonaEleccion", b =>

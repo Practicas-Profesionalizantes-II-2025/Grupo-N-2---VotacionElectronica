@@ -15,6 +15,8 @@ namespace Shared.Entities
 
         public string PuestoCandidato { get; set; }
 
+        public int CreadorId { get; set; }
+        public Persona Creador { get; set; }
         public int IdLista { get; set; }
         public Lista Lista { get; set; }
     }

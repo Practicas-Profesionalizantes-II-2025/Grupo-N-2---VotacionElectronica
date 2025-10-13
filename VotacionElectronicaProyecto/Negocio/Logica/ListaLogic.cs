@@ -13,22 +13,34 @@ namespace Negocio.Logica
     public class ListaLogic : IListaLogic
     {
         private readonly IListaRepository _repositorio;
+        private readonly IPersonaRepository _personaRepo;
 
-        public ListaLogic(IListaRepository repositorio)
+        public ListaLogic(IListaRepository repositorio, IPersonaRepository personaRepo)
         {
             _repositorio = repositorio;
+            _personaRepo = personaRepo;
         }
 
-        public async Task<List<VerDTO>> ObtenerListas()
+        public async Task<List<VerDTO>> ObtenerListas(int solicitanteId)
         {
-            var lista = await _repositorio.ObtenerTodos();
-            return lista.Select(c => new VerDTO
+            var solicitante = await _personaRepo.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var listas = await _repositorio.ObtenerTodos();
+
+            // 🧩 Si no es SuperAdmin, filtra solo las listas creadas por él
+            if (solicitante.Rol != "SuperAdmin")
+                listas = listas.Where(e => e.CreadorId == solicitante.Id).ToList();
+
+            return listas.Select(c => new VerDTO
             {
                 Id = c.Id,
                 NombreLista = c.NombreLista,
                 DescripcionLista = c.DescripcionLista,
             }).ToList();
         }
+
 
         public async Task<VerDTO> ObtenerListasPorId(int id)
         {
@@ -55,8 +67,15 @@ namespace Negocio.Logica
             }).ToList();
         }
 
-        public async Task CrearLista(CrearDTO dto)
+        public async Task CrearLista(CrearDTO dto, int solicitanteId)
         {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto), "Los datos de la lista son obligatorios.");
+
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreLista, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.DescripcionLista, "Descripcion");
+
+
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreLista);
             if (existentes.Any())
                 throw new InvalidOperationException("Ya existe una lista con ese nombre.");
@@ -65,6 +84,7 @@ namespace Negocio.Logica
             {
                 NombreLista = dto.NombreLista,
                 DescripcionLista = dto.DescripcionLista,
+                CreadorId = solicitanteId
             };
 
             await _repositorio.Crear(lista);
@@ -75,6 +95,7 @@ namespace Negocio.Logica
             var listaExistente = await _repositorio.ObtenerPorId(id);
             if (listaExistente == null)
                 throw new KeyNotFoundException("La lista que intentas actualizar no existe.");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreLista, "Nombre");
 
             var duplicadas = await _repositorio.BuscarPorNombre(dto.NombreLista);
             if (duplicadas.Any(l => l.Id != id))
@@ -98,6 +119,26 @@ namespace Negocio.Logica
 
             await _repositorio.Eliminar(id);
         }
+
+        public async Task<List<VerDTO>> ObtenerListasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var solicitante = await _personaRepo.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var listas = solicitante.Rol == "SuperAdmin"
+                ? await _repositorio.ObtenerListasNoAsignadas(eleccionId, null)
+                : await _repositorio.ObtenerListasNoAsignadas(eleccionId, solicitanteId);
+
+            return listas.Select(l => new VerDTO
+            {
+                Id = l.Id,
+                NombreLista = l.NombreLista,
+                DescripcionLista = l.DescripcionLista
+            }).ToList();
+        }
+
+
     }
 }
 

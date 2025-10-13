@@ -23,6 +23,8 @@ namespace Datos.Repositorios.IRepositorios
         Task RemoverListaDeEleccion(int eleccionId, int listaId);
 
         Task AsignarPersona(AsignarPersonaEleccionDTO dto);
+        Task<List<Shared.Dtos.Persona.VerDTO>> ObtenerPersonasPorEleccion(int eleccionId);
+
 
     }
 }

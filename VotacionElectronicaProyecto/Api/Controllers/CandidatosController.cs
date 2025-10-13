@@ -19,10 +19,10 @@ namespace Api.Controllers
             _logica = logica;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<VerDTO>>> GetCandidatos()
+        [HttpGet("porUsuario/{solicitanteId:int}")]
+        public async Task<ActionResult<IEnumerable<VerDTO>>> ObtenerCandidatosPorUsuario(int solicitanteId)
         {
-            return await _logica.ObtenerCandidatos();
+            return await _logica.ObtenerCandidatos(solicitanteId);
         }
 
         [HttpGet("{id:int}")]
@@ -41,18 +41,56 @@ namespace Api.Controllers
             return Ok(lista);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Crear(CrearDTO dto)
+        [HttpPost("{solicitanteId:int}")]
+        public async Task<ActionResult> CrearCandidato(int solicitanteId, [FromBody] CrearDTO dto)
         {
-            await _logica.CrearCandidato(dto);
-            return Ok();
+            try
+            {
+                await _logica.CrearCandidato(dto, solicitanteId);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Actualizar(int id, ModificarDTO dto)
         {
-            await _logica.ActualizarCandidato(id, dto);
-            return NoContent();
+            try
+            {
+                await _logica.ActualizarCandidato(id, dto);
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
@@ -60,6 +98,13 @@ namespace Api.Controllers
         {
             await _logica.EliminarCandidato(id);
             return NoContent();
+        }
+
+        [HttpGet("PorLista/{listaId}")]
+        public async Task<IActionResult> ObtenerPorLista(int listaId)
+        {
+            var candidatos = await _logica.ObtenerPorLista(listaId);
+            return Ok(candidatos);
         }
     }
 }

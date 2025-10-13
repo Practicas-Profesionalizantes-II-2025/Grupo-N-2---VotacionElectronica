@@ -15,8 +15,6 @@ namespace Shared.Dtos.Eleccion
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string DescripcionEleccion { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public int CantidadListas { get; set; }
         public DateTime FechaFinEleccion { get; set; }
         public DateTime FechaInicioEleccion { get; set; }
 

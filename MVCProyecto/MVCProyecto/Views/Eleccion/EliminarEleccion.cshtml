@@ -1,0 +1,18 @@
+﻿@model MVCProyecto.Models.Eleccion.VerDTO
+
+<h1>Eliminar Elección</h1>
+
+<div>
+    <p>¿Está seguro que desea eliminar a <strong>@Model.NombreEleccion @Model.DescripcionEleccion</strong>?</p>
+</div>
+
+
+<form asp-action="EliminarEleccion" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="ListaEleccion" class="btn btn-secondary">Cancelar</a>
+</form>
+

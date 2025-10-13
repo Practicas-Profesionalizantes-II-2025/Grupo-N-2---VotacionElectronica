@@ -24,6 +24,7 @@ namespace Datos.Repositorios
             return await _context.Persona.ToListAsync();
         }
 
+
         public async Task<Persona> ObtenerPorId(int id)
         {
             return await _context.Persona.FindAsync(id);
@@ -34,6 +35,11 @@ namespace Datos.Repositorios
             return await _context.Persona
                 .Where(p => p.NombrePersona.Contains(nombre))
                 .ToListAsync();
+        }
+        public async Task<Persona> ObtenerPorRol(string rol)
+        {
+            return await _context.Persona
+                .FirstOrDefaultAsync(p => p.Rol == rol);
         }
 
         public async Task<Persona> ObtenerPorDNI(string dni)
@@ -64,11 +70,7 @@ namespace Datos.Repositorios
             }
         }
 
-        public async Task<Persona> AutenticarPorContrasenia(string contrasenia)
-        {
-            return await _context.Persona
-                .FirstOrDefaultAsync(p => p.ContraseniaPersona == contrasenia);
-        }
+       
 
         public async Task<List<Eleccion>> ObtenerEleccionesAutorizadas(string dni)
         {
@@ -77,6 +79,30 @@ namespace Datos.Repositorios
                 .Select(pe => pe.Eleccion)
                 .ToListAsync();
         }
+
+        public async Task<List<Eleccion>> ObtenerEleccionesAsignadas(string dni)
+        {
+            return await _context.PersonaElecciones
+                .Where(pe => pe.Persona.NroIdentificacionPersona == dni)
+                .Select(pe => pe.Eleccion)
+                .ToListAsync();
+        }
+
+        public async Task<List<Persona>> ObtenerPersonasNoAsignadas(int eleccionId, int? solicitanteId)
+        {
+            var query = _context.Persona
+                .Where(p => p.Rol == "Votante" &&
+                            !_context.PersonaElecciones
+                                .Any(ep => ep.PersonaId == p.Id && ep.EleccionId == eleccionId));
+
+            if (solicitanteId.HasValue)
+                query = query.Where(p => p.CreadorId == solicitanteId.Value);
+
+            return await query.ToListAsync();
+        }
+
+
+
 
     }
 }

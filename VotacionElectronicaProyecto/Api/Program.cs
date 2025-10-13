@@ -4,6 +4,7 @@ using Datos.Repositorios.IRepositorios;
 using Microsoft.EntityFrameworkCore;
 using Negocio.Logica;
 using Negocio.Logica.ILogica;
+using Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Database Context
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DBContext"))
-);
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DBContext"),
+    b => b.MigrationsAssembly("Api")
+));
 builder.Services.AddScoped<IPersonaLogic, PersonaLogic>();
 builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
 
@@ -33,6 +35,8 @@ builder.Services.AddScoped<IVotoLogic, VotoLogic>();
 builder.Services.AddScoped<IVotoRepository, VotoRepository>();
 
 builder.Services.AddScoped<IPersonaEleccionRepository, PersonaEleccionRepository>();
+builder.Services.AddScoped<SeguridadServicio>();
+
 
 
 

@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCProyecto.Models;
+using MVCProyecto.ViewModels;
 
 namespace MVCProyecto.Controllers
 {
@@ -15,8 +16,77 @@ namespace MVCProyecto.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // Obtenemos el rol del usuario desde la sesión
+            var rol = HttpContext.Session.GetString("Rol");
+            var items = new List<MenuItemViewModel>();
+
+            if (rol == "Administrador" || rol == "SuperAdmin")
+            {
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Elecciones",
+                    Descripcion = "Gestionar elecciones existentes",
+                    Controller = "Eleccion",
+                    Action = "ListaEleccion",
+                    Icono = "bi bi-ballot"
+                });
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Listas",
+                    Descripcion = "Asignar y administrar listas",
+                    Controller = "Lista",
+                    Action = "ListaLista",
+                    Icono = "bi bi-people"
+                });
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Candidatos",
+                    Descripcion = "Asignar y administrar candidatos",
+                    Controller = "Candidatos",
+                    Action = "ListaCandidatos",
+                    Icono = "bi bi-people"
+                });
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Personas",
+                    Descripcion = "Ver y crear personas",
+                    Controller = "Persona",
+                    Action = "ListaPersonas",
+                    Icono = "bi bi-person-badge"
+                });
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Resultados",
+                    Descripcion = "Visualizar resultados de elecciones",
+                    Controller = "Resultado",
+                    Action = "Index",
+                    Icono = "bi bi-bar-chart"
+                });
+            }
+            else if (rol == "Votante")
+            {
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Resultados",
+                    Descripcion = "Visualizar resultados de elecciones",
+                    Controller = "Resultado",
+                    Action = "Index",
+                    Icono = "bi bi-bar-chart"
+                });
+                items.Add(new MenuItemViewModel
+                {
+                    Titulo = "Emitir voto",
+                    Descripcion = "Participa en la elección",
+                    Controller = "Votos",
+                    Action = "Emitir",
+                    Icono = "bi bi-check2-square"
+                });
+            }
+
+            var menu = new MenuViewModel { Items = items };
+            return View(menu);
         }
+
 
         public IActionResult Privacy()
         {
@@ -30,3 +100,6 @@ namespace MVCProyecto.Controllers
         }
     }
 }
+
+
+

@@ -13,16 +13,27 @@ namespace Negocio.Logica
     public class CandidatoLogic : ICandidatoLogic
     {
         private readonly ICandidatoRepository _repositorio;
+        private readonly IPersonaRepository _personaRepo;
 
-        public CandidatoLogic(ICandidatoRepository repositorio)
+
+        public CandidatoLogic(ICandidatoRepository repositorio, IPersonaRepository personaRepository)
         {
             _repositorio = repositorio;
+            _personaRepo = personaRepository;
         }
 
-        public async Task<List<VerDTO>> ObtenerCandidatos()
+        public async Task<List<VerDTO>> ObtenerCandidatos(int solicitanteId)
         {
-            var lista = await _repositorio.ObtenerTodos();
-            return lista.Select(c => new VerDTO
+            var solicitante = await _personaRepo.ObtenerPorId(solicitanteId);
+            if (solicitante == null)
+                throw new InvalidOperationException("Usuario no encontrado");
+
+            var candidatos = await _repositorio.ObtenerTodos();
+
+            if (solicitante.Rol != "SuperAdmin")
+                candidatos = candidatos.Where(e => e.CreadorId == solicitante.Id).ToList();
+
+            return candidatos.Select(c => new VerDTO
             {
                 Id = c.Id,
                 NombreCandidato = c.NombreCandidato,
@@ -58,8 +69,15 @@ namespace Negocio.Logica
             }).ToList();
         }
 
-        public async Task CrearCandidato(CrearDTO dto)
+        public async Task CrearCandidato(CrearDTO dto, int solicitanteId)
         {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto), "Los datos del candidato son obligatorios.");
+
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreCandidato, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.PuestoCandidato, "Puesto");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombreCandidato, "Nombre");
+
             var existentes = await _repositorio.BuscarPorNombre(dto.NombreCandidato);
             if (existentes.Any(c => c.IdLista == dto.IdLista && c.PuestoCandidato == dto.PuestoCandidato))
                 throw new InvalidOperationException("Ya existe un candidato con ese nombre y puesto en la misma lista.");
@@ -68,6 +86,7 @@ namespace Negocio.Logica
             {
                 NombreCandidato = dto.NombreCandidato,
                 PuestoCandidato = dto.PuestoCandidato,
+                CreadorId = solicitanteId,
                 IdLista = dto.IdLista
             };
 
@@ -77,6 +96,10 @@ namespace Negocio.Logica
         public async Task ActualizarCandidato(int id, ModificarDTO dto)
         {
             var candidatoExistente = await _repositorio.ObtenerPorId(id);
+            ValidacionesNombres.ValidarCampoObligatorio(dto.NombreCandidato, "Nombre");
+            ValidacionesNombres.ValidarCampoObligatorio(dto.PuestoCandidato, "Puesto");
+            ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombreCandidato, "Nombre");
+
             if (candidatoExistente == null)
                 throw new KeyNotFoundException("El candidato que intentas actualizar no existe.");
 
@@ -93,7 +116,6 @@ namespace Negocio.Logica
 
             await _repositorio.Actualizar(candidato);
         }
-
         public async Task EliminarCandidato(int id)
         {
             var candidatoExistente = await _repositorio.ObtenerPorId(id);
@@ -102,7 +124,17 @@ namespace Negocio.Logica
 
             await _repositorio.Eliminar(id);
         }
-    }
 
+        public async Task<List<Candidatos>> ObtenerPorLista(int listaId)
+        {
+            {
+                if (listaId <= 0)
+                    throw new ArgumentException("Id de lista inválido");
+
+                return await _repositorio.ObtenerPorLista(listaId);
+            }
+
+        }
+    }
 }
 

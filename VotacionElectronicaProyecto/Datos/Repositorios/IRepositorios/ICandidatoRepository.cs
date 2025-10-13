@@ -15,6 +15,8 @@ namespace Datos.Repositorios.IRepositorios
         Task<Candidatos> Crear(Candidatos candidato);
         Task Actualizar(Candidatos candidato);
         Task Eliminar(int id);
+        Task<List<Candidatos>> ObtenerPorLista(int listaId);
+
 
     }
 }

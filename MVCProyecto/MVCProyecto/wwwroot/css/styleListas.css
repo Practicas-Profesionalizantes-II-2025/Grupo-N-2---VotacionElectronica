@@ -1,0 +1,216 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
+}
+
+/* ------------------ CABECERA ------------------ */
+.table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* centrado horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.table_header {
+    box-sizing: border-box; /* hace que padding y border se incluyan en el width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #3AB397;
+    border-top: 20px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    width: 100%;
+}
+
+
+.table_header h1 {
+    margin-left: 40px;
+    font-size: 35px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* ------------------ BUSCADOR Y BOTONES ------------------ */
+.buscar-registrar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 58%;
+}
+
+.registrar {
+    background-color: transparent !important;
+}
+
+.buscar {
+    background-color: transparent !important;
+    width: 64%;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Botones */
+.buscar button:nth-child(2) {
+    background-color: #e9edf5;
+    color: #3AB397;
+    border-radius: 6px;
+}
+
+.btnALista {
+    background-color: #ede93b;
+    border-radius: 6px;
+}
+
+.btnAPersona {
+    background-color: #9fde16;
+    border-radius: 6px;
+}
+
+.btnVer {
+    background-color: #72caf6;
+    border-radius: 6px;
+}
+
+.btnEditar {
+    background-color: #3a4add;
+    border-radius: 6px;
+}
+
+.btnEliminar {
+    background-color: #ff0000;
+    border-radius: 6px;
+}
+
+.btnVotar {
+    background-color: #055819;
+    border-radius: 6px;
+}
+
+.btnBlanco {
+    background-color: #56565b;
+    border-radius: 6px;
+}
+
+.registrarPersona {
+    padding: 10px 5px;
+    color: #ffffff;
+    background-color: #0b25b9;
+    border-radius: 6px;
+}
+
+input {
+    padding: 5px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 6px;
+    color: #0b25b9;
+}
+
+::placeholder {
+    color: #6396e4;
+}
+
+/* ------------------ TABLA Y SCROLL ------------------ */
+.table_section {
+    width: 100%;
+    max-width: 1200px;
+    border-left: 20px solid white;
+    border-right: 20px solid white;
+    border-bottom: 20px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    background: white;
+    overflow-x: auto; /* mantenemos scroll horizontal si hace falta */
+}
+
+.table_section tbody {
+    display: block;
+    height: 350px; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+
+.table_section table {
+    width: 100%;
+    table-layout: fixed; /* mantiene ancho de columnas fijo y cabecera alineada */
+    min-width: 1000px; /* ancho mínimo */
+    border-collapse: collapse;
+}
+
+.table_section thead, .table_section tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f6f9fc;
+    color: #8393a5;
+    font-size: 15px;
+    text-align: center;
+    z-index: 2;
+}
+
+th, td {
+    border-bottom: 1px solid #dddddd;
+    padding: 20px;
+    word-break: break-word;
+    text-align: center;
+    background-color: white;
+}
+
+tr:hover td {
+    color: #3a4add;
+    cursor: pointer;
+    background-color: #b4bec9;
+}
+
+/* ------------------ SCROLLBAR PERSONALIZADA ------------------ */
+.table_section tbody::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table_section tbody::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.table_section tbody::-webkit-scrollbar-thumb {
+    background: #3AB397;
+    border-radius: 6px;
+}
+
+.table_section tbody::-webkit-scrollbar-thumb:hover {
+    background: #2e8c75;
+}
+
+/* ------------------ MODAL ------------------ */
+#personaModal .modal-dialog {
+    max-width: 600px;
+}

@@ -19,10 +19,10 @@ namespace Api.Controllers
             _logic = logic;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> ObtenerTodas()
+        [HttpGet("porUsuario/{solicitanteId}")]
+        public async Task<IActionResult> ObtenerTodas(int solicitanteId)
         {
-            var personas = await _logic.ObtenerTodas();
+            var personas = await _logic.ObtenerTodas(solicitanteId);
             return Ok(personas);
         }
 
@@ -50,17 +50,56 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Crear(CrearDTO dto)
+        public async Task<IActionResult> Crear(CrearDTO dto, int id)
         {
-            await _logic.Crear(dto);
-            return Ok("Persona creada correctamente");
+            try
+            {
+                await _logic.Crear(dto, id);
+                return Ok("Persona creada correctamente");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Actualizar(int id, ModificarDTO dto)
         {
-            await _logic.Actualizar(id, dto);
-            return Ok("Persona actualizada correctamente");
+            try
+            {
+                await _logic.Actualizar(id, dto);
+                return Ok("Persona actualizada correctamente");
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
@@ -70,13 +109,32 @@ namespace Api.Controllers
             return NoContent();
         }
 
-        [HttpGet("autenticar/{contrasenia}")]
-        public async Task<IActionResult> Autenticar(string contrasenia)
+        [HttpPost("autenticar")]
+        public async Task<IActionResult> Autenticar([FromBody] LoginDto dto)
         {
-            var persona = await _logic.AutenticarPorContrasenia(contrasenia);
-            if (persona == null) return Unauthorized();
-            return Ok(persona);
+            try
+            {
+                var persona = await _logic.Autenticar(dto.Dni, dto.Password);
+                return Ok(persona);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error inesperado: " + ex.Message);
+            }
         }
+
 
         [HttpGet("eleccionesAutorizadas/{dni}")]
         public async Task<IActionResult> ObtenerEleccionesAutorizadas(string dni)
@@ -85,6 +143,19 @@ namespace Api.Controllers
             return Ok(elecciones);
         }
 
+        [HttpGet("eleccionesAsignadas/{dni}")]
+        public async Task<IActionResult> ObtenerAsignadas(string dni)
+        {
+            var personas = await _logic.ObtenerEleccionesAsignadas(dni);
+            return Ok(personas);
+        }
+
+        [HttpGet("noAsignadas/{eleccionId:int}/{solicitanteId:int}")]
+        public async Task<IActionResult> ObtenerPersonasNoAsignadas(int eleccionId, int solicitanteId)
+        {
+            var personas = await _logic.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
+            return Ok(personas);
+        }
 
 
     }

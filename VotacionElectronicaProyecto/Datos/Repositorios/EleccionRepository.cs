@@ -88,45 +88,80 @@ namespace Datos.Repositorios
 
             _context.EleccionListas.Add(eleccionLista);
             await _context.SaveChangesAsync();
+
+            // Actualizar CantidadListas desde la DB
+            var eleccion = await _context.Eleccion.FindAsync(dto.EleccionId);
+            eleccion.CantidadListas = await _context.EleccionListas.CountAsync(el => el.IdEleccion == dto.EleccionId);
+            await _context.SaveChangesAsync();
         }
+
+
 
         public async Task<List<Lista>> ObtenerListasPorEleccion(int eleccionId)
         {
             var eleccion = await _context.Eleccion
                 .Include(e => e.Listas)
                 .FirstOrDefaultAsync(e => e.Id == eleccionId);
+            eleccion.CantidadListas = eleccion.Listas.Count;
 
             return eleccion?.Listas?.ToList() ?? new List<Lista>();
         }
 
         public async Task RemoverListaDeEleccion(int eleccionId, int listaId)
         {
-            var eleccion = await _context.Eleccion
-                .Include(e => e.Listas)
-                .FirstOrDefaultAsync(e => e.Id == eleccionId);
+            var eleccionLista = await _context.EleccionListas
+                .FirstOrDefaultAsync(el => el.IdEleccion == eleccionId && el.IdLista == listaId);
 
-            if (eleccion != null)
+            if (eleccionLista != null)
             {
-                var lista = eleccion.Listas.FirstOrDefault(l => l.Id == listaId);
-                if (lista != null)
-                {
-                    eleccion.Listas.Remove(lista);
-                    await _context.SaveChangesAsync();
-                }
+                _context.EleccionListas.Remove(eleccionLista);
+                await _context.SaveChangesAsync();
+
+                var eleccion = await _context.Eleccion.FindAsync(eleccionId);
+                eleccion.CantidadListas = await _context.EleccionListas.CountAsync(el => el.IdEleccion == eleccionId);
+                await _context.SaveChangesAsync();
             }
         }
 
         public async Task AsignarPersona(AsignarPersonaEleccionDTO dto)
         {
+            // Validar que existan
+            var personaExiste = await _context.Persona.AnyAsync(p => p.Id == dto.PersonaId);
+            var eleccionExiste = await _context.Eleccion.AnyAsync(e => e.Id == dto.EleccionId);
+
+            if (!personaExiste || !eleccionExiste)
+                throw new Exception("La persona o la elección no existen.");
+
+            // Evitar duplicados
+            var existe = await _context.PersonaElecciones
+                .AnyAsync(pe => pe.PersonaId == dto.PersonaId && pe.EleccionId == dto.EleccionId);
+
+            if (existe)
+                throw new Exception("La persona ya está asignada a esta elección.");
+
+            // Crear nueva relación
             var personaEleccion = new PersonaEleccion
             {
                 PersonaId = dto.PersonaId,
                 EleccionId = dto.EleccionId,
-                Autorizada = true
+                Autorizada = dto.Autorizada // respeta lo que venga del DTO
             };
 
             _context.PersonaElecciones.Add(personaEleccion);
             await _context.SaveChangesAsync();
+        }
+        public async Task<List<Shared.Dtos.Persona.VerDTO>> ObtenerPersonasPorEleccion(int eleccionId)
+        {
+            return await _context.PersonaElecciones
+                                 .Where(pe => pe.EleccionId == eleccionId)
+                                 .Select(pe => new Shared.Dtos.Persona.VerDTO
+                                 {
+                                     Id = pe.Persona.Id,
+                                     NombrePersona = pe.Persona.NombrePersona,
+                                     ApellidoPersona = pe.Persona.ApellidoPersona,
+                                     Dni = pe.Persona.NroIdentificacionPersona,
+                                 })
+                                 .ToListAsync();
         }
 
     }

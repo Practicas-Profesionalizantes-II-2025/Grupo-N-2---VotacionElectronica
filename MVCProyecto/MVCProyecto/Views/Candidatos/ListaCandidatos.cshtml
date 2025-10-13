@@ -1,0 +1,87 @@
+﻿@model IEnumerable<MVCProyecto.Models.Candidatos.VerDTO>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styleListas.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/scriptLista.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Candidato</title>
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <h1>Listado de candidatos</h1>
+            <div class="buscar-registrar">
+                <div class="buscar">
+                    <input id="busqueda" placeholder="Buscar candidato">
+                    <button id="btnBuscar" type="button" class="button btn-sm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="registrar">
+                    <button type="button" class="registrarPersona"
+                            data-bs-toggle="modal" data-bs-target="#ModalLista"
+                            data-url="@Url.Action("CrearCandidato")">
+                        Crear candidato
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Lista asignada</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td>@p.NombreCandidato</td>
+                            <td>@p.PuestoCandidato</td>
+                            <td>@p.IdLista</td>
+                            <td>
+                                <button type="button" class="btnEditar btn-sm"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
+                                        data-url="@Url.Action("EditarCandidato", new { id = p.Id })">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button type="button" class="btnEliminar btn-sm"
+                                        data-bs-toggle="modal" data-bs-target="#ModalLista"
+                                        data-url="@Url.Action("EliminarCandidato", new { id = p.Id })">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalLista" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="ModalListaContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1055">
+        <div id="toastContainer"></div>
+    </div>
+
+</body>
+</html>

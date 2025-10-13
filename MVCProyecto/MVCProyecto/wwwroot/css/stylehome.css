@@ -1,0 +1,100 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libertinus Sans", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba(3, 49, 63, 0.8), rgba(0,0,0,0.8)), url("/images/fondo.jpg");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header-panel {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.titulo-principal {
+    font-size: 2rem;
+}
+
+
+.contenedor {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4); 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 215px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.icono-tarjeta {
+    font-size: 2.5rem;
+    color: #3AB397;
+}
+
+.titulo-tarjeta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.texto-tarjeta {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.boton-principal {
+    text-decoration: none;
+    background-color: #3AB397;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-principal:hover {
+    background-color: #2a8675;
+    color: #fff;
+}

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MVCProyecto.Models.Lista.VerDTO>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styleListas.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/scriptLista.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Listas disponibles</title>
+</head>
+<body>
+    @{
+        var eleccionId = ViewBag.EleccionId;
+        var listaBlanco = Model.FirstOrDefault(l => l.NombreLista == "Voto en Blanco");
+    }
+
+    <div class="table">
+        <div class="table_header">
+            <h1>Listas de la elección</h1>
+        </div>
+
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Candidatos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var lista in Model.Where(l => l.NombreLista != "Voto en Blanco"))
+                    {
+                        <tr>
+                            <td>@lista.NombreLista</td>
+                            <td>@lista.DescripcionLista</td>
+                            <td>
+                                <!-- Ver candidatos -->
+                                <button type="button" class="btnVer btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#candidatosModal"
+                                        data-id="@lista.Id">
+                                    <i class="fa-solid fa-users"></i> Ver Candidatos
+                                </button>
+                            </td>
+                            <td class="d-flex align-items-center gap-2">
+                                <!-- Votar -->
+                                <form asp-controller="Votos" asp-action="Registrar" method="post" class="d-inline">
+                                    <input type="hidden" name="eleccionId" value="@eleccionId" />
+                                    <input type="hidden" name="listaId" value="@lista.Id" />
+                                    <button type="submit" class="btnVotar btn-sm">
+                                        <i class="fa-solid fa-check"></i> Votar
+                                    </button>
+                                </form>
+
+                                @if (listaBlanco != null)
+                                {
+                                    <div class="voto-blanco">
+                                        <form asp-controller="Votos" asp-action="Registrar" method="post">
+                                            <input type="hidden" name="eleccionId" value="@eleccionId" />
+                                            <input type="hidden" name="listaId" value="@listaBlanco.Id" />
+                                            <button type="submit" class="btnBlanco btn-sm">
+                                                <i class="fa-solid fa-file"></i> Votar en blanco
+                                            </button>
+                                        </form>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+
+    <!-- Modal candidatos -->
+    <div class="modal fade" id="candidatosModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Candidatos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="candidatosContent">
+                    Cargando...
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

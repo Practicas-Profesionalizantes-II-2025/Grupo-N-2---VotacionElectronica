@@ -9,11 +9,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/styleLogin.css" />
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="~/css/style.css" />
-    <script src="~/js/script.js"></script>
+    <script src="~/js/scriptLogin.js"></script>
 </head>
 <body>
     <div class="container">
@@ -26,23 +25,26 @@
 
                 <h2>Iniciar Sesión</h2>
                 <span>Use su documento de identidad y contraseña</span>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div style="color:firebrick; text-align:center; margin-top:10px; font-size: 12px; margin-bottom:15px;">
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    </div>
+                }
 
                 <div class="container-input">
                     <ion-icon name="person-outline"></ion-icon>
                     @Html.TextBoxFor(m => m.Dni, new { placeholder = "DNI" })
                 </div>
 
-                <div class="container-input">
+                <div class="container-input password-container">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña" })
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña", id = "passwordInput" })
+                    <ion-icon id="togglePassword" name="eye-outline" style="cursor:pointer; margin-left:8px;"></ion-icon>
                 </div>
 
                 <button type="submit" class="button">Iniciar Sesión</button>
-
-                @if (!string.IsNullOrEmpty(ViewBag.Error as string))
-                {
-                    <p style="color:red; margin-top:10px;">@ViewBag.Error</p>
-                }
+              
             }
         </div>
 
@@ -56,16 +58,8 @@
         <div class="container-welcome">
             <div class="welcome-sign-up welcome">
                 <h3>¡Bienvenido al Sistema de Votación Electrónica!</h3>
-                <button class="button" id="btn-sign-up" type="button">Más Información</button>
-            </div>
-            <div class="welcome-sign-in welcome">
-                <h3>¡Hola!</h3>
-                <p>Somos un grupo de personas comprometidas en brindar una experiencia sencilla, segura y confiable para todos los usuarios.</p>
-                <button class="button" id="btn-sign-in" type="button">Iniciar Sesión</button>
             </div>
         </div>
     </div>
-
-    <script src="~/js/script.js"></script>
 </body>
 </html>

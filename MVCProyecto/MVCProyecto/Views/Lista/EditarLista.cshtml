@@ -1,0 +1,37 @@
+﻿@model MVCProyecto.Models.Lista.ModificarDTO
+@{
+    Layout = null;
+}
+
+<div class="form-container">
+    <h1 class="text-center">Editar Lista</h1>
+
+    <form asp-action="EditarLista" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombreLista">Nombre</label>
+                    <input asp-for="NombreLista" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="DescripcionLista">Descripción</label>
+                    <input asp-for="DescripcionLista" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-actions text-center mt-3">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

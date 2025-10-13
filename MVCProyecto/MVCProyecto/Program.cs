@@ -3,12 +3,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var apiBaseUrl = builder.Configuration["ApiSettings:BaseUrl"];
+
 builder.Services.AddHttpClient("ApiClient", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7236/api/");
+    client.BaseAddress = new Uri(apiBaseUrl);
 });
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 var app = builder.Build();
+app.UseSession();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

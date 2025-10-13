@@ -18,6 +18,8 @@ namespace MVCProyecto.Models.Persona
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string ContraseniaPersona { get; set; }
+        public bool PrimerLogin { get; set; } // se marca en false al cambiar contraseña
+        public int? SolicitanteId { get; set; }
 
 
     }

@@ -1,0 +1,48 @@
+﻿@model MVCProyecto.Models.Candidatos.CrearDTO
+@{
+    Layout = null;
+}
+
+<!-- Modal Crear Candidatos -->
+
+<div class="form-container">
+    <h1 class="text-center">Crear nuevo candidato</h1>
+
+    <form asp-action="CrearCandidato" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombreCandidato">Nombre</label>
+                    <input asp-for="NombreCandidato" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PuestoCandidato">Puesto</label>
+                    <input asp-for="PuestoCandidato" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="IdLista">Número de identificación de lista</label>
+                    <input asp-for="IdLista" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-actions text-center mt-3">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -22,6 +22,8 @@ namespace Shared.Dtos.Persona
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string ContraseniaPersona { get; set; }
 
+        public int SolicitanteId { get; set; }
+        public bool PrimerLogin { get; set; } // se marca en false al cambiar contraseña
 
     }
 }

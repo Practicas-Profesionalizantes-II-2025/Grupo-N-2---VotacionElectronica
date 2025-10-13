@@ -1,25 +1,38 @@
 ﻿@model MVCProyecto.Models.Persona.ModificarDTO
+@{
+    Layout = null; 
+}
 
-<h1>Editar Persona</h1>
+<div class="form-container">
+    <h1 class="text-center">Editar Persona</h1>
 
-<form asp-action="EditarPersona" method="post">
-    <div>
-        <label asp-for="NombrePersona"></label>
-        <input asp-for="NombrePersona" />
-        <span asp-validation-for="NombrePersona"></span>
-    </div>
+    <form asp-action="EditarPersona" method="post">
+       <div asp-validation-summary="All" class="text-danger"></div>
 
-    <div>
-        <label asp-for="ApellidoPersona"></label>
-        <input asp-for="ApellidoPersona" />
-        <span asp-validation-for="ApellidoPersona"></span>
-    </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="NombrePersona">Nombre</label>
+                    <input asp-for="NombrePersona" class="form-control" />
+                </div>
+            </div>
 
-    <div>
-        <label asp-for="ContraseniaPersona"></label>
-        <input asp-for="ContraseniaPersona" type="password" />
-        <span asp-validation-for="ContraseniaPersona"></span>
-    </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ApellidoPersona">Apellido</label>
+                    <input asp-for="ApellidoPersona" class="form-control" />
+                </div>
+            </div>
 
-    <button type="submit">Actualizar</button>
-</form>
+            <div class="form-actions text-center mt-3">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

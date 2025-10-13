@@ -1,0 +1,41 @@
+﻿@model MVCProyecto.ViewModels.MenuViewModel
+
+@{
+    Layout = "_Layout"; // Si querés usar el Layout principal, reemplazar por Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="~/css/stylehome.css" />
+    <!-- Ionicons para iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/script.js"></script>
+</head>
+<body>
+    <header class="header-panel">
+        <h1 class="titulo-principal">Menú</h1>
+    </header>
+
+    <main class="contenedor">
+        <div class="panel">
+            @foreach (var item in Model.Items)
+            {
+                <div class="tarjeta">
+                    <ion-icon class="icono-tarjeta" name="@item.Icono"></ion-icon>
+                    <h5 class="titulo-tarjeta">@item.Titulo</h5>
+                    <p class="texto-tarjeta">@item.Descripcion</p>
+                    <a class="boton-principal"
+                       asp-controller="@item.Controller"
+                       asp-action="@item.Action">
+                        Ir
+                    </a>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+</html>

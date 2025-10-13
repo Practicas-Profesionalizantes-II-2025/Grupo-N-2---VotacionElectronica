@@ -10,11 +10,11 @@ namespace Negocio.Logica.ILogica
 {
     public interface IEleccionLogic
     {
-        Task<List<VerDTO>> ObtenerTodas();
+        Task<List<VerDTO>> ObtenerTodas(int id);
         Task<VerDTO> ObtenerPorId(int id);
         Task<List<VerDTO>> ObtenerPorNombre(string nombre);
         Task<List<VerDTO>> FiltrarPorTexto(string textoBusqueda);
-        Task Crear(CrearDTO dto);
+        Task Crear(CrearDTO dto, int creadorId);
         Task Actualizar(int id, ModificarDTO dto);
         Task Eliminar(int id);
 
@@ -23,5 +23,7 @@ namespace Negocio.Logica.ILogica
         Task RemoverListaDeEleccion(int eleccionId, int listaId);
 
         Task AsignarPersona(AsignarPersonaEleccionDTO dto);
+        Task<List<Shared.Dtos.Persona.VerDTO>> ObtenerPersonasPorEleccion(int eleccionId);
+
     }
 }

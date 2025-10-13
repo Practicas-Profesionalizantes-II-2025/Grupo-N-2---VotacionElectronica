@@ -15,5 +15,8 @@ namespace Datos.Repositorios.IRepositorios
         Task<Lista> Crear(Lista lista);
         Task Actualizar(Lista lista);
         Task Eliminar(int id);
+        Task<List<Lista>> ObtenerListasNoAsignadas(int eleccionId, int? solicitanteId);
+
+
     }
 }
