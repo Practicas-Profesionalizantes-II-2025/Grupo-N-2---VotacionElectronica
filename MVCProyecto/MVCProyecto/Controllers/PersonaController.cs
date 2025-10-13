@@ -154,7 +154,7 @@ namespace MVCProyecto.Controllers
 
             try
             {
-                // 🔥 Llamar a la API para autenticar
+                // Llamar a la API para autenticar
                 var response = await _httpClient.PostAsJsonAsync("Persona/autenticar", dto);
 
                 if (!response.IsSuccessStatusCode)
@@ -165,7 +165,7 @@ namespace MVCProyecto.Controllers
 
                 var persona = await response.Content.ReadFromJsonAsync<VerDTO>();
 
-                // 📌 Guardamos usuario en sesión
+                // Guardamos usuario en sesión
                 HttpContext.Session.SetInt32("UsuarioId", persona.Id);
                 HttpContext.Session.SetString("Usuario", persona.NombrePersona);
                 HttpContext.Session.SetString("Rol", persona.Rol);

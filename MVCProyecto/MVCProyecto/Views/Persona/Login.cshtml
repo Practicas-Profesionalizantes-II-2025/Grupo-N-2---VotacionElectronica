@@ -25,24 +25,22 @@
 
                 <h2>Iniciar Sesión</h2>
                 <span>Use su documento de identidad y contraseña</span>
-                //Validaciones 
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div style="color:firebrick; text-align:center; margin-top:10px; font-size: 12px; margin-bottom:15px;">
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    </div>
+                }
+
                 <div class="container-input">
                     <ion-icon name="person-outline"></ion-icon>
                     @Html.TextBoxFor(m => m.Dni, new { placeholder = "DNI" })
-                    @Html.ValidationMessageFor(m => m.Dni, "", new
-                        {
-                            @style = "color:red; font-size:0.8em; display:block; margin-top:15px;"
-                        })
                 </div>
 
                 <div class="container-input password-container">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña", id = "passwordInput" })
                     <ion-icon id="togglePassword" name="eye-outline" style="cursor:pointer; margin-left:8px;"></ion-icon>
-                    @Html.ValidationMessageFor(m => m.Password, "", new
-                        {
-                            @style = "color:red; font-size:0.8em; display:block; margin-top:15px;"
-                        })
                 </div>
 
                 <button type="submit" class="button">Iniciar Sesión</button>
