@@ -158,15 +158,23 @@ namespace MVCProyecto.Controllers
         public async Task<IActionResult> AsignarListaEleccion(AsignarListaDTO dto)
         {
             if (!ModelState.IsValid)
-                return Json(new { success = false, message = "No se seleccionaron listas." });
+            {
+                TempData["Error"] = "No se seleccionaron listas.";
+                return RedirectToAction(nameof(ListaEleccion)); 
+            }
 
             var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarLista", dto);
             if (response.IsSuccessStatusCode)
-                return Json(new { success = true, message = "Lista asignada correctamente." });
+            {
+                TempData["Success"] = "Lista asignada correctamente.";
+                return RedirectToAction(nameof(ListaEleccion)); 
+            }
 
             var error = await response.Content.ReadAsStringAsync();
-            return Json(new { success = false, message = error });
+            TempData["Error"] = error;
+            return RedirectToAction(nameof(ListaEleccion)); 
         }
+
 
         // ---------- POST: quitar lista ----------
         [HttpPost]
@@ -178,23 +186,31 @@ namespace MVCProyecto.Controllers
         }
 
 
-        
+
 
         // POST: Eleccion/AsignarPersona
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AsignarPersonaEleccion(AsignarPersonaEleccionDTO dto)
         {
-            if (!ModelState.IsValid) return Json(new { success = false, message = "No se seleccionaron personas." });
-            ;
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "No se seleccionaron personas.";
+                return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
+            }
 
             var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarPersona", dto);
             if (response.IsSuccessStatusCode)
-                return Json(new { success = true, message = "Personas asignadas correctamente." });
+            {
+                TempData["Success"] = "Personas asignadas correctamente.";
+                return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
+            }
 
             var error = await response.Content.ReadAsStringAsync();
-            return Json(new { success = false, message = error });
+            TempData["Error"] = error;
+            return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
         }
+
 
         [HttpGet]
         public async Task<IActionResult> ObtenerPersonasDisponibles(int eleccionId)
