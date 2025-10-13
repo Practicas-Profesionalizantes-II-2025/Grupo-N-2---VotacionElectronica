@@ -54,7 +54,7 @@
                     @foreach (var e in Model)
                     {
                         <tr>
-                            <td style="width: 10px; text-align: center;">@e.Id</td>
+                            <td style="width: 60px; text-align: center;">@e.Id</td>
                             <td>@e.NombreEleccion</td>
                             <td>@e.DescripcionEleccion</td>
                             <td>
@@ -66,8 +66,8 @@
                                     👁
                                 </button>
                             </td>
-                            <td>@e.FechaInicioEleccion</td>
-                            <td>@e.FechaFinEleccion</td>
+                            <td style="width: 120px; text-align: center;">@e.FechaInicioEleccion</td>
+                            <td style="width: 120px; text-align: center;">@e.FechaFinEleccion</td>
                             <td style="width: 150px">
                                 <button type="button" class="btnVer btn-sm"
                                         data-bs-toggle="modal" data-bs-target="#ModalLista"
