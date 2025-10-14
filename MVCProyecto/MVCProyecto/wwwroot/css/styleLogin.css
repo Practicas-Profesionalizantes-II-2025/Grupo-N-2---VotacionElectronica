@@ -91,19 +91,6 @@ body {
     color: white;
 }
 
-/*Animación forms*/
-.sign-up {
-    transform: translateX(-100%);
-}
-
-.container.toggle .sign-in {
-    transform: translateX(100%);
-}
-
-.container.toggle .sign-up {
-    transform: translateX(0);
-}
-
 /*Welcome*/
 .container-welcome {
     position: absolute;

@@ -157,23 +157,34 @@ namespace MVCProyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AsignarListaEleccion(AsignarListaDTO dto)
         {
-            if (!ModelState.IsValid)
+            if (dto.ListaIds == null || !dto.ListaIds.Any())
             {
-                TempData["Error"] = "No se seleccionaron listas.";
-                return RedirectToAction(nameof(ListaEleccion)); 
+                TempData["Error"] = "Debe seleccionar al menos una lista.";
+                return RedirectToAction(nameof(ListaEleccion));
             }
 
-            var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarLista", dto);
-            if (response.IsSuccessStatusCode)
+            foreach (var listaId in dto.ListaIds)
             {
-                TempData["Success"] = "Lista asignada correctamente.";
-                return RedirectToAction(nameof(ListaEleccion)); 
+                var asignacion = new
+                {
+                    EleccionId = dto.EleccionId,
+                    ListaId = listaId,
+                    Descripcion = "Lista Asignada"
+                };
+
+                var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarLista", asignacion);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    TempData["Error"] = $"Error al asignar lista ID {listaId}: {error}";
+                    return RedirectToAction(nameof(ListaEleccion));
+                }
             }
 
-            var error = await response.Content.ReadAsStringAsync();
-            TempData["Error"] = error;
-            return RedirectToAction(nameof(ListaEleccion)); 
+            TempData["Success"] = "Listas asignadas correctamente ✅";
+            return RedirectToAction(nameof(ListaEleccion));
         }
+
 
 
         // ---------- POST: quitar lista ----------
@@ -193,23 +204,34 @@ namespace MVCProyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AsignarPersonaEleccion(AsignarPersonaEleccionDTO dto)
         {
-            if (!ModelState.IsValid)
+            if (dto.PersonaIds == null || !dto.PersonaIds.Any())
             {
-                TempData["Error"] = "No se seleccionaron personas.";
-                return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
+                TempData["Error"] = "Debe seleccionar al menos una persona.";
+                return RedirectToAction(nameof(ListaEleccion));
             }
 
-            var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarPersona", dto);
-            if (response.IsSuccessStatusCode)
+            foreach (var personaId in dto.PersonaIds)
             {
-                TempData["Success"] = "Personas asignadas correctamente.";
-                return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
+                var asignacion = new
+                {
+                    EleccionId = dto.EleccionId,
+                    PersonaId = personaId,
+                    Autorizada = dto.Autorizada
+                };
+
+                var response = await _httpClient.PostAsJsonAsync("Eleccion/AsignarPersona", asignacion);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    TempData["Error"] = $"Error al asignar persona ID {personaId}: {error}";
+                    return RedirectToAction(nameof(ListaEleccion));
+                }
             }
 
-            var error = await response.Content.ReadAsStringAsync();
-            TempData["Error"] = error;
-            return RedirectToAction(nameof(ListaEleccion)); // o la acción que corresponda
+            TempData["Success"] = "Personas asignadas correctamente ✅";
+            return RedirectToAction(nameof(ListaEleccion));
         }
+
 
 
         [HttpGet]

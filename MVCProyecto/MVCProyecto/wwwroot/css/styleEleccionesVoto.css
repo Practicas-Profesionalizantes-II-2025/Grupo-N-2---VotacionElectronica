@@ -34,12 +34,12 @@ body {
 }
 
 .container-elecciones::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.3); /* color oscuro translúcido */
+    background: rgba(0,0,0,0.3); 
     border-radius: 6px;
 }
 
 .container-elecciones::-webkit-scrollbar-track {
-    background: rgba(58, 179, 151, 0.4); /* tono del container */
+    background: rgba(58, 179, 151, 0.4); 
     border-radius: 6px;
 }
 
@@ -136,9 +136,9 @@ body {
 /* Seccion Buscar */
 .table_header {
     display: flex;
-    justify-content: space-between; /* h1 a la izq, búsqueda a la der */
+    justify-content: space-between; 
     align-items: center;
-    padding: 5px 40px; /* agrega espacio a los bordes */
+    padding: 5px 40px; 
     margin-top: 10px;
     width: 100%;
 }
@@ -155,7 +155,7 @@ body {
     background-color: transparent !important;
     display: flex;
     align-items: center;
-    gap: 10px; /* separa input y botón */
+    gap: 10px; 
 }
 
 

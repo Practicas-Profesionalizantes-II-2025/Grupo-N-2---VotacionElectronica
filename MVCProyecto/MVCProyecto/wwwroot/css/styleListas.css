@@ -15,7 +15,7 @@ body {
 .table {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* centrado horizontal */
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +23,7 @@ body {
 }
 
 .table_header {
-    box-sizing: border-box; /* hace que padding y border se incluyan en el width */
+    box-sizing: border-box; /* padding y border incluidos en el width */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,7 +143,7 @@ input {
     border-bottom: 20px solid white;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     background: white;
-    overflow-x: auto; /* mantenemos scroll horizontal si hace falta */
+    overflow-x: auto; /* scroll horizontal si hace falta */
 }
 
 .table_section tbody {
@@ -157,7 +157,7 @@ input {
 .table_section table {
     width: 100%;
     table-layout: fixed; /* mantiene ancho de columnas fijo y cabecera alineada */
-    min-width: 1000px; /* ancho mínimo */
+    min-width: 1000px; 
     border-collapse: collapse;
 }
 
@@ -213,4 +213,32 @@ tr:hover td {
 /* ------------------ MODAL ------------------ */
 #personaModal .modal-dialog {
     max-width: 600px;
+}
+
+
+/*ASIGNAR LISTAS Y PERSONA*/
+#tablaPersonasDisponibles td:nth-child(1) {
+    width: 50px;
+}
+#tablaPersonasDisponibles td:nth-child(2) {
+    width: 150px;
+}
+#tablaPersonasDisponibles td:nth-child(3) {
+    width: 200px;
+}
+#tablaPersonasDisponibles td:nth-child(4) {
+    width: 200px;
+}
+
+
+#tablaListasDisponibles td:nth-child(1) {
+    width: 50px;
+}
+
+#tablaListasDisponibles td:nth-child(2) {
+    width: 200px;
+}
+
+#tablaListasDisponibles td:nth-child(3) {
+    width: 300px;
 }

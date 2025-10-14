@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MVCProyecto.Models.Eleccion
+{
+    public class AsignarListaDTO
+    {
+        public int EleccionId { get; set; }
+        public List<int> ListaIds { get; set; } = new();
+        public required string Descripcion { get; set; }
+    }
+
+}

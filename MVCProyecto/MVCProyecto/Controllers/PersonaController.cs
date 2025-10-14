@@ -29,7 +29,7 @@ namespace MVCProyecto.Controllers
             if (usuarioId == null)
                 return RedirectToAction("Login");
 
-            // 👇 Llamada al endpoint filtrado
+            // Llamada al endpoint filtrado
             var personas = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Persona/porUsuario/{usuarioId}");
             return View(personas);
         }
