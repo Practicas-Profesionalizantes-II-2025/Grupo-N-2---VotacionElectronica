@@ -9,7 +9,7 @@ namespace MVCProyecto.Models.Eleccion
 {
     public class AsignarPersonaEleccionDTO
     {
-        public int PersonaId { get; set; }
+        public List<int> PersonaIds { get; set; } = new();
         public int EleccionId { get; set; }
         public bool Autorizada { get; set; } = true; // Se puede usar true al crear la relación
 
