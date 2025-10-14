@@ -18,7 +18,7 @@ namespace MVCProyecto.Controllers
             if (usuarioId == null)
                 return RedirectToAction("Login");
 
-            // 👇 Ahora encaja con la ruta de la API
+            // Ahora encaja con la ruta de la API
             var listas = await _httpClient.GetFromJsonAsync<List<VerDTO>>($"Lista/porUsuario/{usuarioId}");
             var filtradas = listas?.Where(l => !l.NombreLista.Equals("Voto en blanco", StringComparison.OrdinalIgnoreCase)).ToList();
 
@@ -60,7 +60,7 @@ namespace MVCProyecto.Controllers
                 return Json(new { success = false, message = "No estás autenticado." });
             }
 
-            // 👇 Ruta corregida según la API
+            // Ruta corregida según la API
             var response = await _httpClient.PostAsJsonAsync($"Lista/{creadorId}", dto);
             if (response.IsSuccessStatusCode)
                 return Json(new { success = true, message = "Lista creada correctamente." });
