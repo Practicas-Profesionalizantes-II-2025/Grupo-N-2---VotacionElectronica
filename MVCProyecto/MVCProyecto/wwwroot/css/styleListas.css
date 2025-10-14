@@ -214,3 +214,31 @@ tr:hover td {
 #personaModal .modal-dialog {
     max-width: 600px;
 }
+
+
+/*ASIGNAR LISTAS Y PERSONA*/
+#tablaPersonasDisponibles td:nth-child(1) {
+    width: 50px;
+}
+#tablaPersonasDisponibles td:nth-child(2) {
+    width: 150px;
+}
+#tablaPersonasDisponibles td:nth-child(3) {
+    width: 200px;
+}
+#tablaPersonasDisponibles td:nth-child(4) {
+    width: 200px;
+}
+
+
+#tablaListasDisponibles td:nth-child(1) {
+    width: 50px;
+}
+
+#tablaListasDisponibles td:nth-child(2) {
+    width: 200px;
+}
+
+#tablaListasDisponibles td:nth-child(3) {
+    width: 300px;
+}
