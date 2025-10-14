@@ -351,30 +351,65 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ---------- ASIGNAR PERSONA ----------
+    // ---------- ASIGNAR PERSONA ----------
     const modalPersona = document.getElementById('modalAsignarPersona');
+    let personasCache = []; // Guardamos la lista original para poder filtrar
+
     if (modalPersona) {
         modalPersona.addEventListener('show.bs.modal', async function (event) {
             const button = event.relatedTarget;
             const eleccionId = button.getAttribute('data-id');
             document.getElementById('EleccionIdPersona').value = eleccionId;
 
+            const tbody = document.getElementById('tablaPersonasDisponibles');
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted">Cargando...</td></tr>`;
+
             try {
                 const response = await fetch(`/Eleccion/ObtenerPersonasDisponibles?eleccionId=${eleccionId}`);
                 if (!response.ok) throw new Error('No se pudieron cargar las personas.');
 
-                const personas = await response.json();
-                const select = document.getElementById('PersonaId');
-                select.innerHTML = '<option value="">-- Seleccione --</option>';
+                personasCache = await response.json();
+                renderPersonas(personasCache);
 
-                personas.forEach(p => {
-                    const opt = document.createElement('option');
-                    opt.value = p.id;
-                    opt.text = `${p.nombrePersona} ${p.apellidoPersona} - ${p.dni}`;
-                    select.appendChild(opt);
-                });
             } catch (err) {
-                alert(err.message);
+                console.error(err);
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Error al cargar</td></tr>`;
             }
+        });
+    }
+
+    // 🔍 Búsqueda
+    const inputBuscar = document.getElementById('buscarPersona');
+    if (inputBuscar) {
+        inputBuscar.addEventListener('input', function () {
+            const filtro = this.value.toLowerCase();
+            const filtradas = personasCache.filter(p =>
+                p.dni.toString().includes(filtro) ||
+                p.nombrePersona.toLowerCase().includes(filtro) ||
+                p.apellidoPersona.toLowerCase().includes(filtro)
+            );
+            renderPersonas(filtradas);
+        });
+    }
+
+    // 🧭 Renderizar filas
+    function renderPersonas(lista) {
+        const tbody = document.getElementById('tablaPersonasDisponibles');
+        if (!lista || lista.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted">No hay personas disponibles</td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = '';
+        lista.forEach(p => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td><input type="checkbox" name="PersonaIds" value="${p.id}" /></td>
+            <td>${p.dni}</td>
+            <td>${p.nombrePersona}</td>
+            <td>${p.apellidoPersona}</td>
+        `;
+            tbody.appendChild(tr);
         });
     }
 });
