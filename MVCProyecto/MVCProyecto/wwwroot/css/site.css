@@ -28,7 +28,7 @@ body {
 }
 
 .user-box {
-    border: 1px solid #007bff; /* borde azul */
+    border: 1px solid #007bff; 
     padding: 5px 10px;
     border-radius: 5px;
     background-color: #f0f8ff;
