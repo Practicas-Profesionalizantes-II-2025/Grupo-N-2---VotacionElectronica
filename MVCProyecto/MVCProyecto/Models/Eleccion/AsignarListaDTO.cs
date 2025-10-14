@@ -9,7 +9,7 @@ namespace MVCProyecto.Models.Eleccion
     public class AsignarListaDTO
     {
         public int EleccionId { get; set; }
-        public int ListaId { get; set; }
+        public List<int> ListaIds { get; set; } = new();
         public required string Descripcion { get; set; }
     }
 
