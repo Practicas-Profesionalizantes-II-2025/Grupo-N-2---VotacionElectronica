@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 🔍 Búsqueda
+    //  Búsqueda
     const inputBuscarLista = document.getElementById('buscarLista');
     if (inputBuscarLista) {
         inputBuscarLista.addEventListener('input', function () {
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 🧭 Renderizar filas
+    //  Renderizar filas
     function renderListas(lista) {
         const tbody = document.getElementById('tablaListasDisponibles');
         if (!lista || lista.length === 0) {
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 🔍 Búsqueda
+    //  Búsqueda
     const inputBuscar = document.getElementById('buscarPersona');
     if (inputBuscar) {
         inputBuscar.addEventListener('input', function () {
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 🧭 Renderizar filas
+    //  Renderizar filas
     function renderPersonas(lista) {
         const tbody = document.getElementById('tablaPersonasDisponibles');
         if (!lista || lista.length === 0) {
