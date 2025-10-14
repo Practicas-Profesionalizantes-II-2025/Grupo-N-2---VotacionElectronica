@@ -15,7 +15,7 @@ body {
 .table {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* centrado horizontal */
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,13 +34,13 @@ body {
     width: 100%;
 }
 
-    .table_header h1 {
-        margin-left: 40px;
-        font-size: 35px;
-        color: white;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+.table_header h1 {
+    margin-left: 40px;
+    font-size: 35px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 /* ------------------ BUSCADOR Y BOTONES ------------------ */
 .buscar-registrar {
@@ -141,30 +141,29 @@ input {
     border-bottom: 20px solid white;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     background: white;
-    overflow-x: auto; /* scroll horizontal si hace falta */
     overflow-y: hidden; /* vertical lo maneja tbody */
 }
 
-    .table_section table {
-        width: 100%;
-        table-layout: fixed; /* mantiene ancho de columnas fijo y cabecera alineada */
-        min-width: 1000px; /* ancho mínimo */
-        border-collapse: collapse;
-    }
+.table_section table {
+    width: 100%;
+    table-layout: fixed; /* mantiene ancho de columnas fijo y cabecera alineada */
+    min-width: 1000px; /* ancho mínimo */
+    border-collapse: collapse;
+}
 
-    /* Scroll vertical solo para tbody */
-    .table_section tbody {
-        display: block;
-        height: 500px; /* altura fija */
-        overflow-y: auto;
-        overflow-x: hidden; /* horizontal lo maneja contenedor */
-    }
+/* Scroll vertical solo para tbody */
+.table_section tbody {
+    display: block;
+    height: 500px; 
+    overflow-y: auto;
+    overflow-x: hidden; /* horizontal lo maneja contenedor */
+}
 
-        .table_section thead, .table_section tbody tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
+.table_section thead, .table_section tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
 thead th {
     position: sticky;
@@ -205,9 +204,9 @@ tr:hover td {
     border-radius: 6px;
 }
 
-    .table_section tbody::-webkit-scrollbar-thumb:hover {
-        background: #2e8c75;
-    }
+.table_section tbody::-webkit-scrollbar-thumb:hover {
+    background: #2e8c75;
+}
 
 /* ------------------ MODAL ------------------ */
 #personaModal .modal-dialog {
@@ -218,9 +217,9 @@ tr:hover td {
 
 .table_header {
     display: flex;
-    justify-content: space-between; /* h1 a la izq, búsqueda a la der */
+    justify-content: space-between; 
     align-items: center;
-    padding: 5px 40px; /* agrega espacio a los bordes */
+    padding: 5px 40px; 
     margin-top: 10px;
     width: 100%;
 }
@@ -237,7 +236,7 @@ tr:hover td {
     background-color: transparent !important;
     display: flex;
     align-items: center;
-    gap: 10px; /* separa input y botón */
+    gap: 10px; 
 }
 
 
