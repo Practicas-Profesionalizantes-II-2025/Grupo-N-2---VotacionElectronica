@@ -186,8 +186,6 @@ namespace MVCProyecto.Controllers
         }
 
 
-
-
         [HttpGet]
         public IActionResult CambiarContrasenia()
         {
@@ -201,7 +199,7 @@ namespace MVCProyecto.Controllers
             if (usuarioId == null)
                 return RedirectToAction("Login");
 
-            // 🔎 Traer los datos actuales de la persona
+            // Traer los datos actuales de la persona
             var persona = await _httpClient.GetFromJsonAsync<VerDTO>($"Persona/{usuarioId}");
             if (persona == null)
             {
@@ -209,7 +207,7 @@ namespace MVCProyecto.Controllers
                 return RedirectToAction("Login");
             }
 
-            // 📝 Crear el DTO con todos los campos necesarios
+            // Crear el DTO con todos los campos necesarios
             var dto = new ModificarDTO
             {
                 NombrePersona = persona.NombrePersona,
@@ -228,10 +226,14 @@ namespace MVCProyecto.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            TempData["Error"] = "Error al cambiar la contraseña";
+            // Leer el mensaje de error que venga del backend
+            var errorMensaje = await response.Content.ReadAsStringAsync();
+            TempData["Error"] = !string.IsNullOrWhiteSpace(errorMensaje)
+                ? errorMensaje
+                : "Error al cambiar la contraseña";
+
             return View();
         }
-
 
     }
 }

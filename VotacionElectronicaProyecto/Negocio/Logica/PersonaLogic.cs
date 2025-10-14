@@ -192,20 +192,21 @@ namespace Negocio.Logica
             var persona = await _repositorio.ObtenerPorId(id);
             if (persona == null)
                 throw new Exception("Persona no encontrada");
-            if (persona.ContraseniaPersona != nuevaContrasenia)
-                throw new Exception("La contraseña no puede ser la misma");
 
+            // Comparamos si la nueva contraseña es igual a la anterior
+            if (_seguridad.VerificarContrasenia(nuevaContrasenia, persona.ContraseniaPersona))
+                throw new Exception("La nueva contraseña no puede ser igual a la anterior.");
+
+            //  Si es diferente, generar nuevo hash y guardar
             persona.ContraseniaPersona = _seguridad.HashContrasenia(nuevaContrasenia);
             persona.PrimerLogin = false;
 
             await _repositorio.Actualizar(persona);
 
         }
+
         public async Task Actualizar(int id, ModificarDTO dto)
         {
-            var persona = await _repositorio.ObtenerPorId(id);
-
-
             if (id <= 0)
                 throw new ArgumentException("El ID de la persona es inválido.", nameof(id));
 
@@ -217,13 +218,22 @@ namespace Negocio.Logica
             ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.NombrePersona, "Nombre");
             ValidacionesNombres.ValidarSoloLetrasYEspacios(dto.ApellidoPersona, "Apellido");
 
-
+            var persona = await _repositorio.ObtenerPorId(id);
             if (persona == null)
                 throw new InvalidOperationException("Persona no encontrada.");
 
             persona.NombrePersona = dto.NombrePersona.Trim();
             persona.ApellidoPersona = dto.ApellidoPersona.Trim();
-            persona.ContraseniaPersona = _seguridad.HashContrasenia(dto.ContraseniaPersona);
+
+            // 🔹 Validación de contraseña distinta
+            if (!string.IsNullOrWhiteSpace(dto.ContraseniaPersona))
+            {
+                if (_seguridad.VerificarContrasenia(dto.ContraseniaPersona, persona.ContraseniaPersona))
+                    throw new ArgumentException("La nueva contraseña no puede ser igual a la anterior");
+
+                persona.ContraseniaPersona = _seguridad.HashContrasenia(dto.ContraseniaPersona);
+            }
+
             persona.PrimerLogin = dto.PrimerLogin;
 
             await _repositorio.Actualizar(persona);
@@ -304,7 +314,6 @@ namespace Negocio.Logica
             // Cualquier otro rol: solo las asignadas
             return await _repositorio.ObtenerEleccionesAsignadas(dni);
         }
-
 
 
 

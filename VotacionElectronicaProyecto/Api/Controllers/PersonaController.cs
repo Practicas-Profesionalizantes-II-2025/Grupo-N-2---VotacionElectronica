@@ -156,7 +156,5 @@ namespace Api.Controllers
             var personas = await _logic.ObtenerPersonasNoAsignadas(eleccionId, solicitanteId);
             return Ok(personas);
         }
-
-
     }
 }
